@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC13044530",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "The study uses a comprehensive multi-platform epigenomic approach including scRNA-seq (SORT-seq), bulk RNA-seq, ATAC-seq, ChIP-seq (TCF7L2), PRO-cap (enhancer RNA mapping), and Hi-C contact analysis, combined with functional siRNA/CRISPRi knockdowns, TOPFlash reporter assays, and in vivo PDX xenograft experiments. The epimer control A858 (inactive) vs. A947 (active PROTAC) experimental design provides appropriate within-compound controls. Statistical methods include Student's t-tests, two-way ANOVA, and Wilcoxon tests with appropriate correction. Limitations: the in vivo experiment is underpowered (n=7-8 mice per group, single-dose design), the Hi-C analysis relies on only one CRPC-WNT patient sample, and some key experiments are from n=2 independent replicates."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "5",
+      "justification": "CRPC-WNT represents approximately 5-11% of castration-resistant prostate cancer cases (~10% of ~400,000 annual deaths), for which no standard treatment exists. The study identifies SMARCA4 and TCF7L2/MAPK signaling as druggable vulnerabilities in this clinically unmet subtype. The PROTAC A947 is an investigational compound (Genentech) and MEK inhibitors trametinib/cobimetinib are clinically available, with MEKi phase II trials ongoing in CRPC (NCT02881242). The scRNA-seq classification of CRPC-WNT in six published clinical cohorts provides direct clinical prevalence data. The preclinical nature limits LOE to 5, but the translational framework is clearly articulated."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "ARRIVE",
+      "data_availability_score": 3,
+      "justification": "Animal experiments comply with ARRIVE guidelines: Swiss cantonal ethics approval (BE35/2024) is stated, housing conditions are described, group sizes are specified (n=7-8), and animals are monitored throughout. Cell lines are regularly mycoplasma-tested and STR-profiled (last tested November 2025). Bioinformatics pipelines are described with software versions and RRID identifiers. Sequencing data deposition is referenced. Minor gaps: formal power calculations are absent, the Hi-C analysis is limited to one patient sample without statistical inference, and supplementary figure cross-references are dense and difficult to independently verify from the main text alone."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The identification of CRPC-WNT as a SWI/SNF-dependent, SMARCA4-addicted prostate cancer subtype expands the previously CRPC-AR-restricted therapeutic rationale for SMARCA2/4 PROTACs. The novel mechanistic finding that TCF7L2 maintains CRPC-WNT proliferation through noncanonical MAPK pathway activity (rather than canonical WNT/β-catenin signaling), with SMARCA4-dependent maintenance of a TCF7L2 intragenic enhancer, represents a meaningful new mechanism. The coupling of PRO-cap enhancer RNA mapping with Hi-C contact analysis to define the TCF7L2 regulatory architecture in a rare CRPC subtype is methodologically novel. The study extends prior CRPC-WNT classification work (Tang et al.) to define a therapeutic dependency and mechanism."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is clearly organized with a logical mechanistic flow from drug screen through epigenomic characterization to in vivo validation and clinical context. The use of multiple orthogonal epigenomic methods is well-integrated in the narrative. The discussion appropriately acknowledges the noncanonical TCF7L2 mechanism as unexpected, contextualizes it against prior literature on MEK dependence in DNPC, and identifies clinical trial implications. Minor issues: the paper occasionally relies heavily on supplementary data references, and the single-mouse Hi-C dataset for enhancer analysis is presented somewhat uncritically given its sole-sample basis."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Identifies CRPC-WNT as a new therapeutic indication for SWI/SNF PROTAC degraders, expanding the clinical rationale beyond CRPC-AR with multi-platform epigenomic validation",
+      "Novel finding that TCF7L2 drives CRPC-WNT proliferation via MAPK pathway chromatin remodeling rather than canonical WNT/β-catenin signaling, confirmed by ChIP-seq, ATAC-seq, PRO-cap, and functional rescue experiments",
+      "In vivo PDX tumor growth delay with single-dose A947 confirms therapeutic relevance in the CRPC-WNT subtype",
+      "Clinical prevalence quantification via reanalysis of six published prostate cancer scRNA-seq cohorts establishes CRPC-WNT as ~11% of CRPC, clarifying the therapeutic opportunity size"
+    ],
+    "key_concerns": [
+      "In vivo experiment uses a single-dose design (not a clinically relevant dosing schedule) with n=7-8 mice and a 21-day observation period, limiting confidence in the therapeutic effect magnitude",
+      "Hi-C enhancer-promoter loop analysis is based on a single CRPC-WNT patient sample (DTB-135-PRO), which limits the generalizability of the TCF7L2 intragenic enhancer conclusion",
+      "Several key mechanistic experiments (Fig. 3A, 3B, 4C) report n=2 independent replicates, which is insufficient for statistical inference",
+      "The PROTAC A947 is a Genentech investigational compound not yet in clinical trials, limiting near-term clinical translation; MEKi combination efficacy requires further in vivo validation"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a mechanistically thorough study characterizing a rare but clinically underserved CRPC subtype with actionable epigenomic findings and in vivo proof-of-concept. Tier 2 reflects the multi-platform approach, novel TCF7L2-MAPK mechanism, and direct translational relevance to an unmet clinical need, with the in vivo limitations and single-sample Hi-C analysis precluding tier 1 consideration."
+  }
+}

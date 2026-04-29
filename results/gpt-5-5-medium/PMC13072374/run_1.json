@@ -1,0 +1,51 @@
+{
+  "paper_id": "PMC13072374",
+  "model": "gpt-5.5",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T01:40:42Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 4,
+      "justification": "The retrospective paired planning design is appropriate for comparing Gamma Knife, single-isocenter LINAC, and dual-isocenter LINAC plans because each of the 28 patients received all three plan types under common zero-margin and target-coverage assumptions. The analysis separates lesion-level conformity from patient-level low-dose brain exposure and uses paired Wilcoxon tests, Friedman tests, mixed-effects modeling with patient as a random effect, and multivariable regression. Important limitations include the small single-institution sample, retrospective replanning rather than clinical outcomes, manual lesion grouping for DIT despite the abstract describing automatic clustering, and limited assessment of planning-time or delivery uncertainties. The statistical approach is generally sound and reports coefficients, p-values, and confidence intervals, although no power calculation or multiplicity adjustment is described."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "4",
+      "justification": "This is a retrospective dosimetric planning study rather than a clinical outcomes cohort, so the closest Oxford classification is level 4. The clinical question is directly relevant to patients with multiple brain metastases because target conformity and normal-brain V12 to V3 exposure are established planning considerations in stereotactic radiosurgery. However, the endpoints are dosimetric surrogates rather than local control, radionecrosis, neurocognition, or survival, which limits practice-changing clinical inference."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "STROBE",
+      "data_availability_score": 1,
+      "justification": "STROBE is the closest applicable standard because the work retrospectively uses patient imaging/planning data for comparative analysis. The manuscript reports patient count, lesion count, planning systems, dose prescription, plan-quality metrics, and statistical methods, but it lacks a patient-flow diagram, detailed inclusion/exclusion criteria beyond the treated population, and protocol registration. No underlying planning dataset, code, or repository is described in the normalized manuscript."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "The novelty lies in comparing automated dual-isocenter LINAC planning against both single-isocenter LINAC and Gamma Knife under equivalent zero-margin assumptions. The topic builds on a substantial prior literature on GK versus LINAC SRS, automated MBM planning, and multi-isocenter strategies, several of which are explicitly cited. The contribution is a useful technical extension rather than a field-defining advance because it is retrospective, small, and dosimetric."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The manuscript is generally readable and organized in conventional introduction, methods, results, discussion, and conclusion sections. The abstract provides key numerical PCI and low-dose exposure findings, and the results distinguish lesion-level and patient-level analyses. There are clarity problems, including a discrepancy between the abstract's automatic DIT clustering and the methods' manual planner-driven clustering, repeated phrasing about SPSS, and some overconfident language such as describing DIT as non-inferior without a formal non-inferiority design."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Uses a paired within-patient planning comparison across GK, SIT, and DIT for 197 lesions.",
+      "Applies appropriate lesion-level and patient-level statistical models, including mixed-effects and multivariable analyses.",
+      "Focuses on clinically meaningful radiosurgery planning metrics such as PCI and normal-brain V12 to V3."
+    ],
+    "key_concerns": [
+      "The sample is small and retrospective, with no clinical toxicity or disease-control outcomes.",
+      "The manuscript contains a material inconsistency about whether DIT clustering was automatic or manual.",
+      "Claims of clinical robustness and non-inferiority exceed the dosimetric surrogate design.",
+      "No data, plans, or analysis code are made available in the normalized text."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a competent technical dosimetric comparison suitable for a tier 3 oncology or radiation oncology journal after resolving reporting inconsistencies and tempering clinical claims."
+  }
+}

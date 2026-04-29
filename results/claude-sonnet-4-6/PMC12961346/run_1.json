@@ -1,0 +1,50 @@
+{
+  "paper_id": "PMC12961346",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:04:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 1,
+      "statistical_score": 1,
+      "justification": "This is a proof-of-concept clinical device study with n=10 patients and n=10 healthy controls, reporting perfect sensitivity (1.0) and specificity (1.0) for OSCC detection by temperature differential. Fundamental methodological flaws are pervasive: (1) the ROC cutoff is derived from the same 20 individuals on whom performance is evaluated, producing circular and inflated accuracy metrics; (2) the sample of 10 OSCC cases (8 tongue, 2 lip) is grossly underpowered for any diagnostic accuracy study — STARD/QUADAS-2 guidelines require at minimum 30–50 cases per class; (3) perfect sensitivity/specificity (1.0/1.0) from n=20 is statistically meaningless and the 95% CIs are not reported; (4) no independent validation; (5) the device accuracy (0.3°C) is of the same order of magnitude as the reported diagnostic cutoff difference (0.97°C), raising serious calibration concerns; (6) no blinding of IR measurement to clinical status; (7) sample size calculation is post hoc based on a pilot of the same 10 cases, not an independent pilot."
+    },
+    "clinical_relevance_loe": {
+      "score": 2,
+      "loe_oxford": "4",
+      "justification": "This is a very small preliminary diagnostic study (Oxford LoE 4, case-control pilot). The concept of using infrared thermometry for non-invasive OSCC detection is clinically relevant given the late-stage diagnosis problem. The custom-designed intraoral IR probe addresses a real technical gap — commercial thermographic cameras cannot access the oral cavity. If validated in adequately powered studies, the device concept has potential for low-resource screening settings. However, the clinical relevance is severely limited by the minimal sample, absence of premalignant lesion comparisons, and inability to distinguish OSCC from other inflammatory/hyperplastic oral lesions."
+    },
+    "reporting_quality": {
+      "score": 2,
+      "standard_used": "STARD",
+      "data_availability_score": 1,
+      "justification": "STARD guidelines for diagnostic accuracy studies are the appropriate standard. The manuscript describes patient flow (28 enrolled, 8 excluded, 10 final cases), device specifications, measurement protocol, and ROC analysis. However, STARD requires explicit reporting of 95% confidence intervals for sensitivity and specificity — these are entirely absent. The 2×2 contingency table underlying the ROC analysis is not presented. Individual patient-level temperature data are not provided. The device accuracy limitation (0.3°C sensor accuracy) is not discussed in relation to the diagnostic cutoff (0.97°C). Enrolled patients' cancer stage and lesion size are not reported, limiting assessment of spectrum bias. No registration of diagnostic study protocol in appropriate registries (ISRCTN, ClinicalTrials.gov) is mentioned despite clinical trial registration being noted."
+    },
+    "novelty_literature": {
+      "score": 2,
+      "justification": "The use of digital infrared thermal imaging (DITI) for oral cancer detection has been previously reported by Chakraborty et al. (2016, 2017) using facial heat asymmetry; and White et al. (1987) described intraoral thermography of oral lesions. The present study's contribution is a miniaturised custom intraoral device (MLX90614 sensor) enabling site-specific temperature measurement rather than facial thermal asymmetry. This technical innovation addresses a genuine gap in accessibility. However, the basic concept of tumour thermography for OSCC is not new, and the study lacks the methodological quality to constitute a meaningful clinical evidence advance."
+    },
+    "writing_presentation": {
+      "score": 2,
+      "justification": "The manuscript is clearly written and the device development rationale is well-explained. The limitations section acknowledges small sample size and calls for larger studies. However, the conclusions substantially overstate the findings — reporting sensitivity=1 and specificity=1 without confidence intervals and from a sample of 20 implies a degree of diagnostic certainty that is statistically unjustifiable. The 95% CIs for a 2×2 with n=10 per group could plausibly span 0.69–1.00, which is not acknowledged. The discussion lacks a comparison with established adjunct diagnostic modalities (toluidine blue, VELscope) in terms of sensitivity/specificity from adequately powered studies."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 2,
+    "highest_tier_acceptance": 4,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Novel custom-designed miniaturised intraoral IR probe (MLX90614 sensor) that enables site-specific temperature measurement within the oral cavity — addresses a genuine technical gap over existing external thermal cameras",
+      "Clinically motivated study with appropriate standardisation protocol (30-minute fasting, 20-minute acclimatisation, triplicate measurements, controlled room temperature)"
+    ],
+    "key_concerns": [
+      "Critical statistical invalidity: perfect sensitivity/specificity (1.0/1.0) derived from n=10 cases with in-sample ROC cutoff selection is statistically meaningless — no confidence intervals are reported and the apparent performance is entirely circular",
+      "Device measurement accuracy (0.3°C) is a substantial fraction of the diagnostic cutoff (0.97°C differential), raising fundamental calibration concerns that are not addressed",
+      "No comparison with other inflammatory or benign oral lesions — the device cannot distinguish OSCC from oral ulceration, lichen planus, or hemangioma, which are common diagnostic challenges",
+      "Sample size calculation is post hoc using the same pilot cases, not a prospective power calculation from independent preliminary data"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A technically creative device proof-of-concept study with a clinically relevant motivation, but the diagnostic accuracy claims (sensitivity=1, specificity=1) are statistically invalid from n=20 with in-sample ROC analysis. The manuscript requires fundamental methodological redesign including adequate sample size, prospective cutoff pre-registration, and inclusion of non-OSCC oral lesion controls before it can be considered for Tier 4 publication. As reported, the findings cannot support any clinical conclusion about diagnostic accuracy."
+  }
+}

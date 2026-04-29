@@ -1,0 +1,50 @@
+{
+  "paper_id": "PMC12939105",
+  "model": "gpt-5.4-mini",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T00:30:34Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 3,
+      "justification": "This is a multi-institutional retrospective radiomics study with a hold-out primary test set and an independent neoadjuvant validation cohort, which is stronger than a single-center internal-only model paper. The authors also state that feature selection was performed only within the training data and that pseudo-labels came from unlabeled scans outside the labeled splits, which reduces leakage risk. The main limitations are moderate external performance, no nested or repeated cross-validation, and the fact that the pipeline remains complex and not prospectively validated."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "This is a retrospective cohort prediction study, so Oxford level 2b is appropriate. The clinical relevance is direct because the work seeks a noninvasive surrogate for tumor PD-L1 expression, a biomarker used to guide immunotherapy decisions in NSCLC. The manuscript also tests generalizability across advanced and limited-stage disease, which is a meaningful translational question even though the model is not ready for clinical deployment."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "The manuscript includes TRIPOD-like elements such as cohort derivation, preprocessing, feature selection, primary and external validation, calibration, and decision-curve analysis. It does not provide a formal checklist, protocol registration, or a flow diagram, but the modeling workflow is described more transparently than in many radiomics papers. A public TCIA dataset is used for self-training, yet the primary in-house data and code are not openly shared, so reproducibility is partial rather than complete."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The main novelty lies in combining multi-institutional CT radiomics, self-training with a feature tokenizer Transformer, and validation across both advanced and limited-stage NSCLC. That is a stronger contribution than a single-center radiomics classifier and directly addresses prior limitations the manuscript cites. The result is still incremental relative to the broader radiomics biomarker literature, but it is a credible methodological advance."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is clearly organized, and the abstract states the objective, cohorts, validation scheme, and headline AUCs succinctly. The discussion is fairly disciplined about external performance limits and interpretability, and the paper includes calibration and decision-curve framing that help the reader judge utility. Some sections are verbose, but the overall presentation is strong."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Multi-institutional development with an independent validation cohort in a distinct clinical setting.",
+      "Leakage-aware training description with explicit separation of labeled, unlabeled, and validation data.",
+      "Useful calibration and decision-curve analysis alongside standard discrimination metrics."
+    ],
+    "key_concerns": [
+      "External performance is only moderate, especially in the limited-stage cohort.",
+      "The cohort is geographically concentrated and the work lacks prospective validation.",
+      "No public code repository or open primary dataset is described."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a strong translational AI biomarker paper with real methodological effort and usable validation, but it is not yet clinically mature. Tier 2 is the highest plausible acceptance level because the design is solid, while the external performance and validation scope still justify major revisions."
+  }
+}

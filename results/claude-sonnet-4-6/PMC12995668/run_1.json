@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC12995668",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T10:45:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 2,
+      "statistical_score": 2,
+      "justification": "This is a retrospective two-center dosimetric comparison with a very small total cohort (n=34: 21 FBCT, 13 CBCT), further stratified by regimen (18 in 12 Gy, 16 in 3 Gy). The comparison is fundamentally confounded: FBCT and CBCT groups come from different centers using different planning systems (uTPS vs. Varian Eclipse) and different linacs, making it impossible to attribute dosimetric differences to imaging guidance alone versus equipment/planning system differences. Dose recalculation methods also differ between centers (direct FBCT recalculation vs. Velocity deformable registration-based rCT at CBCT center). The Wilcoxon rank sum test is appropriate for non-normal data, but no correction for multiple comparisons is applied across the many dosimetric endpoints tested. The study lacks baseline dosimetric equivalence between centers, contradicting the claim of 'identical field setups.'"
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "4",
+      "justification": "Pediatric TBI dosimetry is a clinically relevant topic—dose uniformity across the full body and organ sparing directly impact outcomes (radiation pneumonitis, renal toxicity, relapse). The comparison of FBCT vs. CBCT guidance addresses a practical clinical question about technology selection. However, the differences in dosimetric outcomes, while statistically significant, are clinically modest (e.g., 0.14 Gy mean lung dose difference in 12 Gy group), and the confounded study design makes it impossible to attribute these differences specifically to the guidance method. The study's assertion that FBCT is 'better' overstates the evidence given the design limitations."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "none",
+      "data_availability_score": 2,
+      "justification": "Baseline characteristics are reported with appropriate statistical testing, dosimetric metrics use standard definitions (ICRU 83 HI, Paddick CI), and results tables are complete. The different dose recalculation methodologies at the two centers are described clearly, which is commendable. However, the paper does not explicitly acknowledge that different planning systems, linacs, and dose calculation algorithms represent a fundamental confound. No formal dosimetric equivalence testing between the planning systems is performed. No data sharing is mentioned. The abstract states 'FBCT guidance gave better target dose conformity' without acknowledging center-equipment confounding."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "The comparison of FBCT-based multi-isocenter integrated guidance versus CBCT sequential guidance for pediatric TBI is genuinely novel—the authors claim this is the first such direct comparison. The mechanistic rationale (multi-isocenter simultaneous correction vs. sequential single-isocenter correction) is well-explained and clinically logical. The inclusion of both myeloablative and low-dose regimens adds breadth. However, the novelty is partially undermined by the confounded study design."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The manuscript is generally clear and accessible, with a straightforward writing style appropriate for a technical radiotherapy audience. The explanation of multi-isocenter alignment challenges and the FBCT vs. CBCT workflow differences is clear. However, several passages use informal language ('helps lower side effects') inconsistent with scientific writing. The fundamental confounding issue of center/equipment differences is not addressed in the discussion, representing a significant analytical blind spot. Limitations section appropriately acknowledges small sample size and lack of respiratory motion data."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 4,
+    "highest_tier_acceptance": 4,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "First direct comparison of FBCT vs. CBCT guidance for pediatric multi-isocenter TBI, addressing a genuine clinical decision-making question",
+      "Clear mechanistic explanation of why integrated multi-isocenter FBCT guidance may theoretically outperform sequential CBCT alignment",
+      "Both myeloablative (12 Gy) and low-dose (3 Gy) regimens evaluated, increasing applicability",
+      "Standardized dosimetric metrics with ICRU/Paddick definitions provide interpretable comparisons"
+    ],
+    "key_concerns": [
+      "Fundamental confound: FBCT and CBCT groups come from different centers with different planning systems, linacs, and dose recalculation algorithms—dosimetric differences cannot be attributed to imaging guidance alone",
+      "Critically small sample sizes (12 vs. 6 in 12 Gy group; 9 vs. 7 in 3 Gy group) severely limit statistical reliability",
+      "Dose recalculation methods differ between centers (direct FBCT recalculation vs. deformable registration-based rCT), introducing additional systematic differences",
+      "No multiple comparisons correction for numerous dosimetric endpoints tested simultaneously"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A technically interesting but fundamentally confounded dosimetric comparison study; the center-level equipment and planning system differences cannot be separated from imaging guidance effects, and the very small sample sizes preclude reliable conclusions about FBCT superiority—major revisions to address confounding are required before acceptance."
+  }
+}

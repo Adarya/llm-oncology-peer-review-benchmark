@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC13025722",
+  "model": "claude-haiku-4-5",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 3,
+      "justification": "Prospective phase 2 trial with historical control using propensity-score adjusted Cox regression; pre-specified statistical modeling approach (one-spline cubic functions with 5 knots). Appropriate Kaplan-Meier curves and censoring at 2- and 3-years. Limitations: non-randomized design with historical control introduces era-dependent confounding (systemic therapy, imaging); incomplete follow-up with differential ascertainment (phase 2: 91.4% vs control: 61.8% of eligible survivors), raising risk of informative censoring."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "2b",
+      "justification": "Individual cohort of MSCC patients selected for radiotherapy alone (not upfront surgery) with favorable prognosis; addresses clinically relevant question regarding optimal dose-fractionation for long-term survivors. However, findings limited to specific subgroup (excludes post-surgery patients, SBRT-treated patients); LPFS improvement without OS benefit limits translational impact for treatment decisions."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "ARRIVE",
+      "data_availability_score": 2,
+      "justification": "Radiotherapy trial follows ARRIVE guideline structure with detailed patient characteristics, treatment methods, and outcome reporting; Limitations section explicitly addresses bias sources (non-randomized design, historical control, unequal follow-up). However, no explicit ARRIVE checklist referenced; no statement of data availability; control group data sourced from retrospective database without clear provenance documentation."
+    },
+    "novelty_literature": {
+      "score": 2,
+      "justification": "Presents extended follow-up (2-3 years) of RAMSES-01 trial published in 2024 (Radesl et al., Cancers 2024); main finding—persistence of LPFS benefit from 15×2.633 or 18×2.333 Gy over 10×3.0 Gy at 2-3 years—is logical extension of prior 1-year results rather than novel discovery. Absence of OS benefit aligns with expectations that LPFS improvements may not translate to survival in palliative setting."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "Well-organized with clear Introduction contextualizing prior dose-escalation studies, detailed Methods including propensity score approach, and Results presented with Kaplan-Meier curves and statistical tables. Discussion thoroughly interprets findings and acknowledges limitations (historical control bias, incomplete follow-up, heterogeneous causes of death). Minor: some redundancy between Results and Discussion; discussion of hypothetical mechanisms could be more concise."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Addresses clinically important question: whether higher-dose radiotherapy for MSCC improves long-term local control beyond 1 year in patients with favorable prognosis",
+      "Pre-specified propensity-score adjusted Cox regression with cubic spline modeling reduces confounding from non-randomized design",
+      "Comprehensive Limitations section explicitly acknowledges differential follow-up ascertainment, historical control confounding, and potential informative censoring",
+      "Safety signal absent: no radiation myelopathy or vertebral fractures in either group, supporting biological safety of higher-dose regimens"
+    ],
+    "key_concerns": [
+      "Historical control introduces era-dependent confounding (systemic therapy, imaging practices, supportive care changes 1998-2022); authors acknowledge but cannot quantify bias magnitude",
+      "Unequal follow-up completeness (phase 2: 91.4% vs control: 61.8% of post-1-year survivors) with acknowledged risk that control group missing in-field recurrences; this could artificially inflate LPFS superiority estimate",
+      "Small phase 2 cohort (n=50, 32 with extended follow-up) and stopped early (50/62 planned); limited statistical power for subgroup or adverse event detection",
+      "Primary finding—LPFS benefit without OS gain—limits clinical actionability; authors note cause of death unknown in control cohort, preventing mechanistic interpretation",
+      "No data availability statement; control group data sourced from unspecified retrospective database without transparency regarding patient selection or endpoint ascertainment"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "Competent follow-up analysis of prospective trial with appropriate statistical adjustment, but historical control with differential follow-up and era-dependent confounding undermines causal inference. LPFS benefit persists at 2-3 years but lacks OS translation, limiting clinical guidance. Suitable for Tier 3 (4-9.9 JIF) venue but requires major revisions addressing missing data mechanisms and quantifying potential bias from differential ascertainment before publication."
+  }
+}

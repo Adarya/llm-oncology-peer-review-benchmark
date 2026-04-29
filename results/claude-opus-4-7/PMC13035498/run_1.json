@@ -1,0 +1,54 @@
+{
+  "paper_id": "PMC13035498",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "Retrospective planning study with a carefully designed 2x2 factorial comparison (VMAT vs RAD delivery crossed with RP-VMAT vs RP-RAD model) generating 4 plans per patient for 48 OPC cases. Training and evaluation cohorts are separated: 111 historical cases for training both RP models, 48 independent cases for evaluation. RATING guidelines (ref 22) were explicitly considered with scoring sheet in Supplementary Materials. All plans optimized by the same planner to avoid user-experience confounding, same AcurosXB calculation algorithm, same prescription and constraints. Friedman's two-way ANOVA with Bonferroni correction is appropriate for paired multi-plan comparisons. Plan complexity metrics, Delta4 QA verification on nine cases, and gamma analysis (2%/2 mm) strengthen deliverability evidence. Authors acknowledge that superiority of RP-RAD may partly reflect better-optimized training plans rather than RAD alone."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "5",
+      "justification": "Planning/dosimetry study with NTCP modeling maps to Oxford LoE 5 (mechanistic/simulation-based evidence, not patient outcomes). The findings are highly clinically relevant to radiation oncology departments considering adopting the new Varian RAD solution: confirming existing VMAT-based RP models can be safely reused initially, identifying meaningful OAR sparing gains (esophagus Dmean reduction 7.1 Gy, larynx 4.0 Gy), and demonstrating a 46% delivery-time reduction. However, impact on actual patient outcomes is inferred via NTCP models and remains to be validated clinically."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "other",
+      "data_availability_score": 2,
+      "justification": "RATING (Radiotherapy Treatment plannINg study Guidelines, ref 22) is the applicable domain-specific reporting framework rather than generic STROBE/CONSORT — classified as 'other' since RATING is not in the schema enum. The authors explicitly state RATING was considered with a scoring sheet in supplementary materials, which is a strong practice for this study type. Methods are detailed: planning aims, prescription doses, RP model training, optimization workflow, NTCP model sources, complexity metrics, QA verification. Ethical approval is documented. However, no data/code availability statement is provided, and treatment plans/DVH data are not deposited."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "This is one of the first published evaluations of the novel RapidArc Dynamic (RAD) solution applied to oropharyngeal cancer with a rigorous comparison against established VMAT and knowledge-based planning. The specific question — whether existing VMAT-based RP models remain applicable to RAD optimization during transition — is timely and previously unaddressed. Related prior work (refs 18-21) exists for breast/esophageal sites but not OPC with RP transition analysis. Meaningful methodological and practical contribution."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well written with precise methodological detail, clear figures/tables referenced appropriately, and a nuanced discussion acknowledging confounders (e.g., that better-optimized training plans partially drive RP-RAD superiority; that NTCP models were not validated on this cohort and constrictor/larynx delineations differ from the Christianen et al. development cohort). Conclusions are appropriately calibrated."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Rigorous 2x2 factorial planning study design with same-planner optimization across 48 OPC cases and independent training/evaluation cohort separation",
+      "Explicit RATING guideline adherence with scoring sheet in supplementary materials",
+      "Both plan-quality metrics (Dmean, NTCP) and deliverability verification (Delta4 QA with 2%/2mm gamma) support conclusions",
+      "Nuanced interpretation: distinguishes safety of existing RP-VMAT for RAD transition vs. incremental gains of retrained RP-RAD model",
+      "Clinically actionable findings including 46% delivery-time reduction and meaningful midline OAR sparing with corresponding NTCP reductions (dysphagia 1.9 pp, mucositis 1.3 pp)"
+    ],
+    "key_concerns": [
+      "Superiority of RP-RAD may partly reflect better-optimized training plans (as RP-VMAT was used to bootstrap RAD training) — authors acknowledge",
+      "NTCP models not validated on the current cohort; larynx/constrictor delineations differ from development cohort (acknowledged)",
+      "Some isodose streaking into mandible/oral cavity observed with RAD optimizer suggests RP model refinement needed",
+      "No independent multi-center validation — single-center Karolinska data only",
+      "No data/code availability statement provided"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A well-designed, rigorously reported planning study addressing a timely question about transitioning to Varian's new RAD solution with knowledge-based planning in OPC; strong methodology and nuanced interpretation support tier 2 acceptance with minor revisions to address training-cohort confounding and data-availability disclosure."
+  }
+}

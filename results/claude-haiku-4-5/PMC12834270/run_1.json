@@ -1,0 +1,54 @@
+{
+  "paper_id": "PMC12834270",
+  "model": "claude-haiku-4-5",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "Well-designed derivation and validation study with 2,493 patients across multiple international centers. Multivariable Cox regression with appropriate variable selection (no collinearity: VIF<5, pairwise correlations |ρ|<0.3). External validation with model performance metrics (calibration plots, Harrell C-index, Royston D statistic). Time-dependent ROC curves used to select LS threshold. Appropriate handling of censoring and competing risks. Federated analysis approach for US data preserves privacy."
+    },
+    "clinical_relevance_loe": {
+      "score": 5,
+      "loe_oxford": "2b",
+      "justification": "Although classified as 2b (cohort study), the study has high clinical relevance. Directly addresses urgent clinical problem: existing staging systems fail to identify highest-risk AL amyloidosis patients in daratumumab era. Stage IIIC identification provides crucial prognostic information (median OS 7 months) that changes patient management and clinical trial design. Highly relevant to hematologic malignancy care and oncologic decision-making."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "STROBE",
+      "data_availability_score": 2,
+      "justification": "Comprehensive reporting with baseline characteristics, full statistical methods, sensitivity analyses, and detailed results tables. Study was prospectively conducted and ethical approval obtained across centers. However, data availability limited: multicenter cohort from academic centers without statement on public access. Longitudinal strain measurement requires standardized echocardiographic equipment, potentially limiting reproducibility."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "Meaningful novel contribution: incorporates longitudinal strain (functional cardiac marker) into biomarker-based staging to define ultra-poor risk group (Stage IIIC) in contemporary daratumumab-treated AL amyloidosis. Builds on prior Mayo 2004/2012 and European modified systems but provides updated stratification for modern therapies. First international validation of LS-inclusive staging in AL amyloidosis."
+    },
+    "writing_presentation": {
+      "score": 5,
+      "justification": "Excellent clarity and organization. Methods are detailed and reproducible. Results clearly present derivation, validation, and subgroup analyses. Discussion appropriately contextualizes findings against prior staging systems and discusses clinical implications. Figures (calibration plots, Kaplan-Meier curves by stage) are informative. Writing is concise and precise."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "accept",
+    "key_strengths": [
+      "Large international multicenter validation (2,493 patients across UK, Europe, and US) strengthens generalizability and clinical utility",
+      "Robust methodological approach with proper model selection, collinearity assessment, and external validation with calibration metrics",
+      "Clinically actionable finding: Stage IIIC (5% of patients) has median OS of 7 months, identifying ultra-poor risk group missed by prior systems",
+      "Comprehensive model evaluation: Harrell C=0.69, calibration slopes near 1.0, higher specificity (97.8%) than prior IIIb classification for identifying worst outcomes",
+      "Prospectively conducted with explicit consent and ethical approval across all centers"
+    ],
+    "key_concerns": [
+      "All daratumumab-treated patients have only 17-month median follow-up versus 50 months for untreated; long-term outcomes in modern era unclear",
+      "LS measurement requires specialized echocardiographic expertise and equipment; moderate intervendor variability acknowledged as potential limitation for clinical adoption",
+      "Representation bias acknowledged: healthcare access variation across countries may underrepresent poorest-risk patients unable to reach referral centers",
+      "Missing stroke volume data; ongoing echocardiographic studies may identify additional prognostic variables",
+      "Calibration-in-the-large shows overestimated risk in validation cohort (intercepts negative), suggesting outcomes improving over time"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "Rigorous international multicenter study with solid methodology, external validation, and novel clinical contribution. AL-ISS Stage IIIC provides crucial risk stratification for a difficult-to-treat patient population in the modern era. High clinical relevance and appropriate for Tier 2 (methodologically solid work with clear clinical contribution). Ready for publication with minor revisions addressing long-term daratumumab outcomes and LS measurement standardization."
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "paper_id": "PMC13072374",
+  "model": "gpt-5.2",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T01:41:11Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "This is a retrospective paired planning comparison where each of 28 patients (197 lesions) has three generated plans (GK, LINAC SIT, LINAC DIT) under a standardized zero-margin assumption and a clear coverage constraint (D99% >= 99% at 20 Gy) (Methods 2.1–2.2; Results). The analysis plan is appropriate for the repeated-measures structure, including paired nonparametric testing, mixed-effects modeling with patient as a random effect, and multivariable regression for low-dose metrics (2.5 Statistical Analysis). The main methodological limitation is that it evaluates dosimetric surrogates rather than clinical outcomes, and DIT lesion grouping is planner-driven rather than algorithmically standardized, which could affect reproducibility across centers (2.4; 2.5; Discussion)."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "4",
+      "justification": "This is a technical planning study without outcome follow-up, best classified as Oxford LoE 4. The clinical relevance is direct for stereotactic radiosurgery workflows in patients with multiple brain metastases because it quantifies conformity (PCI) and normal brain low-dose exposure (V12–V3) under clinically used delivery platforms and constraints (Abstract; Results 3.1–3.2). The conclusions are framed around feasibility and dosimetric trade-offs rather than over-claiming clinical benefit."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "other",
+      "data_availability_score": 2,
+      "justification": "The manuscript clearly specifies cohort size, lesion counts, plan-generation steps for GK/SIT/DIT, target/normal-brain metrics, and the full statistical workflow including mixed-effects and Friedman/post hoc testing (Methods 2.1–2.5). Results are presented with concrete effect sizes for PCI and Vx deltas (e.g., PCI medians and mean delta V3), enabling independent interpretation (Results 3.1–3.2). No explicit data or plan-sharing repository is described in the normalized text, so reproducibility relies on method description rather than shared datasets or scripts."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "Comparisons of single- vs dual-isocenter LINAC approaches and Gamma Knife are a known area, but this work adds a structured, paired, automated-planning comparison using a consistent zero-margin assumption and contemporary intrafraction monitoring premise (Abstract; Introduction; Methods). The novelty is primarily incremental and practical: demonstrating that DIT narrows the conformity and low-dose gap relative to GK compared with SIT across a range of lesion burdens (Results 3.1–3.2)."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The abstract provides quantitative anchors and the paper maintains clear separation of planning methods, statistical methods, and results. Key definitions (PCI, V12–V3, coverage requirements, bridging handling) are spelled out, which helps interpret findings without needing figures (Methods 2.2; Results 3.1–3.2). Minor clarity issues remain around the generalizability of planner-driven clustering, but overall organization is strong."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Paired within-patient design comparing GK, LINAC SIT, and LINAC DIT plans across 28 patients/197 lesions under consistent zero-margin assumptions (Methods 2.1–2.2).",
+      "Appropriate statistics for repeated measures including paired nonparametric testing, mixed-effects modeling, and multivariable regression for low-dose metrics (2.5 Statistical Analysis).",
+      "Clinically interpretable effect sizes reported for PCI and low-dose brain exposure, showing DIT improves over SIT and approaches GK dosimetry (Results 3.1–3.2)."
+    ],
+    "key_concerns": [
+      "Endpoints are dosimetric surrogates without clinical outcome validation, limiting inference about toxicity or control (overall design).",
+      "Dual-isocenter clustering is planner-driven, which may reduce reproducibility across institutions despite the described workflow (Methods 2.4; Discussion).",
+      "No clear dataset/plan sharing is described in the normalized manuscript, which limits external reproducibility (overall manuscript)."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "The study is methodologically solid for a dosimetric planning comparison with strong statistical handling and practical relevance, but it remains a surrogate-outcome technical paper and would likely need minor revisions around reproducibility and generalizability claims."
+  }
+}
+

@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC12939105",
+  "model": "gpt-5.2",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T00:33:33Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "This is a multi-institutional retrospective study developing a CT radiomics pipeline to classify PD-L1High (TPS >= 50%) vs PD-L1Low in NSCLC, with an independent external validation cohort in a distinct clinical setting (neoadjuvant chemo + anti-PD-1). The primary labeled dataset was selected to N=482 after inclusion criteria, then split 80/20 into training and a hold-out test set, and the neoadjuvant cohort contributed N=51 for external validation. The modeling approach is described in detail, using an FT-Transformer with a self-training/pseudolabeling mechanism leveraging unlabeled scans (including a public TCIA NSCLC radiomics dataset) and explicit steps to prevent data leakage via patient-level separation. A key limitation is the absence of nested or repeated cross-validation (stated as infeasible due to compute cost), which can leave hyperparameter/model-selection uncertainty and potential optimism in performance estimates."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "The work is an individual cohort diagnostic/prediction study using routinely acquired pre-treatment CT to estimate a treatment-selection biomarker (PD-L1) and is best classified as Oxford LoE 2b. The clinical relevance is high because PD-L1 is a commonly used biomarker for immune checkpoint inhibitor decisions, and the pipeline aims to reduce reliance on invasive biopsies and address heterogeneity not captured by tissue sampling. The study tests generalizability across disease stages and treatment contexts by evaluating performance on both an advanced-disease test set and an independent limited-stage neoadjuvant cohort. However, the manuscript itself notes that prospective validation is needed before clinical adoption, and the reported discrimination is moderate (AUC ~0.75 on the primary test set and ~0.68 on the external cohort)."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 3,
+      "justification": "This is a prediction-model development and external validation study, making TRIPOD the most applicable reporting standard. The manuscript reports clear inclusion criteria, standardized PD-L1 assessment (same 22C3 clone and biopsy specimens across centers), CT preprocessing (resampling to 1 mm isotropic voxels and HU lung-window truncation), patient-based train/test splitting, and an explicitly described self-training strategy with leakage safeguards. Performance reporting includes discrimination with confidence intervals (AUC, accuracy/precision/recall/F1), an operating point targeting sensitivity ~0.7 with specificity values, calibration assessment via Brier scores, and decision curve analysis to assess net benefit. Data availability is partially supported by use of a publicly available TCIA dataset for self-training, but sharing of full in-house data and code is not clearly described in the provided text."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "Predicting PD-L1 status from CT radiomics is an active area, so the conceptual goal is not entirely new. The manuscript's novelty is in the multi-institutional scale with harmonized PD-L1 IHC (22C3) and the use of a tabular Transformer (FT-Transformer) with a self-training/pseudolabeling framework to exploit unlabeled CT data while enforcing strict separation to avoid leakage. It also extends evaluation to a distinct neoadjuvant cohort and includes calibration and decision-curve analysis, strengthening the translational framing. Overall, the contribution is a meaningful methodological and validation extension rather than a first-in-class biomarker discovery."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well organized, with clear subsections for cohort assembly, CT preprocessing, the radiomics workflow, the self-training model, interpretability, and decision-curve analysis. The abstract and results provide concrete sample sizes (482 primary; 51 validation) and quantitative performance (AUCs with 95% CIs and classification metrics), enabling rapid evaluation. Methods include practical details such as imaging resampling, HU windowing, and how pseudolabels were restricted to high-confidence instances with patient-level separation to prevent leakage. Some complexity (e.g., segmentation workflow and benchmarking specifics) relies on supplementary references/figures, but the core narrative remains readable."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Multi-institutional labeled cohort (N=482) with standardized PD-L1 testing (22C3 clone) and an independent external neoadjuvant validation cohort (N=51).",
+      "Explicitly described self-training strategy leveraging unlabeled CT scans (including TCIA) with stated safeguards against data leakage via strict patient-level separation.",
+      "Comprehensive performance reporting beyond AUC, including confidence intervals, calibration (Brier scores) and decision curve analysis for potential clinical net benefit.",
+      "Clinically relevant objective: non-invasive estimation of PD-L1 status from routine pre-treatment CT to support immunotherapy stratification."
+    ],
+    "key_concerns": [
+      "Retrospective design and moderate external validation performance (AUC 0.68 on the neoadjuvant cohort) mean prospective validation is needed before clinical use.",
+      "No nested or repeated cross-validation was performed (explicitly due to computational cost), which can increase risk of model-selection optimism or instability.",
+      "Generalizability may still be sensitive to segmentation practices and scanner/protocol heterogeneity despite preprocessing; full external validation beyond a single-institution neoadjuvant cohort is not shown.",
+      "Reproducibility depends on access to in-house imaging/segmentations and implementation details; public release of code/model weights is not evident in the provided text."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a strong multi-institutional prediction-model study with external validation and clinically oriented evaluation (calibration and decision curves), but the retrospective design, lack of nested CV, and modest external AUC support a tier-2 placement only with major revisions and clearer prospective/generalization evidence."
+  }
+}
+

@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC13024666",
+  "model": "gemini-3-flash-preview",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-19T09:31:46Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 4,
+      "justification": "The study employs a competent retrospective cohort design with 3D volume-of-interest segmentation and a clearly defined clinical endpoint. However, the methodology is limited by a relatively small sample size (N=130) from a single center and the lack of a reported power calculation or external validation cohort. Statistically, the authors correctly utilized LASSO Cox regression for feature selection and evaluated the model using appropriate metrics including C-index, time-dependent ROC curves, and calibration analysis, while also checking for multicollinearity using VIF."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "The study is classified as Level 2b evidence as it is an individual retrospective cohort study utilizing a training and testing set for internal validation. It receives a clinical relevance score of 4 because it addresses a life-threatening complication of radiation-induced brain injury\u2014cerebral herniation\u2014and provides a practical, MRI-based tool for risk stratification. The findings offer clear clinical utility by suggesting tailored imaging surveillance intervals and identifying high-risk patients who may benefit from early surgical intervention."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "The manuscript adheres closely to the TRIPOD guidelines for prediction model development and validation, providing clear details on participant selection, feature extraction (LASSO), model construction (Cox regression), and performance metrics (C-index, calibration, and DCA). It includes a nomogram and specific formulas for the radiomic and risk scores, though it lacks an explicit power calculation and a detailed description of missing data handling. Data and code availability are limited, as no public repository or DOI is provided for the dataset or the analytical scripts, relying instead on descriptions of standard software (3D Slicer, R)."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "The study represents a meaningful extension of radiomic research in radiation-induced brain injury by focusing on the specific, life-threatening endpoint of cerebral herniation in cystic necrosis. While the methodology (LASSO-Cox) is standard and builds on prior work identifying RCN features, it fills a documented clinical gap by providing a prognostic tool for a complication previously only described descriptively. The novelty is primarily empirical, applying established imaging analysis to a new predictive task in a specialized patient population."
+    },
+    "writing_presentation": {
+      "score": 5,
+      "justification": "The manuscript is exceptionally well-organized and written with high precision. The abstract is comprehensive and quantitatively grounded, while the introduction and discussion provide a clear clinical context and mechanistic rationale for the findings. Terminology is consistently defined, and the logical progression from feature extraction to model validation is easy to follow."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Focus on a life-threatening complication (cerebral herniation) in RCN",
+      "Integration of 3D radiomics with a novel clinical metric (RPE)",
+      "Robust internal validation and clinical utility analysis (DCA)",
+      "High-quality presentation and clear clinical decision-support tools"
+    ],
+    "key_concerns": [
+      "Single-center retrospective design limits generalizability",
+      "Lack of an external validation cohort",
+      "Relatively small sample size for high-dimensional radiomic analysis",
+      "Limited data and code availability"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "The manuscript presents a clinically valuable and methodologically sound predictive model for a severe complication. While tier 2 is plausible due to the clinical significance and rigor, the lack of external validation is a primary hurdle for top-tier acceptance."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC13035475",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T16:21:37Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "The GENEVA platform is validated with multiple orthogonal approaches: pooled scRNA-seq across 11 cell lines in vitro, CDX and PDX xenografts, PDOs, Seahorse respirometry, flow cytometry panels (TMRE, MitoSOX, BODIPY, caspase-3/7), CellTiter-Glo survival assays, and in vivo dual-guide CRISPRi screens across G12C, G12V, and moderately-tolerant lines to validate GENEVA-prioritized targets. Technical reproducibility is supported (R = 0.9 between replicates; cell-line/drug cell counts reproducible). Statistics are appropriate: Wilcoxon rank-sum for DE, two-sample/two-sided t-tests, Mann-Whitney U, chi-square for cell cycle, Welch's t-test for Seahorse, Pearson/Spearman correlations, Benjamini-Hochberg correction for CRISPRi screens, Bliss independence for synergy, and bootstrapped null distributions. Stated limitations: no a priori sample size calculations for in vivo (justified by published analogous study ref 53), normality assumed but not tested, not blinded, some doses had n=1 (e.g., PDO dose titration, Fig. 2e), and immunocompromised NSG mice preclude assessment of immune-dependent mechanisms (acknowledged)."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "5",
+      "justification": "The study is entirely preclinical: cell line pools, patient-derived organoids/xenografts in immunocompromised NSG mice, and CRISPRi screens — Oxford CEBM maps preclinical/animal studies to level 5. Despite the LoE, translational relevance is strong: the paper identifies mitochondrial hyperactivation as a novel on-target mechanism of KRAS-G12C inhibitors (sotorasib, adagrasib, ARS-1620), demonstrates EMT as a key in vivo resistance mechanism, and validates two combination therapies (ARS-1620 + INK128/mTOR inhibitor and ARS-1620 + galunisertib/TGFβ inhibitor) in xenograft tumor-growth studies with n=5 mice/group. The authors explicitly link their findings to clinical KRAS-G12C inhibitor resistance literature (Awad et al., CodeBreaK 100) and note that mTOR combinations are already in pharmaceutical pipelines, giving a credible near-term translational path."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "ARRIVE",
+      "data_availability_score": 3,
+      "justification": "For a preclinical study with in vivo animal components, ARRIVE is the most applicable standard. Reporting is thorough: IACUC protocol numbers (AN201942-00, AN207247-00A) and IRB CC 136512 are cited, mouse strain (NSG), sex (female), age (8-12 weeks), housing (12h light/dark, 20-26°C, 30-70% humidity), maximal tumor size (1.5 cm), n per group, randomization, dosing routes/schedules, compound formulations, and inclusion/exclusion criteria are all reported; a 'Statistics and reproducibility' section and Nature Portfolio Reporting Summary reference are included. Omissions versus full ARRIVE adherence: no blinding, no formal sample-size calculation, and limited explicit statements on housing enrichment/welfare. Data availability: extensive Source Data files are referenced for Figs. 1-5 and Extended Data Figs. 1-8, and several protocols are cited by lab reference; however, multiple key URLs and the scEasyMode library are [REDACTED] in the normalized text, and a formal repository accession (e.g., GEO/SRA) for the scRNA-seq data is not evident in the provided text, so replication would require those redacted resources."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The paper introduces GENEVA, a pooled multi-cell-line/PDX single-cell platform extended to in vivo xenografts with multi-day treatment windows, explicitly differentiated from PRISM (2D survival only) and MIX-seq (24 h limit) in the Discussion. The biological findings are also meaningfully new: mitochondrial hyperactivation as an acute, on-target cell-death mechanism for KRAS-G12C inhibitors — contrasted with prior focus on RTK reactivation and downstream rebound — and EMT as an in vivo-specific resistance mechanism validated by TGFβ receptor inhibition synergy. The work falls short of a full 5 because multiplexed pooled scRNA-seq platforms (MIX-seq, Perturb-seq, sci-Plex) already exist and the mTOR combination hypothesis for KRAS-G12C inhibitors is acknowledged to already be pursued clinically, so GENEVA is an important extension and mechanistic addition rather than a wholly first-in-class invention."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well organized with a clear logical progression: platform introduction, in vitro validation, in vivo extension, mechanistic (mitochondrial/ferroptosis) deep-dive, resistance pathway (EMT/mTOR) discovery, CRISPRi validation, and combination-therapy profiling. Figures are dense but each sub-panel is described with explicit statistical tests, sample sizes, and plotting conventions (box-plot conventions defined once and reused). Sentences are precise and jargon is defined on first use (GENEVA acronym, CDX/PDX/PDO, ETC, EMT). Minor issues: some results paragraphs are long and pack many sub-findings, the Discussion ventures into broader precision-medicine aspirations that are loosely tied to the data, and Extended Data references are frequent enough that following the main narrative requires cross-referencing. Overall publication-ready prose."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 1,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Novel scalable platform (GENEVA) extending multiplexed scRNA-seq to long-duration in vivo xenograft and PDX settings, with explicit delineation from PRISM and MIX-seq",
+      "Convergent multi-modal evidence for mitochondrial hyperactivation as an on-target KRAS-G12C inhibitor cell-death mechanism (scRNA-seq, Seahorse, TMRE/MitoSOX, caspase, antimycin A rescue, CRISPRi)",
+      "In vivo validation of two GENEVA-prioritized combinations (ARS-1620 + INK128 and ARS-1620 + galunisertib) with n=5 mice per arm and pooled dual-guide CRISPRi screens across G12C/G12V/moderately-tolerant lines",
+      "Thorough preclinical reporting: IACUC/IRB numbers, NSG strain details, dosing formulations, statistics-and-reproducibility section, and Source Data tabs for all main and extended figures"
+    ],
+    "key_concerns": [
+      "Oxford LoE is 5 (preclinical) with immunocompromised NSG mice only, so immune-mediated mechanisms and clinical generalizability remain untested, as the authors acknowledge",
+      "Several in vivo and dose-titration experiments use low n (e.g., n=1 PDOs across doses in Fig. 2e; two mice per condition in the 16-day PDX study), and no formal sample-size calculations were performed",
+      "Data/code availability is partially obscured by [REDACTED] URLs (scEasyMode, protocols, Seahorse protocol) and no explicit GEO/SRA accession is evident in the provided text, limiting replication",
+      "Normality was assumed but not tested, experiments were not blinded, and the EMT-in-vivo signal is supported by moderate-n xenografts and correlative density plots rather than orthogonal lineage-tracing"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "Methodologically solid platform paper with convergent mechanistic findings, in vivo combination validation, and orthogonal CRISPRi screens — the scope, novelty of the mitochondrial hyperactivation mechanism, and breadth of KRAS-G12C biology are consistent with tier-1 oncology journals; minor revisions would address data-availability specifics and low-n caveats."
+  }
+}

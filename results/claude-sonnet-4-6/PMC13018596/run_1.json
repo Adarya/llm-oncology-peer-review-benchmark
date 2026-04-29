@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC13018596",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "CoPISA is a novel proteomics workflow applied to four AML cell lines with three technical replicates per treatment per cell line and four biological replicates, using 16 TMT-plex experiments. The study employs both lysate-based and living-cell conditions to distinguish direct and secondary drug effects. A permutation-based FDR estimation (1000 permutations; mean FDR 5.25% across 12 comparisons) addresses the lack of standard multiple testing correction. Limitations include restriction to cell lines without patient-derived samples validation and the use of concentration-fixed single drug doses without dose-response analysis. Statistical analysis employs limma with empirical Bayes moderation and volcano plots with log2FC and p-values, though formal FDR-adjusted thresholds are not applied to primary hits due to acknowledged low power in this proteomics context."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "5",
+      "justification": "This is a preclinical mechanistic study using AML cell lines (MOLM-13, MOLM-16, SKM, NOMO-1) and provides no direct patient outcomes data. The study builds on prior work validating LS and RU combinations in patient-derived samples and zebrafish xenografts, giving translational context. The identified conjunctional targets (DNMT3A, NPM1, TP53) are clinically relevant AML mutations with known prognostic significance, suggesting potential biomarker utility. Translation to clinical application remains speculative without validation in primary patient samples within this paper."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "none",
+      "data_availability_score": 4,
+      "justification": "The study references a Nature Portfolio Reporting Summary and provides source data files throughout. Methods are highly detailed with specific reagent catalog numbers, instrument settings, and bioinformatics pipeline versions (MaxQuant 2.6.5.0, STAR, UniProt database dates). However, no formal reporting checklist (e.g., ARRIVE for cell-based studies) is cited, and the study lacks formal pre-registration. Data and source files are explicitly referenced throughout, and code availability is partially indicated through referenced R packages (PEIMAN2, limma, ReactomePA)."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "CoPISA represents a genuinely novel extension of the PISA proteomics method to combination drug therapy, introducing the conceptual framework of 'conjunctional targeting' and AND-gate logic for combination-exclusive protein targets. The application to rationally identified AML drug combinations (previously validated by the same group) and the finding that 42-45% of AML-associated network perturbations are combination-exclusive fills a documented gap in mechanistic understanding of drug synergy. The concept is novel enough to warrant publication in a high-impact journal, though the cell-line-only scope limits immediate impact."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well-structured with clear sections and extensive methodological detail. Figures (volcano plots, UpSet plots, FC-FC plots, network visualizations) are described systematically and appear informative. The use of logical gate terminology (AND/OR gates) is consistently explained and justified throughout. Some sections in Results are lengthy and could be condensed; the LaTeX-formatted mathematical expressions embedded in the text are disruptive to readability but reflect formatting constraints of the source document."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Novel proteomics workflow (CoPISA) providing first proteome-wide characterization of combination-exclusive drug targets in AML",
+      "Introduction of 'conjunctional targeting' concept with AND-gate logic, advancing mechanistic understanding beyond classical synergy models",
+      "Multi-format validation (lysate and living cell) across four AML cell lines with robust permutation-based FDR estimation",
+      "Integration with AML-specific network analysis using Reactome, DepMap, and FIMM-AML cohort mutation data",
+      "Detailed PTM enrichment analysis revealing combination-specific acetylation and methylation on clinically relevant targets (NPM1, BLM)"
+    ],
+    "key_concerns": [
+      "Entirely cell-line-based study with no validation in primary AML patient samples within this paper, limiting translational claims",
+      "Lack of formal multiple testing correction for primary proteomics hits (permutation-based FDR used as surrogate), which may inflate false discovery",
+      "Fixed drug concentrations used without dose-response characterization, limiting generalizability of solubility shift findings",
+      "The claim of 'conjunctional targeting' as a mechanistic advance rests on solubility shifts that may reflect PTMs or PPIs rather than direct drug-protein interactions"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "CoPISA is a methodologically sound and conceptually novel proteomics advance for characterizing combination drug mechanisms in AML. The work is technically rigorous with multi-format replication and permutation-based statistical validation, fitting Tier 2 with minor revisions needed primarily to address cell-line limitations and discuss alternative explanations for solubility shifts."
+  }
+}

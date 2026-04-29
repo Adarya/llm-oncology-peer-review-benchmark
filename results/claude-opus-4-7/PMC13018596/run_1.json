@@ -1,0 +1,54 @@
+{
+  "paper_id": "PMC13018596",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T16:16:56Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 3,
+      "justification": "The study develops a combinatorial PISA extension (CoPISA) applied to two AML drug pairs across four cell lines (MOLM-13, MOLM-16, SKM, NOMO-1) with three technical replicates per condition, 16 TMT16-plex sets, both lysate and living-cell formats, and LC-MS validation of drug-drug interaction, which is a solid multi-layer design for target deconvolution. Controls include DMSO vehicle and single-agent arms to isolate combination-exclusive effects, and the authors perform an ab initio simulation of 10,000 proteins plus a 1000-permutation FDR estimation (reported mean FDR 5.25%) to guard against false positives. However, the biological replication is limited to four immortalized AML cell lines with no primary patient samples or in vivo validation within this manuscript (the patient/zebrafish data are cited to prior work, refs 8-9), and the authors explicitly state that \"direct multiple hypothesis correction was not feasible\" and instead rely on nominal p < 0.05 and permutation FDR, which weakens inference on individual hits. Statistical methodology uses limma moderated t-tests with ReactomePA Benjamini-Hochberg correction for pathway-level tests, but effect size thresholds are used only as interpretability guides, there is no power calculation, and PTM site assignments in Fig. 10 are reported without additional statistical testing as acknowledged."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "5",
+      "justification": "This is a preclinical proteomics study on AML cell lysates and living cell lines with no patient outcomes, clinical endpoints, or in vivo data generated within the manuscript itself, which places it at Oxford LoE 5 (mechanistic/basic science). Translational relevance is plausible because the two combinations (LY3009120+sapanisertib and ruxolitinib+ulixertinib) were previously prioritized through patient-derived drug-response modeling and zebrafish xenografts (cited refs 8-9) and because hits map to therapeutically actionable AML nodes such as NPM1, TP53, DNMT3A, FLT3, MAPK and PI3K/AKT. The authors end with an aspirational statement about \"prospective clinical evaluation of LS and RU regimens, guided by biomarkers like DNMT3A, NPM1, and TP53 status\" but provide no patient-derived validation, dose-toxicity data, or pharmacodynamic markers within the current work, so the pathway to practice-changing impact is plausible but unproven."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "ARRIVE",
+      "data_availability_score": 3,
+      "justification": "No reporting standard checklist is explicitly referenced and the study is a preclinical proteomics workflow, so ARRIVE is the closest applicable standard although it is an imperfect fit given the in vitro emphasis; the authors note only that a \"Nature Portfolio Reporting Summary\" is linked. Reagent sources (DSMZ cell lines with mycoplasma and ICLAC checks), drug concentrations, TMT multiplex design, MaxQuant version (2.6.5.0), UniProt database dates, FAIMS voltages, and statistical software (limma, PEIMAN2, ReactomePA) are well documented, supporting replicability of the proteomics pipeline. However, key items are missing or thin: no explicit data availability statement appears in the manuscript body despite PRIDE/ProteomeXchange references in the reference list, no code availability statement, no randomization/blinding description for cell line treatments, and the \"Source data\" section is essentially empty. A Source Data File is repeatedly cited in figure legends, which partially supports reproducibility, justifying a mid-range data availability score."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The core methodological contribution - extending PISA/thermal proteome profiling to explicitly combinatorial drug treatments with a formal AND-gate/OR-gate logic framework and the newly coined concept of \"conjunctional targeting\" - appears to be a genuine methodological novelty over prior single-agent PISA and TPP work (refs 10-15). The authors position this as distinct from Boolean logic modeling (Palma et al., ref 55) and from classical Bliss/Loewe synergy scoring (refs 58-59), and they demonstrate the workflow on two specific AML combinations, finding combination-exclusive perturbation of NPM1, BLM, DNMT3A, and TP53-adjacent networks, including previously unreported BLM R483 dimethylation. Novelty is tempered by the fact that the drug combinations themselves were identified in prior work by the same group (refs 8-9) and the analytical ingredients (limma, ReactomePA, Infomap, PEIMAN2) are standard, so the contribution is strong in framing and moderately incremental in molecular discovery, warranting a 4 rather than a 5."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The manuscript is organized conventionally with clear Introduction, Methods, Results, and Discussion sections and the logic of the AND/OR gate framework is communicated coherently; figures are well-described in legends with statistical methods annotated. However, the Methods include large blocks of raw LaTeX markup (\\documentclass, \\usepackage) that have not been rendered, making equations almost unreadable in places, and there are typographical issues such as \"CoPISA-identifi ed\", \"DNM3A\" (should be DNMT3A), \"Thevolcano\", and \"FLT3signaling\". Several passages in the Results and Discussion are verbose and repetitive, reiterating the AND/OR-gate mechanistic narrative multiple times with overlapping pathway lists, and the figure 6 cosine similarity claim is asserted without reporting actual numbers in the text. Overall readability is adequate for a specialist reader but would benefit from tightening and careful proofreading."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Methodological novelty: first systematic extension of PISA to combinatorial drug treatment with an AND/OR-gate analytic framework and a new \"conjunctional targeting\" concept.",
+      "Multi-layered design across four AML cell lines, lysate and living-cell formats, 16 TMT16-plex sets, and orthogonal LC-MS drug-drug interaction check.",
+      "Integration with AML-specific network analysis (Reactome, DepMap, FIMM-AML cohort) yielding biologically interpretable modules (NPM1, DNMT3A, TP53, SMC1A, BLM).",
+      "Permutation-based FDR estimation (mean 5.25% across 12 comparisons) and ab initio simulation of 10,000 proteins support the candidate-selection procedure.",
+      "Identification of novel PTMs (e.g., BLM R483 dimethylation, K484 acetylation) provides testable mechanistic hypotheses."
+    ],
+    "key_concerns": [
+      "Validation is confined to four AML cell lines; no primary patient samples, in vivo experiments, or functional (e.g., viability, apoptosis) readouts are generated within this manuscript to confirm that conjunctional targets are causally relevant.",
+      "Authors explicitly forgo direct multiple-testing correction at the protein level, relying on nominal p<0.05 and permutation FDR, which leaves individual combination-exclusive hits vulnerable to false positives.",
+      "No explicit data or code availability statement appears in the manuscript body; the \"Source data\" section is empty and ProteomeXchange/PRIDE are only in the reference list.",
+      "Reporting-standard adherence is partial: no checklist-style ARRIVE reporting, no randomization/blinding description, and limited details on how cell lines were assigned across TMT batches.",
+      "Presentation issues including unrendered LaTeX in Methods, typographical errors (DNM3A, CoPISA-identifi ed), and repetitive Discussion paragraphs reduce polish."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "The work presents a conceptually novel combinatorial PISA framework with a reasonable experimental design and interpretable systems-level findings in AML, which is appropriate for a strong methods-oriented oncology journal in the JIF 10-19 range (Tier 2). However, the lack of orthogonal functional validation in this manuscript, the absence of multiple-testing correction at the protein level, and the missing explicit data/code availability statement fall short of Tier-1 standards, so the highest plausible acceptance is Tier 2 with major revisions."
+  }
+}

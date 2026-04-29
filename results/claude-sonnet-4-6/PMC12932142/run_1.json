@@ -1,0 +1,51 @@
+{
+  "paper_id": "PMC12932142",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:11:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 3,
+      "justification": "The study uses a multi-institutional design (9 Chinese tertiary centers, 2014–2020) with separate training (n=635) and external validation (n=214) cohorts, which is appropriate for prognostic model development. Multivariable Cox regression with LASSO-penalized variable selection, Kaplan-Meier analysis, and ROC-derived cutoffs are correctly applied. The TCCA score is validated externally and outperforms AJCC TNM (C-index 0.734 vs. 0.599). Key limitations: TBS cutoff is data-derived (ROC-optimal), subgroup analyses are not multiplicity-corrected, no bootstrap resampling or DCA is reported for the nomogram/score, and inter-center heterogeneity in surgical technique and pathology is not formally addressed."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "Intrahepatic cholangiocarcinoma carries poor prognosis and lacks robust preoperative risk stratification tools. The TCCA model integrates three routinely available preoperative biomarkers (TBS from imaging, CEA, CA19-9) into a simple 0–3 point scoring system that outperforms AJCC TNM staging and functions even when individual markers are negative. This directly addresses a clinical gap in surgical candidate selection and postoperative surveillance planning. The multi-institutional external validation cohort strengthens confidence in the model's generalizability within the Chinese tertiary care setting."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "REMARK",
+      "data_availability_score": 2,
+      "justification": "The manuscript adheres to most REMARK criteria: patient selection flow diagram, explicit pre-specified confounders, effect estimates with CIs, KM curves, calibration plots, and AUC comparisons are all reported. Training and validation cohort characteristics are tabulated separately with baseline comparisons. Limitations are proactively addressed, including marker negativity subgroups. Gaps include absence of DCA for the TCCA score, no bootstrap confidence intervals for the C-index, and no public data repository or data availability statement. The ROC-derived cutoff methodology is used but not formally justified over other thresholding approaches."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "This is the first study to systematically combine TBS, CEA, and CA19-9 into an integrated preoperative TCCA scoring system for ICC prognostication after hepatectomy, filling a gap left by prior studies that examined only two-variable combinations. The demonstration of additive prognostic value in marker-negative subgroups adds clinical utility. However, the individual biomarkers are well-established, and the scoring approach (0–3 point sum) is conceptually straightforward. The contribution is primarily combinatorial and validation-focused rather than mechanistically or methodologically novel."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well-structured with clear presentation of training/validation cohort results, appropriately detailed methods, and figures that effectively illustrate KM stratification, calibration, and AUC comparisons. The discussion contextualizes findings against prior TBS-CA19-9 and TBS-CEA models and correctly identifies the next steps (external non-Chinese validation, prospective testing). The limitations section is honest. Minor issues include some repetition between abstract and results, and the mechanistic discussion on TBS-based immune contexture is speculative."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Multi-institutional design with genuine external validation cohort (9 centers, n=849 total) substantially exceeds single-center limitations of prior ICC prognostic models",
+      "TCCA score demonstrates meaningful improvement over AJCC TNM staging (C-index 0.734 vs. 0.599) and maintains utility in CEA-negative and CA19-9-negative subgroups",
+      "Clinical simplicity of the 0–3 point scoring system using three routinely available preoperative parameters supports direct implementation without specialized infrastructure"
+    ],
+    "key_concerns": [
+      "No decision curve analysis (DCA) reported for the TCCA score, limiting assessment of net clinical benefit compared to treat-all or treat-none strategies",
+      "ROC-derived TBS cutoff risks optimistic bias without bootstrap correction; C-index point estimates lack confidence intervals",
+      "Validation cohort is from the same Chinese tertiary care network, limiting generalizability to Western or community-based populations with different ICC etiologies",
+      "No multiplicity correction for subgroup analyses (CEA-negative, CA19-9-negative, TBS subgroups)"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A methodologically sound multi-institutional prognostic model study with external validation and clinically meaningful improvement over existing staging—suitable for tier 2 with minor revisions addressing DCA, C-index CIs, and generalizability discussion."
+  }
+}

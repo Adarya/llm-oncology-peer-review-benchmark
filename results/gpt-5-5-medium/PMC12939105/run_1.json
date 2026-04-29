@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC12939105",
+  "model": "gpt-5.5",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T00:30:24Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 3,
+      "justification": "The study uses a multi-institutional advanced NSCLC cohort, patient-level train/test separation, an independent neoadjuvant cohort, standardized CT preprocessing, LASSO feature selection restricted to training data, model benchmarking, calibration assessment, and SHAP interpretability. The main model achieved AUC 0.75 in the primary test set and 0.68 in the independent neoadjuvant cohort, showing moderate rather than strong discrimination. Limitations include retrospective design, random 80/20 holdout rather than repeated or nested cross-validation, no leave-one-center-out validation, limited geographic diversity, and computational constraints that limited hyperparameter optimization."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "This is an individual retrospective cohort prediction/biomarker study with independent validation, fitting level 2b. The question is clinically important because PD-L1 guides ICI use in advanced NSCLC and is relevant in neoadjuvant chemo-immunotherapy, while CT-based prediction could address biopsy limitations and tumor heterogeneity. Clinical use is not yet established because performance is only moderate and the authors state that prospective multi-site validation is required before implementation."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "TRIPOD is applicable because this is a prediction-model study. The manuscript reports inclusion criteria, cohort derivation, imaging preprocessing, segmentation review, feature extraction, leakage-prevention steps, train/test split, external validation cohort, performance metrics with confidence intervals, calibration, benchmarking, and limitations. Reproducibility is limited because a public TCIA dataset is used for unlabeled self-training, but the normalized text does not show release of the trained model, code, or full analysis dataset."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The paper has substantial methodological novelty for this area by combining radiomics, self-training, an FT-Transformer, multi-institutional training, and independent testing in a neoadjuvant cohort. Prior CT radiomics PD-L1 studies are acknowledged as often single-center and fully supervised, so the cross-context validation adds value. The contribution is not field-defining because discrimination remains moderate and prospective clinical utility is unproven."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is clearly structured and the abstract accurately reports both the primary and independent validation performance. The methods give unusually explicit detail on leakage prevention, feature selection, pseudolabeling, and model evaluation, and the discussion appropriately limits causal interpretation of SHAP findings. Some language is occasionally awkward and the technical density is high, but the main scientific message is transparent."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Clinically important attempt to noninvasively approximate PD-L1 status from routine CT in NSCLC.",
+      "Uses data from three institutions plus an independent neoadjuvant validation cohort.",
+      "Includes explicit leakage-prevention procedures, calibration assessment, benchmark models, and SHAP interpretability.",
+      "Cautiously frames the external validation as partial generalization and calls for prospective multi-site testing."
+    ],
+    "key_concerns": [
+      "Model discrimination is moderate, especially in the independent neoadjuvant cohort with AUC 0.68.",
+      "Retrospective design and random holdout leave residual uncertainty about center-specific generalizability.",
+      "Nested/repeated cross-validation and leave-one-center-out analyses were not performed.",
+      "Code, trained model, and full data availability are not evident, limiting reproducibility of a complex AI pipeline."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "The work has enough clinical relevance, methodological ambition, and external testing for a plausible tier 2 radiomics/translational oncology venue, but only with major revisions or additional validation. The current evidence is promising rather than ready for clinical deployment."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "paper_id": "PMC12834270",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T16:27:23Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "The AL-ISS staging model is derived in a UK single-center cohort (n=573) and externally validated in a multinational cohort of 1,920 patients from Europe, the US (Mayo, federated analysis), and the UK (2020-2024). Multivariable Cox regression, univariable analysis, time-dependent ROC for threshold selection, and collinearity checks (VIF 1.07-1.19, |rho|<0.3) are appropriate. Model evaluation includes calibration slope and intercept, Harrell C, Royston D, R2D, and diagnostic odds ratios at multiple time points. Limitations include heterogeneous echocardiographic platforms (acknowledged), potential referral and healthcare-access bias, and that the derivation cohort preceded the validation cohort temporally so validation tests a later era."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "The AL-ISS defines a new ultra-poor-risk stage IIIC (~5% of patients) with 7-month median survival even in the daratumumab era, with direct implications for prognostic counseling, clinical trial eligibility, and early consideration of heart transplantation or novel fibril-clearing therapies. The system builds on Mayo 2012 and European 2013 staging but addresses their decreased discrimination in the modern era, making it clinically actionable. Oxford LoE 2b as a multicenter prognostic cohort with external validation."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "As a prognostic model development and external validation study, TRIPOD is the applicable standard. Key items are addressed: clear derivation and validation cohorts, predictor definitions, handling of missing data implicit in standardized assessments, multivariable modeling, calibration and discrimination metrics, sensitivity/specificity and DOR at multiple time points. The paper does not explicitly cite TRIPOD, some reporting items (handling of missing covariates, competing risks, time-dependent performance intervals) are abbreviated or in supplements, and data/code sharing is not indicated."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The AL-ISS refines existing Mayo and European staging systems by integrating longitudinal strain (LS ≥ -9%) as a functional cardiac marker, defining a new IIIC group with ultra-poor prognosis in the daratumumab era. While the authors previously proposed incorporation of LS (ref 7, 13) in smaller cohorts, this is the first international, multi-platform external validation in 2,493 patients and establishes AL-ISS as a benchmark for contemporary trials. This is a meaningful novel contribution beyond incremental confirmation."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The paper is clearly written with logical organization (derivation, validation, model evaluation, IIIB-vs-IIIC comparison, treatment subgroups). Tables 1-4 and Figures 1-2 communicate cohort composition, survival by stage, and calibration effectively, and the discussion contextualizes findings against Mayo 2012, European 2013, ANDROMEDA, and novel therapies. Some dense statistical reporting (e.g., DOR, specificity repeated in prose) could be streamlined."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Largest international contemporary AL amyloidosis cohort (n=2,493) validating a new staging system",
+      "Integration of longitudinal strain (LS >= -9%) with NT-proBNP and hs-TnT defines a clinically actionable ultra-poor-risk IIIC group",
+      "External validation across UK, Europe (Greece, Italy, Netherlands, Switzerland), and US (Mayo) with federated analysis",
+      "Thorough model evaluation: calibration slope/intercept, Harrell C 0.69, Royston D 1.19, R2D 0.25, and DOR",
+      "Demonstration that AL-ISS remains prognostic across the daratumumab and bortezomib eras"
+    ],
+    "key_concerns": [
+      "Miscalibration in the large (overestimated absolute risk) due to improving outcomes across time periods",
+      "Heterogeneous echocardiographic platforms and known intervendor variability of LS (acknowledged)",
+      "Potential referral/health-access bias; European cohort had markedly higher cardiac involvement (87% vs 64-71%)",
+      "Explicit TRIPOD checklist adherence not stated; data and code not shared",
+      "Short median follow-up in daratumumab-treated subgroup (17 months) limits long-term inference for IIIC"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "Well-executed prognostic model validation with clear clinical utility in the modern treatment era; appropriate for a high tier-2 hematology/oncology journal with minor revisions on reporting and calibration discussion."
+  }
+}

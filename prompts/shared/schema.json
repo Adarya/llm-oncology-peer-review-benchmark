@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LLM oncology manuscript review output",
+  "type": "object",
+  "required": ["paper_id", "model", "architecture", "run_id", "timestamp",
+               "specialist_scores", "chief_reviewer"],
+  "additionalProperties": false,
+  "properties": {
+    "paper_id":       { "type": "string", "pattern": "^PMC[0-9]+$" },
+    "model":          { "type": "string" },
+    "architecture":   { "type": "string", "enum": ["single-agent", "multi-agent"] },
+    "run_id":         { "type": "integer", "minimum": 1 },
+    "timestamp":      { "type": "string", "format": "date-time" },
+    "specialist_scores": {
+      "type": "object",
+      "required": ["methodological_rigor", "clinical_relevance_loe",
+                   "reporting_quality", "novelty_literature", "writing_presentation"],
+      "additionalProperties": false,
+      "properties": {
+        "methodological_rigor": {
+          "type": "object",
+          "required": ["score", "statistical_score", "justification"],
+          "properties": {
+            "score":             { "type": "integer", "minimum": 1, "maximum": 5 },
+            "statistical_score": { "type": "integer", "minimum": 1, "maximum": 5 },
+            "justification":     { "type": "string" }
+          }
+        },
+        "clinical_relevance_loe": {
+          "type": "object",
+          "required": ["score", "loe_oxford", "justification"],
+          "properties": {
+            "score":         { "type": "integer", "minimum": 1, "maximum": 5 },
+            "loe_oxford":    { "type": "string", "enum": ["1a","1b","2a","2b","3a","3b","4","5"] },
+            "justification": { "type": "string" }
+          }
+        },
+        "reporting_quality": {
+          "type": "object",
+          "required": ["score", "standard_used", "data_availability_score", "justification"],
+          "properties": {
+            "score":                    { "type": "integer", "minimum": 1, "maximum": 5 },
+            "standard_used":            { "type": "string",
+              "enum": ["CONSORT","STROBE","REMARK","PRISMA","ARRIVE","TRIPOD","STARD","none","other"] },
+            "data_availability_score":  { "type": "integer", "minimum": 1, "maximum": 5 },
+            "justification":            { "type": "string" }
+          }
+        },
+        "novelty_literature": {
+          "type": "object",
+          "required": ["score", "justification"],
+          "properties": {
+            "score":         { "type": "integer", "minimum": 1, "maximum": 5 },
+            "justification": { "type": "string" }
+          }
+        },
+        "writing_presentation": {
+          "type": "object",
+          "required": ["score", "justification"],
+          "properties": {
+            "score":         { "type": "integer", "minimum": 1, "maximum": 5 },
+            "justification": { "type": "string" }
+          }
+        }
+      }
+    },
+    "chief_reviewer": {
+      "type": "object",
+      "required": ["overall_quality_1_10", "highest_tier_acceptance",
+                   "recommendation_at_that_tier", "key_strengths", "key_concerns",
+                   "predicted_hallucination_flag"],
+      "additionalProperties": false,
+      "properties": {
+        "overall_quality_1_10":        { "type": "integer", "minimum": 1, "maximum": 10 },
+        "highest_tier_acceptance":     { "type": "integer", "minimum": 1, "maximum": 5 },
+        "recommendation_at_that_tier": { "type": "string",
+          "enum": ["accept", "minor_revisions", "major_revisions", "reject"] },
+        "key_strengths":               { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 6 },
+        "key_concerns":                { "type": "array", "items": { "type": "string" }, "minItems": 1, "maxItems": 6 },
+        "predicted_hallucination_flag":{ "type": "boolean" },
+        "rationale":                   { "type": "string" }
+      }
+    }
+  }
+}

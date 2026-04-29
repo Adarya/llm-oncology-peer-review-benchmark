@@ -1,0 +1,50 @@
+{
+  "paper_id": "PMC13072374",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:10:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "This is a well-designed retrospective dosimetric planning study comparing three SRS delivery platforms (Gamma Knife Esprit, LINAC single-isocenter, LINAC dual-isocenter) across 28 patients and 197 lesions (4–14 metastases per patient), with each patient serving as their own control in a paired design. Statistical methods are appropriate: Wilcoxon signed-rank test for paired comparisons, Friedman test for multi-group dosimetric differences, mixed-effects linear modeling for repeated-measures structure, and multivariable linear regression for predictors of low-dose brain exposure. Primary endpoints (Paddick Conformity Index, V12/V10/V5/V4/V3Gy) are established dosimetric benchmarks. Key limitations include the retrospective planning study design (no treatment delivery or clinical outcomes), the limited sample of 28 patients from a single institution, and the lack of formal power calculation. Optimizer software versions and planning protocols are clearly specified, supporting reproducibility."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "4",
+      "justification": "Comparative dosimetric evaluation of GK vs LINAC-based SRS for multiple brain metastases addresses a clinically important question as institutions without GK access must choose LINAC-based delivery strategies. The demonstration that DIT achieves PCI intermediate between SIT and GK (0.77 vs 0.73 vs 0.83), and that total target volume rather than technique is the dominant predictor of low-dose brain exposure, provides actionable guidance for treatment planning decisions. However, this is a dosimetric planning study without delivery verification, clinical toxicity data, or patient outcomes, so the direct clinical impact is indirect. The LOE of 4 (case series/planning study without clinical endpoints) appropriately captures the exploratory but clinically relevant nature."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "none",
+      "data_availability_score": 2,
+      "justification": "The study clearly documents planning system versions (Leksell GammaPlan 11.3, Elements MBM v4.5), planning parameters (prescription dose 20 Gy for lesions ≤2cm, 18 Gy for 2.1–3cm, isodose prescription lines), and the zero-margin GTV-to-PTV strategy with rationale. Patient and lesion characteristics are tabulated, and all statistical tests with correction for multiple comparisons are stated. Boxplots and summary statistics with medians and IQRs are appropriate for non-normal dosimetric distributions. No formal reporting standard applies to dosimetric planning studies, and no data repository deposit is reported. IRB approval and patient consent status are documented."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "The study contributes to a growing but not exhaustive literature comparing GK and LINAC-based SRS for multiple brain metastases. The direct three-way comparison of GK, SIT, and DIT using current-generation software on the same patient cohort is methodologically valuable and directly addresses clinical planning decisions. The finding that DIT substantially improves conformity and low-dose spread relative to SIT is a practically useful contribution for LINAC-based programs. However, multiple prior studies have established GK superiority for conformity in multiple brain metastases, and the primary novelty is the inclusion of DIT as an intermediate strategy and the regression analysis identifying total target volume as the dominant predictor of normal-tissue dose."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is clearly written with well-organized sections and appropriate use of tables and figures. Dosimetric methodology is described in sufficient detail for reproducibility, and limitations (retrospective design, single-institution, planning study only) are transparently acknowledged. The discussion appropriately contextualizes DIT as a practical intermediate option for LINAC-based centers and discusses the clinical implications of the total-target-volume finding. Statistical reporting follows standard conventions. The manuscript avoids overclaiming by clearly noting that clinical outcomes data are needed to complement the dosimetric findings."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Paired within-patient design with 197 lesions across 28 patients provides direct unconfounded comparison of GK, SIT-LINAC, and DIT-LINAC planning quality",
+      "Appropriate statistical methodology including mixed-effects modeling and multivariable regression identifying total target volume as the dominant predictor of low-dose brain exposure",
+      "Clinically actionable finding that DIT achieves dosimetric quality intermediate between SIT and GK, providing practical guidance for LINAC-based SRS programs considering isocenter strategy"
+    ],
+    "key_concerns": [
+      "Dosimetric planning study only — no delivery verification, clinical toxicity data, local control, or patient outcome endpoints; clinical implications are indirect",
+      "Single institution, 28 patients without a formal power calculation; generalizability to different planning systems, tumor histologies, and lesion distributions is uncertain",
+      "The GK advantage in conformity and low-dose volumes is already established in the literature; the primary novel contribution (DIT as intermediate strategy) would benefit from prospective clinical outcome validation"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a methodologically sound three-way dosimetric comparison of GK and LINAC-based SRS strategies for multiple brain metastases using a rigorous paired within-patient design. The study provides clinically relevant guidance for LINAC-based programs and identifies total target volume as the key predictor of normal-tissue dose. Minor revisions addressing the absence of a power calculation and a clearer delineation of the study's scope as a planning study are appropriate before tier 3 publication."
+  }
+}

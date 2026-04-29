@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC12960945",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:10:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 5,
+      "statistical_score": 5,
+      "justification": "The study employs rigorous mathematical analysis (exact analytical derivations, Weibull distribution probability densities, Poisson process modeling, exact integral solutions) combined with agent-based simulation validation (1000 replicates per parameter set, spatial Moran process). The analytical predictions for sweep probabilities in 1D, 2D, and 3D are derived from first principles with explicit exact expressions and approximate closed-form solutions. Agent-based simulations use the demon framework with systematic parameter variation across mutation rates (10^-4 to 10^-6) and fitness effects, confirming independence of sweep probability from mutation rate across all tested conditions. Models with random and multiplicative fitness effects are tested separately. Finite-simulation time truncation is explicitly addressed using right-truncated gamma distribution fitting and maximum likelihood correction. The parameter estimation for human tumors draws from published cancer biology literature with transparent uncertainty ranges. The main mathematical limitation is the y=0 approximation used to derive the elegant sweep probability formula—while shown to be accurate, it is an upper bound rather than exact. This is explicitly acknowledged and quantified."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "5",
+      "justification": "This is a theoretical/computational modeling study (Oxford LoE 5) with no patient data or clinical validation. Clinical relevance is indirect but meaningful: the model provides a general mathematical explanation for the observed pan-cancer finding that most solid tumors exhibit subclonal (branching) evolution rather than sequential selective sweeps, reconciling prior conflicting sequencing study interpretations. Parameterized with published cancer biology parameters (tumor growth rates, mutation rates, driver mutation frequency), the model predicts that selective sweeps are rare except in very early solid tumor growth—a quantitative prediction aligned with PCAWG consortium findings from 2658 human tumor genomes. The framework has potential utility for understanding treatment resistance evolution and optimizing treatment timing, though these clinical applications are not developed in this paper."
+    },
+    "reporting_quality": {
+      "score": 5,
+      "standard_used": "other",
+      "data_availability_score": 4,
+      "justification": "Reporting adheres to high standards for mathematical/computational biology: all model parameters are explicitly defined and justified; exact and approximate formulas are presented with proofs and derivations in SI Text; simulation methodology is fully described including software (demon framework, warlock workflow, MATLAB), computational infrastructure (Hyperion cluster), and reproducibility steps; numerical integration bounds and interval widths are specified; all parameter values used in figures are tabulated in Supplementary Tables S1-S3. Simulation code is available via the demon framework (previously published). The analysis of finite-time truncation bias is methodologically transparent. Mathematical proofs are provided for all major claims. Source data are available through the agent-based simulation framework."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The study makes a significant theoretical advance by deriving the first simple, closed-form expression for selective sweep probability in spatially expanding populations where mutants can displace wildtype (cm > cwt)—a biologically important regime not previously addressed analytically. The key result that sweep probability equals (1-cwt/cm)^d (upper bound, dimension d) and is independent of mutation rate is genuinely novel and elegant. Prior work by Antal et al., Ralph & Coop, and Martens et al. either assumed sweeps are impossible (frontier mutations only) or used constant-sized populations. The unification of the constant-speed model with alternative growth models and the parameterization for cancer evolution providing a pan-cancer explanation for branching evolution prevalence are meaningful contributions. This represents a theoretical advance analogous to Haldane's rule for non-spatial populations, giving it lasting value beyond cancer biology."
+    },
+    "writing_presentation": {
+      "score": 5,
+      "justification": "The manuscript is exceptionally well-written with remarkable clarity for a mathematically dense topic. The introduction provides strong biological motivation and explicitly frames the gap in prior literature. The Results section presents mathematical derivations in a logical order with intermediate results clearly labeled and illustrated. The Discussion synthesizes findings across all models, explains the biological intuition behind the mutation-rate independence result, connects to PCAWG cancer genomics data, and outlines limitations and future directions transparently. The analogy to Haldane's rule effectively communicates the scope of the contribution to a broad audience. Figures are well-designed and clearly demonstrate agreement between analytical and simulation results. SI Text is comprehensive and well-organized."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 1,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "First closed-form analytical expression for selective sweep probability in spatially expanding populations where mutants can displace wildtype, with exact and approximate solutions in 1D, 2D, and 3D",
+      "Strikingly simple result: Pr(sweep) ≤ (1-cwt/cm)^d, independent of mutation rate—analogous to Haldane's rule for non-spatial populations",
+      "Extensive agent-based validation (1000 replicates per parameter set) confirming mutation-rate independence across three orders of magnitude and robustness to random/multiplicative fitness effects",
+      "Pan-cancer parameterization providing quantitative explanation for PCAWG finding that >95% of tumors show subclonal branching evolution",
+      "Transparent mathematical derivation with explicit proofs, simulation code availability, and thorough analysis of truncation bias"
+    ],
+    "key_concerns": [
+      "The primary formula is an upper bound based on the y=0 approximation (mutant arises at wildtype origin)—while shown to be accurate, some scenarios may deviate more substantially, and the approximation quality is only systematically tested in limited parameter ranges",
+      "The macroscopic model assumes constant radial expansion speed, which is violated during early exponential growth and late logistic phases; while alternative models are compared, the transition dynamics are not addressed",
+      "The agent-based simulations are restricted to 2D, while the main analytical results are for 3D tumor parameterization; explicit 3D agent-based validation would strengthen confidence in 3D cancer predictions",
+      "The cancer application assumes homogeneous microenvironments; tumor heterogeneity (hypoxia, necrosis, immune control) is discussed but not formally modeled, limiting quantitative precision of cancer-specific predictions"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is an exemplary mathematical biology paper providing the first elegant and general solution for selective sweep probability in spatially expanding populations, with rigorous analytical derivation, extensive computational validation, and compelling cancer biology application; the theoretical contribution is significant enough for a top-tier journal and minor revisions addressing 3D simulation validation and approximation scope would further strengthen the manuscript."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC12975452",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T10:05:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "The study systematically evaluates respiratory motion effects on LRT dose distributions using both phantom simulations and retrospective patient data (n=15 liver tumors). The dose perturbation method is well-validated; cosine wave sampling at 10 points provides adequate motion representation. Both rigid and deformable image registration comparisons are performed, and paired Wilcoxon signed-rank tests appropriately compare sphere sizes and motion types. Limitations are clearly acknowledged including the simplified sinusoidal motion model, lack of interplay effect analysis, and predominance of breath-hold patients limiting generalizability to free-breathing cohorts."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "4",
+      "justification": "This retrospective planning study provides clinically actionable motion management cutoffs (0.5 cm for 1 cm sphere plans, 1.0 cm for 1.5 cm sphere plans) for LRT—filling a documented gap where motion effects were largely ignored. The recommendations are directly applicable to clinical LRT practice for liver tumors. However, the clinical impact requires prospective validation with phantom measurements, and the sample size is small (n=15 patients)."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "none",
+      "data_availability_score": 2,
+      "justification": "The technical methods are described in sufficient detail for replication, including RayStation version, dose grid specifications, sphere placement algorithms, and motion sampling approach. Figures clearly illustrate dose metric changes and statistical comparisons. Patient characteristics are summarized in a table. However, no formal reporting standard is cited, patient data are not publicly shared, and the in-house automated LRT planning script is not available."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "This is the first systematic quantification of respiratory motion effects on VMAT-based lattice therapy dose distributions, addressing a documented and explicitly acknowledged gap in the literature. Prior work by Naqvi et al. addressed grid (not lattice) therapy, and clinical practice had not established evidence-based cutoffs. The proposed cutoffs and sphere-size-dependent recommendations based on systematic simulation and patient data fill a genuine clinical need."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well-organized with a logical progression from phantom to patient to deformation analysis. Technical content is communicated clearly with appropriate figures and tables. The discussion contextualizes findings relative to prior work and SBRT cutoffs. Limitations are thoroughly discussed. The paper's concise clinical recommendations are well framed and practically useful."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "First systematic quantification of respiratory motion effects on VMAT-based lattice therapy, filling an explicitly documented clinical gap",
+      "Evidence-based motion management cutoffs proposed (0.5 cm for 1 cm spheres, 1.0 cm for 1.5 cm spheres) with direct clinical applicability",
+      "Both phantom and retrospective patient (n=15) validation with deformable image registration comparison provides rigorous multi-level evidence",
+      "Clear documentation of sphere-size-dependent motion sensitivity with statistically significant differences"
+    ],
+    "key_concerns": [
+      "Small patient cohort (n=15) predominantly treated with breath-hold limiting generalizability to free-breathing patients",
+      "Interplay effects not analyzed despite acknowledged importance in single-fraction LRT delivery",
+      "Motion model simplified to sinusoidal; real breathing pattern variability not assessed",
+      "No phantom measurements to validate proposed cutoffs—acknowledged but represents a key unresolved gap"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A technically rigorous and clinically relevant study addressing a genuine gap in LRT motion management evidence, with well-justified cutoff recommendations supported by both phantom and patient data. The main limitations (small n, no interplay analysis, no phantom measurement validation) are appropriate scope limitations for a single-institution retrospective study. Suitable for mid-tier radiation oncology physics journal with minor revisions."
+  }
+}

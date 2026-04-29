@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC13024948",
+  "model": "gpt-5.2",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T01:22:03Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 4,
+      "justification": "This is primarily a synthetic-cohort methods paper that specifies a multi-fraction Jones–Hopewell extension (AI-BED-Fx) and then tests it across multiple simulated pathology-specific cohorts, with clear train/test splitting and cross-validation. The statistical evaluation is generally appropriate, using AUC and Brier score with bootstrap confidence intervals, plus calibration and explainability analyses (e.g., SHAP) to probe feature contributions. However, the empirical validation is limited: the only real-patient component is an exploratory 60-lesion brain-metastasis dataset analysis that lacks the time-structure/dosimetry needed for direct BED evaluation and has missing outcome fields for recurrence."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "5",
+      "justification": "The work targets a clinically relevant problem (fractionated Gamma Knife decision support) and frames when BED might add value over physical dose metrics, which could inform planning research. Nonetheless, the evidence base presented here is mainly mechanistic modeling and simulation, with only a small retrospective clinical consistency check that cannot evaluate the full framework. On the Oxford hierarchy this is best classified as level 5 because the core claims are supported by synthetic modeling and method development rather than a clinical cohort study demonstrating patient-outcome benefit."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "other",
+      "data_availability_score": 2,
+      "justification": "No single clinical reporting checklist cleanly applies because the manuscript is a computational radiobiology and machine-learning methods study, so an 'other' standard is most appropriate. The paper reports equations, parameter choices, cohort-generation assumptions, model families, and performance metrics in substantial detail, including cross-validation and uncertainty estimation. Reporting is weaker for clinical translation, with limited description of external clinical datasets beyond an institutional spreadsheet-derived cohort and no explicit statement of public code or data release in the blinded text."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The manuscript’s main novelty is a unified multi-fraction extension of a radiosurgery repair model to compute fraction-resolved BED for 1-, 3-, and 5-fraction Gamma Knife treatments, coupled to AI experiments (parameter inference and neural surrogate modeling). It also contributes a cross-pathology framing for when BED should or should not add predictive value, rather than assuming BED is universally superior. The novelty is tempered by the heavy reliance on synthetic cohorts and the absence of substantive multi-institutional clinical validation."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The writing is generally clear and methodologically explicit, with structured sections that walk through model construction, evaluation metrics, and limitations. At the same time, there is substantial length and occasional repetition of enumerated assumptions and model summaries that can obscure the main narrative. The clinical implications are stated, but the manuscript could more consistently separate what is demonstrated in simulation from what is only proposed for future clinical validation."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Presents a coherent multi-fraction radiobiological BED framework that explicitly incorporates fractionation and repair kinetics rather than relying on simplified BED surrogates.",
+      "Uses multiple evaluation lenses (AUC, Brier score, calibration, cross-validation, and explainability) to interrogate model behavior.",
+      "Explicitly tests pathology dependence, showing scenarios where BED adds value and where volume/physical dose dominate.",
+      "Includes a limited retrospective clinical consistency check (60 brain metastasis lesions) to compare at least one predicted trend (volume-outcome association) against real data."
+    ],
+    "key_concerns": [
+      "Most results are derived from synthetic cohorts, so clinical generalizability is unproven and may be sensitive to simulation assumptions.",
+      "The clinical dataset is small and lacks the dosimetric/time-structure inputs needed to directly validate AI-BED-Fx BED computations.",
+      "Reproducibility posture is unclear in the blinded manuscript: no explicit public code/data deposition is described, and one analysis references a local spreadsheet-derived dataset.",
+      "Some statistical comparisons are limited (e.g., DeLong test instability in one setting), and the manuscript would benefit from clearer guidance on expected identifiability and uncertainty in real-world datasets."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a technically solid and potentially useful methods contribution, but the manuscript reads as a controlled mechanistic validation rather than a clinically validated tool. With stronger clinical evaluation, clearer reproducibility commitments, and tighter separation of simulated versus empirical claims, it could be competitive at a mid-tier oncology methods/medical physics venue."
+  }
+}
+

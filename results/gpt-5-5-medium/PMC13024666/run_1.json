@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC13024666",
+  "model": "gpt-5.5",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T01:16:51Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 3,
+      "justification": "The retrospective single-center cohort of 130 nasopharyngeal carcinoma survivors used a training/testing split, LASSO Cox feature selection, multivariable Cox modeling, calibration, time-ROC analysis, and decision curve analysis, which is appropriate for a prognostic radiomics question. Important limitations remain: there is no external validation, no reported power calculation, and the authors acknowledge selection bias from excluding patients without institutional follow-up MRI. The testing cohort is small at 39 patients and some reported validation AUC confidence intervals exceed 1.0, suggesting instability or reporting problems."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "This is an individual retrospective cohort study evaluating a prognostic model, so the Oxford level is 2b. The endpoint, cerebral herniation secondary to radiation-induced cystic brain necrosis, is clinically serious and directly tied to surveillance frequency and possible surgical planning. Clinical relevance is strong, but the model is restricted to nasopharyngeal carcinoma patients with RCN and requires prospective multicenter validation before it could guide practice."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "TRIPOD is the applicable framework because the study develops and internally validates a prediction model. The manuscript reports the cohort source, endpoint, candidate predictors, feature extraction, LASSO selection, C-index, calibration, time-dependent AUCs, decision curves, and a nomogram, but key details are relegated to supplementary methods and there is no external validation or clear handling of missing data. Data and code sharing are not described in the normalized manuscript beyond software and package references, limiting reproducibility."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The manuscript credibly positions itself as the first radiomic model for predicting cerebral herniation in nasopharyngeal carcinoma patients with radiation-induced cystic brain necrosis. Radiomics-based prognosis is an established method, but applying it to this rare, high-risk complication and integrating perilesional enhancement fills a specific documented gap. The novelty is therefore meaningful but not field-defining."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The abstract is quantitatively grounded and matches the full paper, including cohort size, split, C-index values, and clinical implications. The manuscript follows a clear structure from diagnosis and endpoint definition through feature selection, model construction, validation, and limitations. Some methodological details depend heavily on supplementary materials, and the validation AUC intervals above 1.0 weaken presentation quality, but the main narrative is organized and readable."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Clinically important endpoint of cerebral herniation in radiation-induced cystic brain necrosis.",
+      "Appropriate prognostic modeling framework with LASSO Cox selection, multivariable Cox modeling, calibration, C-index, time-ROC, and decision curve analysis.",
+      "Internal testing cohort shows preserved discrimination with C-index 0.867.",
+      "Limitations are explicitly acknowledged, including single-center retrospective design and need for prospective multicenter validation."
+    ],
+    "key_concerns": [
+      "No external validation and only 39 patients in the testing cohort.",
+      "Selection bias is possible because patients without follow-up cranial MRI at the institution were excluded.",
+      "Some validation AUC confidence intervals exceed 1.0, requiring correction or explanation.",
+      "No clear public data or code availability is reported."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a solid, clinically relevant prediction-model paper with meaningful novelty in a rare complication, but the evidence remains retrospective and internally validated only. It is best suited to a tier 3 oncology or radiology venue after minor revisions to reporting and validation details."
+  }
+}

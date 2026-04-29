@@ -1,0 +1,55 @@
+{
+  "paper_id": "PMC12897004",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 3,
+      "justification": "The study is a multi-institutional retrospective cohort with a 1:1 propensity score matching approach (nearest-neighbor, caliper 0.2) incorporating preoperative KPS and extent of resection as covariates, and both Kaplan-Meier log-rank and Cox proportional hazards modeling for matched pairs with robust SE. Use of RANO criteria, semi-automated volumetric segmentation, and prespecified imaging timepoints is appropriate. Limitations: small sample (n=33/group matched from 33 neoBev + 136 controls), PSM with only two covariates omits important confounders (MGMT methylation, IDH status - only 2 of 66 IDH-mutant, tumor location, age), post hoc ROC-derived imaging thresholds using closest-to-(0,1) method in small samples (hypothesis-generating only, acknowledged), no blinding of volumetric assessment (acknowledged), no power calculation. The 'before PSM' EOR imbalance (higher in neoBev) risks reflecting selection bias not captured by post-PSM balance."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "2b",
+      "justification": "Individual matched retrospective cohort (Oxford LoE 2b). The finding that neoBev does not improve PFS or OS versus standard chemoradiotherapy is consistent with the negative RTOG 0825 overall survival outcome for perioperative bevacizumab, reinforcing that routine use is not warranted. The study's clinical value is in delineating a narrow contextual role (eloquent-region tumors with severe edema, lower performance status) and reinforcing caution against routine use; it is hypothesis-refuting rather than practice-changing but still informative."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "STROBE",
+      "data_availability_score": 1,
+      "justification": "STROBE applies. Reporting includes IRB approvals, enrollment timeframe (2015-2024), explicit covariate list for PSM, standardized mean differences for covariate balance, HRs with 95% CIs, and candid acknowledgment of exploratory versus confirmatory analyses. Explicit statements that imaging analyses and EOR-stratified findings are hypothesis-generating are commendable. STROBE gaps: no flow diagram of cohort selection in main text (the 169-patient screening outcome is ambiguous since 169/169 met criteria as described), no discussion of missing data strategy for MGMT/IDH, WHO 2021 harmonization is partial. Data availability: no deposition statement for de-identified data, imaging, or code for volumetric segmentation."
+    },
+    "novelty_literature": {
+      "score": 2,
+      "justification": "The work is a secondary analysis of the authors' prior Tanaka 2024 Phase II neoBev feasibility study with a new PSM comparison cohort. Previous randomized trials (RTOG 0825, AVAglio) already showed bevacizumab extends PFS but not OS in newly diagnosed glioblastoma. The present study's findings are largely concordant with this established evidence and do not identify a new clinical niche with compelling evidence; the imaging biomarker observations are exploratory and underpowered. The contribution is incremental confirmation with a perioperative-specific focus."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The manuscript is well-organized with clear sectioning, candid acknowledgment of exploratory analyses, and appropriate hedging language. Some redundancy exists across introduction and discussion sections regarding tumor microenvironment modulation. Minor typographic issues ('to date,,', 'mPFS'). Figures and tables referenced consistently with clear mapping to analyses. Adequate presentation but not exceptional."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 5,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Multi-institutional cohort with 1:1 propensity score matching and post-match balance reporting (SMDs < 0.10)",
+      "Robust SE in Cox model for matched pairs, RANO criteria for progression, and semi-automated volumetric MRI assessment",
+      "Explicit labeling of imaging biomarker and EOR-stratified analyses as exploratory/hypothesis-generating",
+      "Significant functional improvement (KPS) in neoBev group with appropriate ordinal Wilcoxon signed-rank analysis",
+      "Direct positioning of findings against RTOG 0825 randomized evidence"
+    ],
+    "key_concerns": [
+      "Small matched cohort (n=33/group) limits statistical power for survival endpoints",
+      "PSM covariates include only preoperative KPS and EOR; MGMT methylation, IDH status, age, tumor location not incorporated despite known prognostic impact",
+      "Post hoc ROC-derived imaging thresholds in small sample risk overfitting (appropriately hedged but still prominent in Results)",
+      "Findings largely confirmatory of established RTOG 0825/AVAglio negative OS results for bevacizumab in newly diagnosed GB",
+      "No data/code availability statement; no sample size justification",
+      "Single-arm neoBev group from multiple centers while controls only from Jikei University introduces asymmetric center selection"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "Competent hypothesis-refuting matched cohort analysis in glioblastoma with appropriate PSM methodology but confirmatory findings, small sample, and incomplete covariate adjustment. Best positioned at Tier 3 (Cancers, Neuro-Oncology Advances, Journal of Neurooncology) with minor revisions to address MGMT/IDH adjustment, flow diagram, and data availability."
+  }
+}

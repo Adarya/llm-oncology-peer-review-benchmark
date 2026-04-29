@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC13050745",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:10:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 3,
+      "justification": "The study of 604 patients with systematic 5-group data comparison and 5-algorithm ML evaluation is adequately powered for this type of model development study. Five-fold cross-validation and Optuna hyperparameter optimization are sound approaches. LASSO feature selection is appropriate. However, several significant methodological limitations are self-acknowledged: (1) no inter-observer ICC evaluation for ROI delineation (single radiologist), leaving feature reproducibility unverified; (2) JPEG images used instead of DICOM, introducing compression artifacts; (3) three different ultrasound systems without harmonization; (4) no external validation cohort; and (5) qualitative rather than quantitative CEUS assessment (no TIC analysis). These issues substantially limit the generalizability claims."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "4",
+      "justification": "This retrospective single-center model development study is LoE 4. The clinical question — predicting LNM in cN0 PTC to guide prophylactic lymph node dissection decisions — is genuinely clinically important, with implications for surgical planning and overtreatment prevention. The high AUCs (0.928 for CLNM, 0.942 for LNM) are promising, but the low sensitivity (stated as a primary limitation) and absence of external validation mean clinical utility has not been established. The translational path requires prospective multicenter validation before any clinical deployment."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "TRIPOD applies as the prediction model development reporting standard. The manuscript describes cohort flow, inclusion/exclusion criteria, feature extraction details (PyRadiomics version, preprocessing steps), model performance metrics (AUC, accuracy, sensitivity, specificity, F1, Brier score, calibration, DCA), and SHAP interpretability. The authors explicitly acknowledge the key methodological weaknesses in the limitations section. However, the absence of ICC for ROI reproducibility, no external validation, and use of JPEG images are particularly significant for radiomics quality standards. Code and data are not publicly deposited."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "Radiomics models for PTC LNM prediction exist in the literature (cited AUCs 0.727-0.803), but integration of CEUS radiomic features (as opposed to qualitative CEUS parameters alone) in a systematic comparison of 5 feature groups and 5 ML algorithms represents a methodological advance. The CEUS radiomic integration and the high AUC improvement over prior models (0.928-0.942 vs. 0.727-0.803) constitute a meaningful contribution. The transparent comparison of five data combination strategies provides informative evidence on the incremental value of each data layer."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The manuscript is adequately organized with systematic results presentation across five model groups. The SHAP visualization analysis descriptions in the results are overly technical for the amount of clinical interpretation provided. The limitations section is commendably honest and detailed, clearly acknowledging compression artifacts, lack of ICC, and absence of external validation. However, the discussion of individual SHAP-identified features is excessively granular given the absence of external validation, and some feature interpretations are speculative rather than evidence-based."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Systematic comparison of 5 data combination strategies and 5 ML algorithms for LNM prediction in cN0 PTC, providing informative evidence on the value of each data layer (clinical, radiomics, CEUS contrast parameters)",
+      "High AUC values (0.928-0.942) substantially exceeding prior radiomics-only models in the same clinical task (reported AUCs 0.727-0.803)",
+      "SHAP interpretability analysis applied to both optimal models with clinically contextualized feature discussion",
+      "Comprehensive and honest limitations section explicitly acknowledging JPEG compression artifacts, missing ICC, heterogeneous scanners, and absence of external validation"
+    ],
+    "key_concerns": [
+      "No inter-observer ICC assessment for ROI delineation (single radiologist) — this is a fundamental radiomics quality standard that directly undermines feature reproducibility claims",
+      "JPEG image format instead of DICOM for feature extraction introduces compression artifacts that systematically degrade radiomic fidelity",
+      "Three different ultrasound systems (SuperSonic, Mindray A20, Risonna 7) without harmonization likely introduce significant batch effects that confound model performance estimates",
+      "Low sensitivity acknowledged as primary limitation but not addressed — a model with high specificity and low sensitivity has limited utility for a clinical task where minimizing missed diagnoses is the priority"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a reasonably rigorous model development study with important self-acknowledged methodological limitations. The performance improvement over prior work is meaningful, and the systematic feature combination comparison adds scientific value. The three core technical limitations (no ICC, JPEG images, multi-vendor without harmonization) require acknowledgment in revision but do not preclude Tier 3 publication given the study's exploratory nature and honest transparency about limitations."
+  }
+}

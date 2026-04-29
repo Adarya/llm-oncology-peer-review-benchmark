@@ -1,0 +1,51 @@
+{
+  "paper_id": "PMC13024666",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T10:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "This retrospective single-center study (n=130 NPC patients with radiation-induced cystic brain necrosis) develops a radiomic model for predicting cerebral herniation using LASSO Cox regression for feature selection from MRI-derived radiomic features plus the RPE ratio. The LASSO approach appropriately addresses high-dimensionality and the model is evaluated with C-index in separate training and testing sets (0.841 and 0.867 respectively). Decision curve analysis provides clinical utility assessment beyond discrimination. Limitations include single-center design without external validation and the retrospective nature of the radiomic feature extraction."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "4",
+      "justification": "Cerebral herniation in radiation-induced cystic brain necrosis is a serious and potentially fatal complication in NPC survivors, and no validated predictive tool has previously existed for this specific endpoint. A radiomic model with C-index >0.84 that outperforms clinical variables alone and is validated on a held-out test set has direct potential for risk stratification and treatment prioritization (e.g., earlier surgical intervention). The decision curve analysis confirms net clinical benefit over default strategies at relevant threshold probabilities."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "TRIPOD is the applicable reporting standard for this prediction model development study. Key elements including study population, outcome definition, predictor selection methodology (LASSO), model performance metrics (C-index, calibration), and decision curve analysis are all reported. The training/test split is defined and both performance metrics are reported separately. However, external validation is absent, the radiomic feature extraction pipeline is not fully specified for reproduction, and data are not publicly available."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "This is reported as the first study to develop a radiomic model specifically for predicting cerebral herniation as an endpoint in radiation-induced cystic brain necrosis following NPC radiotherapy. The combination of MRI radiomic features with the RPE ratio to create a quantitative risk score for this specific complication fills a documented clinical gap. The methodological approach (LASSO Cox with DCA) is well-established but its application to this specific clinical problem is genuinely novel."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well-organized with clear sections addressing the clinical problem, patient population, radiomic feature extraction, model development, and clinical utility assessment. The radiomic workflow is described with sufficient detail for methods replication and figures illustrating the model nomogram and DCA curves are informative. The discussion appropriately contextualizes the findings and acknowledges external validation as a key limitation. Minor improvements to the figure legends would enhance clarity."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "First radiomic model specifically developed for cerebral herniation prediction in radiation-induced cystic brain necrosis, addressing a genuine clinical gap",
+      "Strong discriminative performance (C-index 0.841 training / 0.867 testing) with decision curve analysis confirming net clinical benefit",
+      "LASSO Cox with appropriate training/testing split and TRIPOD-consistent reporting of model development process",
+      "Directly actionable findings for risk stratification in NPC survivors with cystic brain necrosis"
+    ],
+    "key_concerns": [
+      "Single-center design without external validation limits generalizability of the radiomic model to other institutions with different MRI protocols",
+      "Radiomic feature extraction pipeline not fully specified (software version, preprocessing steps) limiting exact reproducibility",
+      "Raw data and feature extraction code not publicly available, preventing independent model validation"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This first-of-kind radiomic prediction model for a clinically significant complication with strong internal validation performance is appropriate for a Tier 3 oncology or neuro-oncology journal. Minor revisions should provide the complete radiomic feature extraction pipeline and discuss the external validation pathway."
+  }
+}

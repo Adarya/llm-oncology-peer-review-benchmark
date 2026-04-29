@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC12960945",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 5,
+      "statistical_score": 5,
+      "justification": "Mathematical and computational study deriving exact and approximate selective-sweep probabilities during spatial range expansions in 1D, 2D, and 3D under constant radial expansion speed. Analytical derivations are transparent (Weibull arrival-time distributions, Poisson marker, exact and y=0 upper-bound approximations) and cross-checked with numerical integration (MATLAB trapz) and extensive agent-based simulations (Moran process, demon/warlock framework) running 1000 replicates per parameter set across mutation rates 10^-4 to 10^-6 and mutant proliferation rates 1.1-3.0. Robustness verified under fixed vs random mutation effects (exponential distribution with diminishing-returns epistasis, max birth rate M=10), alternative growth laws (boundary growth, logistic, constant population), and truncated-gamma corrections for potentially missed sweeps. High statistical rigor with reproducibility via public workflow."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "5",
+      "justification": "Theoretical/mechanistic modeling study; Oxford LoE 5 (mechanistic reasoning). When parameterized for human tumors, the model predicts that selective sweeps are rare except during early solid tumor growth, providing a pan-cancer theoretical explanation for the dominance of branching rather than linear evolution observed in sequencing studies. Translational relevance is conceptual: it informs interpretation of tumor evolutionary dynamics but does not yield direct clinical recommendations."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "other",
+      "data_availability_score": 4,
+      "justification": "Not a human, animal, or observational study; no clinical reporting standard applies, so 'other' is appropriate. The manuscript describes simulation parameters (K=16, m=0.05, proliferation rates), model assumptions, and code/workflow references (Warlock, demon, ggmuller). Supplementary text sections 1-10 provide full derivations and the correction method for undercounted sweeps. No explicit raw-data repository deposition is visible, but the computational workflow is open-source and reproducible. Equations and claims are clearly stated."
+    },
+    "novelty_literature": {
+      "score": 5,
+      "justification": "First exact and simple approximate closed-form expressions for selective-sweep probabilities in 1D, 2D, and 3D range expansions when mutants can displace slowly spreading wildtype, with the counterintuitive finding that sweep probability is independent of mutation rate and depends only on the speed ratio (cm - cwt)/cm. Prior work considered either constant-size populations or fast range expansions where sweeps are effectively impossible; this paper fills an unexplored regime. Provides a pan-cancer mechanistic explanation for the sweep/branching evolution debate."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "Dense but clear exposition, systematically moving from model setup (Claim 1, Weibull arrival time) to conditional/unconditional sweep probabilities, alternative growth laws, agent-based validation, and random-effect mutations. Figures effectively illustrate analytical versus numerical agreement. Mathematical notation is heavy but consistent; the text includes useful biological framing (tumor evolution debate). Some intermediate algebra is relegated to SI, which is appropriate."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 1,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Novel exact and simple approximate closed-form sweep probabilities in 1D/2D/3D range expansions",
+      "Striking mutation-rate-independent result Pr(sweep) ~ ((cm - cwt)/cm)^d with biologically interpretable FKPP parameterization",
+      "Extensive agent-based Moran simulations (1000 replicates per cell) with robustness to random mutation effects and epistasis",
+      "Sensitivity analyses across alternative growth laws (boundary growth, constant-size, exponential, logistic) and truncated-gamma correction for undercounted sweeps",
+      "Provides pan-cancer theoretical explanation consistent with branching evolution observed in sequencing studies"
+    ],
+    "key_concerns": [
+      "Oncology relevance is conceptual; no direct clinical outcomes or patient-data validation",
+      "Limits of the macroscopic model (e.g., neglect of intermediate-fitness mutants, sequential sweeps) are acknowledged but not fully resolved",
+      "Resident cells prohibited from dispersal; asymmetry only briefly justified and referenced to future work",
+      "Public repository/DOI for simulation code not explicitly given in the normalized text"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A mathematically rigorous and conceptually novel contribution with an elegant mutation-rate-independent sweep-probability formula and extensive simulation validation; tier 1 with minor revisions is justified given the pan-cancer theoretical insight and broad methodological generalizability."
+  }
+}

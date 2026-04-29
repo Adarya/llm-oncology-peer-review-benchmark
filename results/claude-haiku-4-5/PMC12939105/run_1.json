@@ -1,0 +1,51 @@
+{
+  "paper_id": "PMC12939105",
+  "model": "claude-haiku-4-5",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 4,
+      "justification": "Retrospective multi-institutional study (3 Canadian academic centers) with 482 advanced-stage NSCLC patients in primary cohort and independent 51-patient neoadjuvant validation cohort. Clear inclusion/exclusion criteria and patient-level separation enforced preventing data leakage from self-training cohort. Proper data splitting (80/20 train/test) with separate independent validation. Main limitation: nested/repeated cross-validation not feasible due to computational constraints of FT-Transformer, authors acknowledge this explicitly. Blinding not reported. Good sensitivity analysis on calibration and recalibration approaches."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "Addresses critical clinical problem: 70% of NSCLC patients fail to benefit from checkpoint inhibitors, current PD-L1 assessment requires invasive biopsy with limitations including intratumoral heterogeneity and specimen quality variability. Proposes non-invasive CT-based surrogate applicable across disease stages (advanced and limited neoadjuvant settings). Strong translational pathway: if prospectively validated, could support patient stratification and non-invasive serial monitoring of PD-L1 expression during treatment."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "STROBE",
+      "data_availability_score": 1,
+      "justification": "Comprehensive STROBE adherence: clear objectives differentiating study from prior single-center work, explicit inclusion/exclusion criteria with patient flow diagram, baseline demographic and clinical characteristics in Table 1, detailed methods covering image preprocessing, radiomics workflow with feature engineering, FT-Transformer architecture and self-training mechanism with data leakage prevention. Results thoroughly reported with AUC, 95% CI, accuracy, precision, recall, F1-score, calibration curves, Brier scores. Limitations thoroughly discussed. Gaps: no explicit data availability statement or pre-registration mentioned."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "Prior CT radiomics studies for PD-L1 prediction exist in single-center or limited datasets (references 22, 23). This study's novel contributions: (1) multi-institutional training on 482 patients with patient-level data leakage prevention; (2) self-training framework leveraging unlabeled data (public NSCLC-Radiomics dataset, unlabeled in-house scans) for improved generalizability; (3) FT-Transformer with feature tokenizer for tabular radiomics features; (4) independent neoadjuvant validation across disease stages; (5) SHAP-based interpretability analysis demonstrating textural heterogeneity drives predictions. Meaningful methodological advancement over prior single-center studies."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "Well-organized manuscript with clear problem framing highlighting gaps in existing radiomics literature (single-center, limited validation, black-box models). Introduction expertly positions need for multi-institutional generalizability. Methods comprehensive and reproducible: CT preprocessing details, radiomics feature extraction (1409 total features), LASSO dimensionality reduction, FT-Transformer architecture, self-training pseudolabeling strategy with data leakage prevention explicitly detailed. Results logically presented with benchmark comparisons, ROC curves, SHAP rankings. Representative case examples (Figure 6) effectively illustrate high vs low PD-L1 imaging patterns. Discussion balanced, acknowledging limitations (limited geographic diversity, all Canadian centers; attenuation in neoadjuvant validation)."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Multi-institutional training on 482 patients from three medical centers with explicit patient-level separation preventing data leakage from self-training on public and unlabeled datasets",
+      "Novel self-training framework combining supervised learning on labeled data with pseudolabeling of high-confidence predictions from unlabeled scans, improving generalizability with limited annotations",
+      "Independent external validation in distinct clinical context (neoadjuvant limited-stage NSCLC vs advanced-stage training cohort) with preserved discriminatory power (AUC 0.68) despite stage/treatment differences",
+      "SHAP-based interpretability revealing textural heterogeneity (SZNUN, ClusterShade) as key features predicting high PD-L1, providing mechanistic insight beyond black-box predictions"
+    ],
+    "key_concerns": [
+      "Performance attenuation in neoadjuvant cohort (AUC 0.68 vs 0.75 in primary) suggests limited cross-stage generalizability; authors note this reflects biological differences but raises questions about broad applicability",
+      "Nested or repeated cross-validation not feasible due to self-training framework computational constraints; single train/test split provides less robust uncertainty quantification than would be expected for tier 2 venue",
+      "Geographic diversity limited to single Canadian province with relatively modest cohort sizes; large-scale international prospective validation required before clinical implementation as acknowledged"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "Methodologically solid radiomics study addressing genuine clinical need (non-invasive PD-L1 assessment) with multi-institutional training, thoughtful data leakage prevention, and independent neoadjuvant validation. Performance is promising but shows stage-dependent variation requiring prospective validation. Tier 2 appropriate for high-quality preliminary research in emerging domain before clinical translation."
+  }
+}

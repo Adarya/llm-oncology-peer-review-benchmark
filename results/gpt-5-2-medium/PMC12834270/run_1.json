@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC12834270",
+  "model": "gpt-5.2",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-28T21:16:23Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "The study develops a prognostic staging system in a clearly defined derivation cohort (UK National Amyloidosis Centre, 2015-2019) and performs large external validation across multiple countries and time periods, which supports generalizability (Methods: Derivation Cohort; External Validation; Results). The endpoint (overall survival from diagnosis) is clinically appropriate, and associations are assessed with univariable/multivariable Cox models and Kaplan-Meier/log-rank comparisons, with explicit evaluation of collinearity (VIF) and prespecified comparisons across treatment eras and regimens (Methods). The model uses established biomarker thresholds plus an empirically chosen longitudinal strain cutoff (time-dependent ROC) and reports calibration and discrimination metrics in the validation cohort (Methods: Model Evaluation; Abstract). Key limitations for rigor include potential threshold and model-selection optimism from derivation (especially using ROC-based LS thresholding) and unclear handling of missing data within the normalized manuscript."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "This is a set of observational cohorts used for prognostic model development and external validation rather than an interventional study, so Oxford LoE is best classified as 2b (Methods; Abstract). Clinical relevance is high because the proposed AL-ISS stage definitions (including stage IIIC) are intended to guide prognosis, treatment planning, and trial eligibility in the contemporary daratumumab era, with large differences in median OS across stages (Abstract; Discussion). The manuscript also explicitly discusses implications for access to daratumumab-based regimens, trial inclusion, and consideration of advanced options (e.g., heart transplantation) in the ultra-poor-risk group (Discussion)."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "TRIPOD is the most applicable standard because the manuscript describes prognostic model/staging-system derivation and external validation with reporting of discrimination and calibration (Methods: Model Evaluation; Abstract). The paper reports cohort definitions, endpoint definition, statistical modeling approach, validation cohorts, and key performance metrics (Harrell C, calibration slope, Royston D/R2D), which aligns with core TRIPOD expectations (Methods; Abstract). However, several TRIPOD-adjacent details are not clearly recoverable from the normalized text, including explicit missing-data handling, full predictor-coding details across centers, and whether any shrinkage/internal validation procedures were used in derivation. No clear data/code repository or reproducible analysis package is described in the normalized manuscript, limiting reproducibility beyond the described methods."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The key novelty is defining and externally validating an updated AL amyloidosis staging system (AL-ISS) that adds echocardiographic longitudinal strain to established cardiac biomarker thresholds to identify an ultra-poor-risk stage (IIIC) in the modern treatment era (Abstract; Introduction; Methods). The manuscript positions this as addressing a real gap created by improved outcomes under daratumumab-based therapy that blunt older staging discrimination, and it provides multi-country validation with performance metrics (Introduction; Methods; Abstract). While it builds directly on prior Mayo/European staging frameworks and prior single-center proposals, the scope and international validation make this more than incremental relabeling (Discussion)."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The introduction clearly motivates why older staging systems have reduced utility in the contemporary treatment era and explains longitudinal strain in accessible terms for a mixed clinical audience (Introduction). Methods are structured into derivation, external validation, and model evaluation, with concrete statistical procedures and named performance metrics, which aids reproducibility (Methods). The abstract is dense but quantitative, reporting cohort sizes, follow-up, survival by stage, and calibration/discrimination results, and the discussion appropriately acknowledges sources of bias (referral/access) and measurement variability for LS (Abstract; Discussion)."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Large, multi-country external validation (n = 1,920) supporting generalizability beyond the derivation cohort.",
+      "Clinically meaningful endpoint (overall survival) with strong risk separation, including identification of an ultra-poor-risk stage IIIC.",
+      "Appropriate statistical framework for prognostic modeling and validation with both discrimination and calibration metrics reported.",
+      "Clear rationale for updating staging in the modern daratumumab era and discussion of implications for trial design and management."
+    ],
+    "key_concerns": [
+      "Potential optimism/overfitting in derivation due to ROC-based selection of the LS threshold, with limited detail on internal validation or shrinkage in the normalized text.",
+      "Handling of missing data and cross-center measurement standardization for longitudinal strain are not fully transparent in the normalized manuscript.",
+      "Reproducibility is limited by the absence of an explicit data/code availability statement or repository identifiers in the normalized text.",
+      "Heterogeneity in access to daratumumab and referral patterns may influence stage distribution and outcomes across centers (acknowledged by the authors)."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A well-executed, internationally validated prognostic staging update with clear clinical utility, but it remains observational and would benefit from fuller TRIPOD-style transparency on derivation/validation mechanics and reproducible artifacts."
+  }
+}
+

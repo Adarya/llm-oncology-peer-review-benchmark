@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC13035498",
+  "model": "gpt-5.2",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T03:05:05Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "This is a structured retrospective treatment-planning study with a clearly defined design: two RapidPlan models (trained on the same 111 historical head-and-neck cases using VMAT vs RAD plans) are evaluated on an independent consecutively treated oropharyngeal cancer cohort, generating four plans per case. Planning techniques, prescriptions, target/OAR constraints, and the workflow (initial knowledge-based optimization plus manual tuning to meet mandatory goals) are described with enough detail to understand how plans were produced and compared. The use of the same planner across conditions reduces inter-planner variability, though manual tuning introduces some subjectivity and potential bias if not fully standardized/blinded. Statistical comparisons use an appropriate related-samples nonparametric framework (Friedman two-way ANOVA by ranks) with correction for multiple testing, and results are reported with specific dose-metric and NTCP differences; there is also attention to deliverability via measurement-based QA for a plan subset."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "5",
+      "justification": "This is not a patient-outcome effectiveness study; it is a dosimetric/planning comparison study, which maps best to Oxford LoE 5 (methodological/technical evidence rather than clinical comparative outcomes). Clinically, improved OAR sparing and reduced estimated NTCP for dysphagia/mucositis are relevant to toxicity reduction in oropharyngeal radiotherapy and to safe adoption of a new optimization/delivery solution. The manuscript directly addresses an implementation problem (whether a VMAT-trained knowledge-based model is usable for RAD) that affects clinical workflow and quality assurance. The relevance is moderate because benefits are modeled/estimated and require downstream clinical validation."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "other",
+      "data_availability_score": 1,
+      "justification": "No single biomedical reporting checklist in the provided set fits a radiotherapy planning study; the manuscript explicitly notes consideration of RATING planning-study guidelines, so 'other' is appropriate. The work reports cohorts, software versions, plan-generation conditions, prescriptions/constraints, evaluation metrics (dose/NTCP/complexity), and the statistical test with multiplicity correction, and includes ethics approval. Some reproducibility elements remain limited without access to the Eclipse/RapidPlan models, anonymized structures, and plan datasets, and there is no explicit data/code/model sharing statement in the blinded text. Still, the methodological description is relatively complete for a planning paper."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "The novelty is primarily methodological and implementation-focused: testing whether an existing VMAT-based RapidPlan model remains applicable when transitioning to the newer RAD optimizer and quantifying gains when retraining a RAD-specific model. The study also evaluates added degrees of freedom (STAMPs, dynamic collimator) in terms of OAR sparing and estimated NTCP. While comparative planning studies are common, the specific question of cross-technique model portability for a newly introduced solution is a meaningful extension. The contribution is incremental rather than paradigm-shifting."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The abstract and introduction clearly motivate why knowledge-based planning model applicability matters when the underlying optimizer changes, and they summarize the four-plan-per-patient design. Methods are organized with explicit cohort definitions, planning technique parameters, prescriptions/constraints, and the statistical comparison approach. Figure captions describe the planning design and the key outcomes (OAR mean doses, NTCP estimates, complexity metrics) sufficiently for interpretation without images. Overall, the manuscript reads as coherent and publication-ready within a technical radiotherapy audience."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Clear, well-controlled planning-study design with four plans per case enabling direct within-patient comparisons across technique and model.",
+      "Detailed description of planning techniques, prescriptions, and OAR/target constraints, with consistent optimization workflow across arms.",
+      "Appropriate paired nonparametric statistics (Friedman test) with multiple-testing correction and clinically relevant dose/NTCP endpoints.",
+      "Includes ethical approval and considers planning-study reporting guidance (RATING), plus deliverability checks on a subset of plans."
+    ],
+    "key_concerns": [
+      "Manual tuning to meet constraints may introduce operator-dependent bias; clearer standardization/blinding of tuning decisions would strengthen internal validity.",
+      "Findings are dosimetric and model-based (NTCP estimates) without direct clinical outcome validation, limiting claims about patient benefit.",
+      "Reproducibility is constrained by lack of shared planning models/datasets and dependence on proprietary planning software configuration.",
+      "Generalizability to other centers may be limited by local contouring practices and institutional planning goals."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A solid technical planning study with appropriate paired comparisons and clinically relevant dose/NTCP endpoints; it is well-suited to a mid-tier radiation oncology/medical physics journal after minor clarifications around tuning standardization and reproducibility."
+  }
+}
+

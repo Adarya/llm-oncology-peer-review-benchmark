@@ -1,0 +1,54 @@
+{
+  "paper_id": "PMC12975452",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 3,
+      "justification": "Systematic medical physics study comparing lattice radiation therapy (LRT) dose degradation under simulated respiratory motion, using (i) a uniform phantom with two lattice patterns (1 cm and 1.5 cm spheres), (ii) 15 retrospective liver patient plans, and (iii) a deformation analysis comparing perturbed vs deformed dose summation. Motion modeling with sampled cosine waves (0.3-2.0 cm peak-to-peak) and weighted dose summation is standard. Dose metrics (VTVH/VTVL D5/D80/D90/D95, PVDR surrogates, GTV D5/D10/D50/D90) are well defined, and paired Wilcoxon signed-rank tests compare plans. Limitations acknowledged include simplified sinusoidal motion, ignoring interplay effect, single institution, and breath-hold-only deformation cohort (3 of 15 used 4DCT). Sample size (n=15) is modest for patient variability and not justified by power calculation."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "5",
+      "justification": "The proposed motion cutoffs (0.5 cm for 1 cm sphere plans, 1 cm for 1.5 cm sphere plans) are directly actionable for radiation oncology clinics delivering LRT to abdominal and thoracic tumors, a growing area of clinical trial activity. The study fills a stated gap in the LRT literature and provides practical guidance for when to apply motion-limiting strategies. As a phantom + retrospective dose-distribution modeling study, this is a preclinical/technical study mapping to Oxford LoE 5."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "none",
+      "data_availability_score": 2,
+      "justification": "No established reporting standard neatly applies to a medical physics dose-perturbation study; 'none' is appropriate (AAPM report-style reporting is not a formal checklist). Methods are thorough, describing treatment planning system version (RayStation 11B, Collapsed Cone v5.7), lattice pattern geometry, dose grid (1.5 mm), prescription (20 Gy/1 fx to 80% of VTVH), motion amplitudes, perturbation technique, and statistical tests. Tables 1-3 and 9 figures summarize geometry, patient cohort, metrics, and p-values. Code/script availability is limited ('in-house automated script'); no data or code sharing statement for patient plans (expected for retrospective patient data). IRB/ethics approval is not explicitly mentioned in the provided text for the retrospective patient cohort."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "Quantifying respiratory motion effects on VMAT-based LRT dose distributions is a genuine gap acknowledged in the introduction and supported by their own literature review; the last relevant work (Naqvi 2008 for physical GRID with Monte Carlo motion) predates VMAT-based LRT. The study advances the field with practical motion cutoffs per lattice pattern and a comparison of rigid vs deformable dose summation. Not paradigm-shifting, but a meaningful extension with clinical utility."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well written and logically structured, with clear rationale, methods, results, and discussion. Dose metrics are defined carefully. Figures are described with informative captions. The discussion explicitly addresses limitations (simplified motion model, interplay effect, breath-hold bias in deformation analysis). Minor issues: IRB/ethics statement not shown in extracted text; some sentences are slightly long."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Systematic phantom-plus-patient evaluation of two clinically relevant lattice patterns (1 cm and 1.5 cm spheres) with multiple motion amplitudes (0.3-2.0 cm) and directions",
+      "Concrete, actionable motion cutoffs (0.5 cm for 1 cm sphere plans; 1.0 cm for 1.5 cm sphere plans) with supporting quantitative evidence",
+      "Comparison of rigid (perturbed) vs deformable dose summation with a clear example of when deformation matters",
+      "Good alignment with prior literature (Naqvi 2008 GRID, Grams 2023, Fernandez 2020 SBRT) and proper discussion of interplay effect as future work",
+      "Clear, well-organized writing with comprehensive dose-metric panel"
+    ],
+    "key_concerns": [
+      "Patient cohort of 15 with only 3 having 4DCT biases the deformation analysis toward small inter-image motion",
+      "Sinusoidal cosine motion sampling is acknowledged as a simplification; real respiratory patterns may differ",
+      "Interplay effect deliberately omitted despite its relevance for single-fraction LRT",
+      "Ethics/IRB statement for the retrospective patient cohort is not explicit in the extracted text",
+      "No data or code availability statement; in-house RayStation scripts not shared"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "Methodologically sound medical physics investigation addressing an acknowledged gap with practical cutoffs and carefully scoped limitations; suitable for a Tier 3 radiation oncology/medical physics journal with minor revisions."
+  }
+}

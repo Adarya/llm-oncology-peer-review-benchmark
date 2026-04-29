@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC13061892",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 3,
+      "justification": "The study triangulates CyTOF, scRNA-seq, mIHC, flow cytometry, and ImageStream across a 41-patient cohort and a 191-sample tissue microarray, then validates mechanism with conditional knockouts (CD19flox/flox;Lyz-Cre, Pax5flox/flox;Lyz-Cre), muMT mice, orthotopic/syngeneic Hepa1-6 models, anti-CD19 CAR-T, clodronate depletion, and Seahorse/EM/CUT&Tag assays, yielding convergent evidence for the CD19+ TAM phenotype and the PAX5-TFEB-lysosome-CD73/PD-L1 axis. Key mechanistic claims are tested with rescue experiments (TFEB overexpression offsets PAX5) and pharmacological orthogonal perturbations (IACS-010759, antimycin, NH4Cl/leupeptin). Limitations include small in vivo group sizes (n=4-5/group), reliance on THP-1/iBMDM surrogate systems for several mechanistic steps, absence of lineage-tracing to resolve cell-of-origin (acknowledged in Discussion), and a single-institution patient cohort. Statistics are adequate but minimalistic: paired/unpaired t-tests, one/two-way ANOVA, log-rank, Pearson correlation via GraphPad Prism 8, with no power calculations, no multiplicity correction across the many panels, and no sensitivity analyses reported."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "5",
+      "justification": "The work is preclinical/mechanistic (cell lines, mouse models, retrospective human tissue analyses with survival correlation), which maps to Oxford LoE 5, but the translational path is concrete: CD19+ TAM density stratifies overall and disease-free survival (HR 3.12, 95% CI 1.23-7.89), and three actionable interventions (anti-CD19 CAR-T, CD73 blockade, OXPHOS inhibition with IACS-010759) synergize with anti-PD-L1 in orthotopic HCC. The PAX5-driven mechanism and the documented enrichment of CD19+ TAMs across six solid tumor types give clear near-term translational implications, though no human trial data are presented. The clinical relevance is therefore high despite the preclinical LoE."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "ARRIVE",
+      "data_availability_score": 2,
+      "justification": "Most ARRIVE-relevant items are addressed: ethics approvals with specific numbers (2020-483, 2020-681), humane endpoints, mouse strains/sources, age ranges, randomization mentioned for CAR-T groups, and detailed reagent catalog information; however, blinding, exact sample-size justification, exclusion criteria, and full husbandry details are not reported in the main text, and the methods section explicitly defers most detail to Supplementary Information. The manuscript references a 'Nature Portfolio Reporting Summary' but the normalized text contains only a 'Source data' heading with no data or code availability statement, no accession numbers for the scRNA-seq/RNA-seq/CUT&Tag data in the provided text, and no code sharing described, although public datasets PRJCA010606 and PRJCA007744 are cited for reanalysis. Figure legends are thorough and statistical tests are disclosed per panel."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The identification of a CD19+ macrophage subpopulation enriched in HCC, shown to be functionally distinct from B cells (muMT experiments, morphology, B-cell-independent anti-tumor effect of anti-CD19 CAR-T), and the mechanistic link from PAX5 to mitochondrial biogenesis, Ca2+ shuttling, TFEB nuclear exclusion, and HSC70/lysosome-mediated stabilization of CD73 and PD-L1 is a novel and non-obvious integration. The Discussion explicitly distinguishes these cells from prior B-MF work (Chen et al. 2022, ref 36) by showing retention of PAX5/CD19 and B-cell-independence. The proposed CD19-CAR-T repurposing to solid tumors via TAM targeting is a genuinely new therapeutic angle, though individual pieces (CD73/PD-L1 synergy, OXPHOS inhibitors with ICB) are extensions of existing literature."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well-organized with a logical flow from discovery (CyTOF/scRNA-seq) to clinical association (TMA/survival) to mechanism (PAX5/TFEB/lysosome) to therapy (CAR-T, CD73, OXPHOS + anti-PD-L1). Figure legends are dense but informative, and the Discussion carefully distinguishes the findings from prior B-MF literature. Minor issues include occasional typos ('elucidat', 'Pax59flox/flox'), inconsistent notation (CD19+ vs CD19⁺), a Methods section that is unusually terse and offloads most detail to supplementary material, and some figure panels (e.g., Supplementary 6G referenced as '6G' in text) with ambiguous cross-references."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Novel identification of a CD19+ macrophage subpopulation in HCC with convergent validation across CyTOF, scRNA-seq, mIHC, flow cytometry, and ImageStream in a 41-patient cohort plus a 191-sample tissue microarray.",
+      "Mechanistic chain from PAX5 to mitochondrial biogenesis, Ca2+ shuttling, TFEB nuclear exclusion, and HSC70/lysosome-mediated accumulation of CD73 and PD-L1 is supported by loss-of-function (CD19ΔMφ, Pax5ΔMφ), gain-of-function (PAX5 overexpression), rescue (TFEB), and pharmacological orthogonal perturbations.",
+      "Clinically actionable translational readouts: HR 3.12 (95% CI 1.23-7.89) for CD19+ TAM density on overall survival, and three in vivo therapeutic strategies (anti-CD19 CAR-T, CD73 blockade, OXPHOS inhibition) that synergize with anti-PD-L1 in orthotopic HCC.",
+      "Use of muMT mice to rigorously dissociate the anti-tumor effect of anti-CD19 CAR-T from B-cell depletion."
+    ],
+    "key_concerns": [
+      "Small in vivo group sizes (n=4-5/group) and absence of power calculations, multiplicity correction, or sensitivity analyses across an extensive multi-panel figure set.",
+      "Data and code availability are not substantively described in the provided text; accession numbers for scRNA-seq/RNA-seq/CUT&Tag and any analysis code are not visible, and the Methods section defers most detail to Supplementary Information.",
+      "Cell-of-origin of CD19+ TAMs (circulating vs tissue-resident, B-lineage vs myeloid-lineage) is not resolved by lineage tracing; the authors acknowledge this limitation but it weakens the strongest interpretation.",
+      "Several mechanistic steps rely on THP-1/iBMDM surrogate systems rather than primary human TAMs, and single-center patient cohort limits generalizability."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "High-quality mechanistic-to-translational study with novel identification of CD19+ TAMs and a coherent PAX5/TFEB/lysosome/CD73 axis linked to clinically actionable combinations; preclinical LoE and modest sample sizes cap it below the top tier, but the integration, novelty, and translational payoff support a Tier 2 (e.g., Nature Communications-class oncology) placement with minor revisions to strengthen reporting and data availability."
+  }
+}

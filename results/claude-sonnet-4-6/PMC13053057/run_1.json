@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC13053057",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 5,
+      "statistical_score": 4,
+      "justification": "This study employs an unusually rigorous multi-platform approach: (1) BayesPrism deconvolution of bulk RNA-seq from 114 patient samples (88 TNBC, 52 chemosensitive/36 chemoresistant) from the prospective SCANDARE cohort with RCB-defined outcomes; (2) primary patient-derived ECM-myCAFs (flow cytometry-validated) cocultured with TNBC cell lines in 3D microfluidic tumor-on-chip (ToC) devices; (3) scRNA-seq of 9,651 ToC-derived cells; (4) automated STAMP algorithm for spatiotemporal apoptosis analysis; (5) deep learning convolutional neural network for CAF-cancer cell proximity measurement; (6) PamGene multiplex kinase assay covering ~350 kinases; (7) G0S2 siRNA rescue; (8) dasatinib SRC inhibition. The study validates findings across two TNBC cell lines (MDA-MB-231, MDA-MB-436) and multiple independent primary CAF donors from different patients. Statistical methods include Wilcoxon matched-pair signed-rank test, Kolmogorov-Smirnov test, Pearson chi-square, and Mann-Whitney test, appropriately selected based on normality (Shapiro-Wilk). Limitations include absence of in vivo animal models for G0S2 or SRC inhibitor validation, transwell experiments using only two CAF donors for PamGene, and G0S2 silencing ToC experiments limited to n=2-3 independent experiments with n=3 videos per condition."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "The study achieves LOE 2b due to the prospective SCANDARE biobanking cohort (NCT03017573) with 88 patients with TNBC, pre- and post-chemotherapy samples, and RCB-defined clinical outcome endpoints. The finding that ECM-myCAF content decreases post-chemotherapy in chemosensitive but not chemoresistant patients is a clinically actionable predictive biomarker observation. Dasatinib (SRC inhibitor) is FDA-approved for CML/ALL and is clinically available, making the therapeutic implication testable in clinical trials. G0S2 as a chemoresistance mediator in the context of the ECM-myCAF TME provides a specific target. The ToC platform shows direct translational potential for personalized medicine applications. This directly addresses the major unmet need of neoadjuvant chemotherapy resistance in TNBC."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "STROBE",
+      "data_availability_score": 3,
+      "justification": "The clinical cohort SCANDARE (NCT03017573) is a registered prospective biobanking study with national ethics approval (CPP Ile-de-France 3) and Declaration of Helsinki compliance. Written informed consent is documented. Tumor-on-chip protocols are described with reagent catalog numbers, cell densities, and RRID identifiers. Statistical approach (normality testing, then appropriate parametric/nonparametric test) is systematic and well-described. Cell line authentication (STR) and mycoplasma testing are confirmed. scRNA-seq analysis pipeline uses standard tools with specified versions. Gaps: formal power calculations for the clinical cohort analyses are not described; RNA-seq data accession for the original SCANDARE cohort is not explicitly provided (though referenced as a previously used dataset); the convolutional neural network for CAF tracking uses fine-tuning on 126 manually segmented crops, which is modest for deep learning validation."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "While CAF-mediated chemoresistance is an established concept, this study uniquely: (1) identifies a specific ECM-myCAF population (not CAFs globally) as the driver of TNBC chemoresistance with patient-level clinical evidence; (2) introduces the 'kiss-of-life' concept — early proximity-dependent priming within 8 hours — quantified by deep learning proximity analysis; (3) identifies G0S2 as a novel chemoresistance mediator in TNBC downstream of ECM-myCAF paracrine SRC activation; (4) validates findings with the integrated approach combining prospective patient cohort + ex vivo ToC at single-cell resolution + kinome profiling. G0S2's role in chemoresistance has not been previously described. The SRC→TF→G0S2 pathway in the context of ECM-myCAF cross-talk is a new mechanistic axis."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is logically structured with a clear progression from patient data to ex vivo modeling to mechanistic dissection. The 'kiss-of-life' conceptual framing is memorable and scientifically grounded. The Discussion integrates findings with prior CAF literature and acknowledges limitations including speculative identification of HGF and FGF2 as candidate secreted factors without direct validation, and the absence of animal model validation. Methods are detailed with extensive reagent information. Minor weaknesses: the scRNA-seq analysis from ToC (6 pooled gels per condition) represents a technical limitation that is not fully discussed; some figure legends reference extensive supplementary videos without adequate textual integration."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 1,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Unique integration of prospective patient cohort (SCANDARE, N=88 TNBC, RCB-defined outcomes) with ex vivo tumor-on-chip primary ECM-myCAF coculture and scRNA-seq, establishing that a specific ECM-myCAF population drives chemoresistance with both clinical and mechanistic evidence",
+      "Discovery of G0S2 as a novel chemoresistance mediator in TNBC, upregulated by ECM-myCAF paracrine SRC activation, validated by siRNA rescue that completely abolishes ECM-myCAF chemoprotection in two cell lines across multiple independent primary CAF donors",
+      "Novel 'kiss-of-life' concept — ECM-myCAF proximity within 8 hours determines cancer cell fate — quantified by a deep learning convolutional neural network for spatiotemporal proximity analysis",
+      "PamGene multiplex kinome profiling identifying convergent SRC family kinase upregulation across both TNBC cell lines, with dasatinib (clinically available SRC inhibitor) completely reversing ECM-myCAF-mediated chemoprotection"
+    ],
+    "key_concerns": [
+      "The specific ECM-myCAF-secreted factors mediating SRC activation (HGF, FGF2) are proposed speculatively from scRNA-seq expression data without functional ligand-receptor blocking experiments to confirm their requirement",
+      "No in vivo animal model validation of G0S2 silencing or SRC inhibition in the context of ECM-myCAF-rich tumors; the combination of dasatinib with chemotherapy in ECM-myCAF-rich tumors requires in vivo proof-of-concept",
+      "scRNA-seq analysis from ToC requires pooling 6 gels per condition to achieve sufficient cell yield, which limits single-experiment resolution and introduces potential technical variability",
+      "The prospective SCANDARE cohort provides clinical correlations but not a controlled interventional design; the causal inference that ECM-myCAF proportion predicts chemoresistance (rather than being a bystander marker) relies primarily on the ex vivo ToC experiments"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a high-quality study that uniquely integrates prospective clinical cohort data with state-of-the-art ex vivo tumor-on-chip modeling, single-cell transcriptomics, deep learning image analysis, and kinome profiling to identify ECM-myCAFs as TNBC chemoresistance drivers via a novel SRC-G0S2 axis. Tier 1 reflects the multi-platform methodological innovation, novel mechanism, clinical translatability via dasatinib, and direct relevance to the major unmet need of neoadjuvant chemotherapy resistance in TNBC, with minor revisions needed to address the speculative ligand identification and the absence of in vivo validation."
+  }
+}

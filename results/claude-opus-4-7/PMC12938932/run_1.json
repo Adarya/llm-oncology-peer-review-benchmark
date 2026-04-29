@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC12938932",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 2,
+      "statistical_score": 3,
+      "justification": "Feasibility study with only 44 HNC patients, explicitly acknowledged as underpowered by the authors. Leave-one-out cross-validation is used which helps but cannot substitute for external validation; many features (93 dosiomic + 36 DVH per OAR) across 3-9 OARs for two endpoints create a high risk of overfitting despite Brunner-Munzel, Spearman, VIF, and LASSO filtering. Three different treatment planning systems contribute to batch effects acknowledged by authors but not corrected (e.g., via ComBat). Xerostomia/dysphagia grading by a single oncologist without inter-rater assessment. Bonferroni correction for AUC comparisons is applied within but not across toxicities. Statistical methodology (DeLong test, LASSO, XGBoost with cross-validated hyperparameter tuning, SMOTE for imbalance) is appropriate for what it attempts but the sample-to-feature ratio remains problematic."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "4",
+      "justification": "Retrospective single-center feasibility modeling study (Oxford LoE 4). The clinical question (predicting acute xerostomia and dysphagia to inform replanning and toxicity management) is relevant, and the novel finding that oral cavity dosiomic features dominate xerostomia prediction (>53% of selected features) could have implications for OAR constraint design. However, the feasibility designation and lack of external validation restrict direct translational utility until larger-cohort confirmation."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "As a prediction model study TRIPOD applies; the paper reports setting, participants, predictors, feature calculation, model building (XGBoost with hyperparameters), internal validation (LOOCV), and performance with 95% CIs. However, TRIPOD is not explicitly cited, no TRIPOD checklist is provided, no external validation is performed (only LOOCV), calibration is not reported, and the model's clinical usefulness is not formally assessed. Supplementary materials for software and parameters are referenced. IRB approval is reported. No data or code sharing statement."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "Multi-OAR dosiomics extending beyond parotid glands to include submandibular glands, oral cavity, and multiple swallowing-related structures (pharyngeal constrictors, larynx, cricopharyngeal muscle) is a meaningful extension of prior single-organ dosiomic xerostomia studies (Gabrys 2018, Abdollahi 2023, Zhang 2024) and the first dosiomic application to dysphagia. The finding emphasizing oral cavity dosimetry for xerostomia, against the dominant parotid-gland paradigm, is a potentially useful incremental insight. Not first-in-class methodology but a competent extension."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The manuscript is structured with methods, results, and discussion, and describes the feasibility design, feature selection pipeline, and inter/intra-OAR comparisons. Some passages are dense and repetitive (particularly in methods for feature selection and XGBoost hyperparameters), and the conclusions are appropriately cautious given small sample. English is adequate but with some awkward phrasing ('In this study, we aimed to investigate the feasibility...'). Figures and tables are referenced but main-text reporting of per-OAR AUCs would benefit from clearer summary."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 5,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Broadens dosiomic analysis beyond the canonical parotid gland to include oral cavity and multiple swallowing organs at risk, with first dosiomic application to dysphagia",
+      "Potentially important finding that oral cavity features dominate xerostomia prediction (53.2% of selected features) and achieve AUC >0.80 alone",
+      "Multistep feature selection (Brunner-Munzel, Spearman, VIF, LASSO) with LOOCV and DeLong-based AUC comparisons with Bonferroni correction",
+      "Transparent feasibility framing with explicit acknowledgment of small sample size and treatment planning system heterogeneity"
+    ],
+    "key_concerns": [
+      "n=44 with ~130 candidate features per OAR across multiple OARs and two endpoints creates substantial overfitting risk not resolved by LOOCV alone",
+      "No external validation, no calibration assessment, and no TRIPOD checklist adherence for a prediction-model study",
+      "Single-oncologist toxicity grading with no inter-rater reliability assessment; CTCAE grades 2-5 pooled despite clinically different severities",
+      "Three different treatment planning systems (Pinnacle 14.0, RayStation 9A/10A) introduce batch effects that are noted but not harmonized (e.g., ComBat not applied)",
+      "No data or code sharing; retrospective single-center Japanese cohort limits generalizability"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A feasibility dosiomic modeling study with potentially interesting multi-OAR findings but substantial overfitting and reporting gaps; requires major revisions including external validation or at minimum ComBat harmonization and TRIPOD-compliant reporting before Tier 3 publication."
+  }
+}

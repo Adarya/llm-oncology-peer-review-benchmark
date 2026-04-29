@@ -1,0 +1,51 @@
+{
+  "paper_id": "PMC12913093",
+  "model": "gpt-5.2",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T01:52:29Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 3,
+      "justification": "This is a retrospective registry-based cohort of locally advanced OSCC patients (Stage III\u2013IVB) achieving pCR after neoadjuvant immunochemotherapy, comparing radiotherapy omission (n=65) to standard adjuvant RT/CRT (n=286) with 1:1 propensity score matching on key covariates and Cox models for DFS. The pCR definition is rigorous (ypT0N0) with two blinded pathologists plus adjudication, and endpoints/toxicity/QoL instruments (EORTC QLQ-C30/H&N35; CTCAE v5.0) and follow-up cutoff are specified. However, treatment assignment was non-random and influenced by MDT factors and patient preference, leaving substantial residual confounding risk despite PSM, and the de-escalation cohort is small relative to the number of candidate biomarkers. The biomarker discovery and two-marker risk model use median dichotomization and internal bootstrap only, which is reasonable for exploration but raises overfitting and multiplicity concerns without external validation."
+    },
+    "clinical_relevance_loe": {
+      "score": 5,
+      "loe_oxford": "2b",
+      "justification": "The comparative effectiveness component is an observational cohort study with propensity matching, aligning with Oxford LoE 2b. The clinical question is directly practice-relevant: whether adjuvant radiotherapy can be omitted in pCR patients after neoadjuvant immunochemotherapy while preserving DFS and improving quality of life. In the matched cohort, DFS did not differ significantly between groups (HR 1.25, 95% CI 0.72\u20132.18; p=0.425), and the manuscript reports reduced radiation-specific toxicities alongside more frequent immune-related adverse events in the de-escalation strategy. The proposed TP53/B-cell signature stratification further targets individualized de-intensification, which is highly translational even if preliminary."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "STROBE",
+      "data_availability_score": 2,
+      "justification": "STROBE is appropriate for this retrospective cohort with a matched comparative analysis, and key reporting elements are present: eligibility criteria, treatment definitions, endpoint definitions, follow-up, matching variables/caliper, and the statistical approaches (PSM, Cox models, mixed-effects models for longitudinal QoL, and internal bootstrap for the biomarker model). Results are quantitatively reported with HRs, CIs, p-values, and recurrence counts in both pre- and post-matched analyses, and adverse event patterns are described with group comparisons. The biomarker workflow is described at a high level (univariate screening, backward stepwise multivariable Cox, median cutoffs, C-index with bootstrap), but the normalized text does not indicate pre-registration or a pre-specified analysis plan, and detailed handling of missing data is not explicit. Data/code availability is not documented in the normalized manuscript beyond use of institutional registry data and archival FFPE samples."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The work combines a clinically important de-escalation strategy (omitting adjuvant RT/CRT after pCR to neoadjuvant immunochemotherapy) with an integrated genomic/immune pre-treatment biomarker analysis aimed at identifying which pCR patients remain at high recurrence risk. The reported two-marker model (TP53 mutation status plus B-cell signature score) that stratifies recurrence from 0% to 40% across risk groups is a substantive extension beyond prior pCR-only de-intensification logic. That said, the evidence is retrospective and single-cohort, so the novelty is tempered by the need for prospective validation. Overall, it is a notable and clinically oriented advance in positioning de-escalation around biology rather than response alone."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The abstract clearly states design (retrospective cohort with PSM), cohort sizes, the primary endpoint (DFS), and key estimates (matched HR with CI/p-value) alongside biomarker findings (TP53 and B-cell signature associations and recurrence rates by risk group). Methods are well structured, including operational definitions for pCR, adjuvant strategies, QoL time points with MCID, and toxicity grading. Results are presented in a logical order (baseline balance, DFS, QoL/toxicity, biomarker associations, and model development) with concrete numbers. Some discussion text in the normalized file is truncated, but the available sections are readable and sufficiently detailed for appraisal."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Clinically high-impact question: radiotherapy omission after pCR in locally advanced OSCC with explicit DFS endpoint and patient-reported QoL assessment (EORTC QLQ-C30/H&N35) across multiple time points.",
+      "Methodological care in pCR ascertainment (ypT0N0) with dual blinded pathology review plus adjudication, and clearly defined treatment strategies in both arms.",
+      "Use of propensity score matching with stated covariates/caliper and both univariable and adjusted Cox analyses for DFS in the matched cohort.",
+      "Biomarker-driven risk stratification within the de-escalation cohort identifying TP53 mutation and low B-cell signature as independent predictors with internal bootstrap validation."
+    ],
+    "key_concerns": [
+      "Non-random, MDT- and preference-driven allocation to de-escalation vs standard care leaves residual confounding risk that PSM may not eliminate.",
+      "Biomarker analyses are exploratory in a small de-escalation cohort (N=65) with multiple candidate features, median dichotomization, and no external validation, raising overfitting and reproducibility concerns.",
+      "Safety conclusions depend on follow-up duration and event counts; recurrence differences (12 vs 10 events post-PSM) plus wide CIs (e.g., HR 1.25, 0.72\u20132.18) mean clinically meaningful differences cannot be excluded."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "The manuscript is promising and plausibly tier-2 due to its direct therapeutic de-intensification relevance and integrated biomarker concept, but it likely requires major revisions focused on bias/robustness claims and clearer positioning of the biomarker model as hypothesis-generating pending prospective or external validation."
+  }
+}

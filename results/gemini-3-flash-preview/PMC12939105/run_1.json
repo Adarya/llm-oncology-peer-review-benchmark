@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC12939105",
+  "model": "gemini-3-flash-preview",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2025-07-24T14:30:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "The study employs a solid multi-institutional design with a clear separation of training and testing sets at the patient level, including an independent external validation cohort of neoadjuvant patients. Methodological rigor is demonstrated by fixing LASSO-derived feature selection and coefficients on the training data prior to application on test sets to prevent data leakage. Statistically, the authors provide comprehensive performance metrics with 95% confidence intervals, calibration curves, and decision curve analysis, though the lack of a formal power calculation and the computational inability to perform nested cross-validation are noted limitations."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "The study is classified as LoE 2b as it is an individual retrospective cohort study utilizing multi-institutional data and an independent validation set. It achieves a clinical relevance score of 4 because it addresses a high-priority clinical need in oncology\u2014non-invasive PD-L1 assessment\u2014and demonstrates a significant association between the radiomic surrogate and progression-free survival (PFS), providing a clear translational path toward patient stratification in immunotherapy."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 3,
+      "justification": "The manuscript adheres to the TRIPOD guidelines for prediction models, providing detailed descriptions of the multi-institutional training set and an independent neoadjuvant validation cohort. It reports essential metrics including AUC, calibration curves, and decision curve analysis, though it lacks a pre-registered protocol. Data availability is moderate, as the study incorporates public TCIA data for self-training, but the primary cohort data and specific code are not provided in a public repository."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "The manuscript provides a meaningful extension of radiomics research by applying a Feature Tokenizer Transformer with a self-training mechanism to predict PD-L1 expression, representing a methodological advancement over standard supervised learning in this field. It also addresses a documented gap by validating the model in a neoadjuvant treatment setting; however, the modest predictive performance (AUC 0.68-0.75) and the established nature of CT-based PD-L1 prediction in existing literature limit its overall conceptual novelty."
+    },
+    "writing_presentation": {
+      "score": 5,
+      "justification": "The manuscript is exceptionally well-organized, maintaining a clear logical progression from the clinical gap to the technical methodology and its translational implications. Technical terminology and acronyms (e.g., TPS, SHAP, SZNUN) are defined upon first use, and the abstract is both self-contained and quantitatively grounded with AUC and accuracy metrics. The writing is precise, effectively interpreting complex radiomic features in the discussion rather than merely restating the results."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Multi-institutional training and independent neoadjuvant cohort validation.",
+      "Use of advanced FT-Transformer architecture with self-training to leverage unlabeled data.",
+      "Strong interpretability analysis using SHAP values to link radiomic features to tumor heterogeneity.",
+      "Significant association of the rad-PDL1 score with progression-free survival (PFS)."
+    ],
+    "key_concerns": [
+      "Performance attenuation in the neoadjuvant cohort (AUC 0.68) compared to the primary test set.",
+      "Lack of public code repository for the specific self-training pipeline implementation.",
+      "Limited sample size in the neoadjuvant cohort (N=51) for robust survival analysis.",
+      "Retrospective nature and geographical limitation to a single Canadian province."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "The study is methodologically rigorous with multi-center validation and addresses a critical clinical need using state-of-the-art AI, making it suitable for a high-impact translational oncology journal."
+  }
+}

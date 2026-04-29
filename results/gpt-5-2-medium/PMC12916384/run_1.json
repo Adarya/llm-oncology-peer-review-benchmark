@@ -1,0 +1,50 @@
+{
+  "paper_id": "PMC12916384",
+  "model": "gpt-5.2",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T01:52:29Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 3,
+      "justification": "The study is a retrospective planning comparison in 48 post-thymoma surgery patients where four plans (CO-IMRT, NONCO-IMRT, CO-VMAT, NONCO-VMAT) were generated per patient to a common prescription (50 Gy/25 fractions) with consistent OAR constraints. Target and OAR delineation is described (GTV/CTV/PTV expansions; lungs/heart/esophagus/spinal cord), and dosimetric indices (CI, HI) and DVH-based OAR metrics are pre-specified, with NTCP calculated using the Lyman\u2013Kutcher\u2013Burman model. The paired within-patient design is appropriate for dosimetric comparisons, but conclusions are limited to modeled dose/NTCP rather than observed toxicity or clinical outcomes. Statistical methods are basic for a multi-arm paired comparison (SNK-q testing), and the NTCP parameterization is imported from other settings (Table 2), which the authors note as a limitation."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "4",
+      "justification": "This is a non-interventional dosimetric/NTCP modeling study rather than a comparative clinical outcomes cohort, so Oxford LoE aligns best with level 4 evidence. The relevance is translational: it addresses technique selection for adjuvant thymoma radiotherapy by quantifying tradeoffs in heart, lung, esophagus, spinal cord, and breast dose/NTCP. The manuscript reports clinically interpretable differences, such as lower lung V20 with VMAT (about 9.46 vs 11.02\u201311.69) and substantially higher breast dose/NTCP with CO-VMAT (breast NTCP 1.75%) that is mitigated with NONCO-VMAT. However, without actual toxicity follow-up, the clinical impact remains inferential."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "other",
+      "data_availability_score": 2,
+      "justification": "No single standard in the provided list perfectly matches a radiotherapy planning/dosimetry comparison, so \u201cother\u201d is appropriate. The paper reports key technical details needed for appraisal and partial reproducibility: simulation CT slice thickness (5 mm), planning system and linac, energy (6 MV), Monte Carlo dose calculation, beam/arc geometry for each technique (gantry/couch angles), target coverage criteria (V95% constraints), and the specific OAR metrics evaluated. Results are presented with quantitative comparisons across the four approaches for CI/HI, DVH parameters, and NTCP estimates, and limitations are explicitly acknowledged (retrospective design, small N, NTCP parameter borrowing). Data/code sharing is not indicated in the normalized manuscript, and the study does not provide plan datasets or scripts."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "The primary novelty is applying a four-way within-patient comparison including non-coplanar VMAT to thymoma postoperative radiotherapy planning, emphasizing a breast-dose mitigation benefit in female patients while retaining VMAT OAR sparing. The core concepts (IMRT vs VMAT, non-coplanar geometry, DVH/NTCP modeling) are established in radiotherapy physics, so the work is more an application to a specific disease site than a new methodological contribution. The NTCP framing adds interpretability but remains model-based. Overall, it is a useful, incremental planning study."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The abstract clearly states the design (48 patients; four plans each), endpoints (CI/HI, OAR DVH metrics, LKB NTCP), and the headline tradeoff (CO-VMAT breast dose penalty; NONCO-VMAT balancing OAR sparing). Methods are detailed enough to understand plan construction and evaluation, including beam/arc geometries and target coverage constraints. Results are presented with concrete numeric examples for key DVH/NTCP differences, and the discussion contextualizes findings and limitations. Some phrasing is occasionally imprecise, but the overall structure is coherent and readable."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 4,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Within-patient four-plan comparison (CO/NONCO IMRT and CO/NONCO VMAT) with common prescription (50 Gy/25 fractions) and consistent planning constraints.",
+      "Clear reporting of beam/arc geometries and evaluation metrics, including DVH parameters and LKB-model NTCP estimates for multiple OARs.",
+      "Clinically salient identification of a breast dose/NTCP penalty for CO-VMAT (breast NTCP 1.75%) that is reduced with NONCO-VMAT while preserving heart/spinal cord/esophagus sparing."
+    ],
+    "key_concerns": [
+      "Evidence is model-based (dosimetry/NTCP) without clinical toxicity or outcome validation, limiting inference about patient benefit.",
+      "Statistical treatment is relatively simple for multi-technique paired comparisons, and NTCP parameters are borrowed from other contexts rather than thymoma-specific calibration.",
+      "Reproducibility is limited in the normalized manuscript: no shared plan files, scripts, or datasets to enable independent replication."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "As a dosimetric planning study, the work is useful for hypothesis generation and technique selection discussion, but the absence of clinical outcome/toxicity validation and limited reproducibility constrain it to a lower tier with major revisions needed to clarify claims and strengthen validation."
+  }
+}

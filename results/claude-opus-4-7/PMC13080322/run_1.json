@@ -1,0 +1,54 @@
+{
+  "paper_id": "PMC13080322",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 3,
+      "justification": "The study presents a well-structured preclinical evaluation spanning in vitro synergy (ZIP model), mechanistic assays (cell cycle, gamma-H2AX, apoptosis), biodistribution, PET/CT imaging, acute and chronic toxicology, and therapeutic efficacy across multiple xenograft models (22Rv1, DU145, PC3, C4-2B, LTL-484 PDX, MM.1S, RPMI). Appropriate controls include CD46-KO cells, nonbinding YS5C10-MMAE ADC, and dose-titration approaches; ADC dose optimization was explicitly performed. Limitations include use of only male mice without castration (acknowledged), small per-group n (n=5 for toxicology), and unexplained attrition in some cohorts. Statistical analysis is limited to survival log-rank and mean +/- SD with p-value thresholds; no explicit multiplicity correction, power calculations, or confidence intervals are reported despite many pairwise comparisons."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "5",
+      "justification": "This is a preclinical xenograft and PDX study (Oxford LoE 5). Clinical/translational relevance is high: CD46-targeted platforms have companion phase I trials referenced (NCT03575819, NCT05245006, NCT05892393, NCT03650491), the R-ADC design enables single-agent regulatory pathway, and a compatible immuno-PET diagnostic supports precision selection. The dose-reduction strategy directly addresses clinically documented ADC-related neutropenia and neuropathy, making translational advancement plausible in the near term."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "ARRIVE",
+      "data_availability_score": 2,
+      "justification": "ARRIVE is the applicable standard for animal experiments; reporting includes strain RRIDs, ages, sex, randomization statements, IACUC approval, dose rationale, and explicit mention of mortality (1 injection complication). However, ARRIVE items such as sample-size justification, blinding of outcome assessment, and pre-specified primary endpoints are not explicitly addressed. Data availability statement is not visible in the provided text; no repository deposition of raw imaging/biodistribution data or code for ZIP analysis is mentioned. Cell line RRIDs and reagent details are thorough."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The work presents a dual-payload R-ADC ([225Ac]Macropa-PEG4-YS5-MMAE) that integrates alpha-particle radiotherapy and MMAE on a single CD46-targeted scaffold - a novel construct for CD46 not previously reported. The authors cite three recent analogous dual-payload efforts for EGFR/HER2/TROP2 (Tikum 2025, Pougoue Ketchemen 2025, Yamaguchi 2025) and position their work as extending the paradigm to CD46, prostate cancer, and multiple myeloma. The tunable specific-activity concept, combined with compatible immuno-PET diagnostics, is a meaningful translational advance beyond incremental confirmation."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is logically organized from in vitro mechanism to in vivo efficacy, safety, and imaging characterization. Figures are well-described and the Discussion provides thoughtful contextualization against competing platforms (PSMA RLT, other R-ADCs) and clinical toxicity experience. Some minor typographic issues in the figure legends (e.g., 'P ,0.01', 'signifcance') and moderately dense methods, but overall the prose is clear and the scientific narrative is coherent."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Novel dual-payload R-ADC construct on CD46 scaffold with validated synergy via ZIP analysis and mechanistic gamma-H2AX/cell cycle evidence",
+      "Comprehensive in vivo package: multiple xenograft models including PDX (LTL-484), disseminated myeloma, and companion PET imaging with 134Ce and 89Zr",
+      "Thoughtful dose-reduction strategy addressing documented ADC neutropenia/neuropathy with acute and chronic toxicology",
+      "Strong translational positioning with existing phase I CD46 ADC and immuno-PET trials referenced",
+      "Tunable specific activity demonstrated as a practical dosimetry lever"
+    ],
+    "key_concerns": [
+      "Statistical analysis limited to log-rank and descriptive SD; no multiplicity correction, effect sizes, or confidence intervals despite many comparisons",
+      "Use of intact rather than castrated male mice limits recapitulation of mCRPC hormonal context (acknowledged)",
+      "ARRIVE items missing: explicit sample-size justification, blinding, pre-specified endpoints",
+      "Data/code availability not addressed; unexplained mortality in some cohorts (3/10 and 2/10 in disseminated study) warrants further scrutiny",
+      "Mild renal tubular injury at chronic timepoints signals a liability for repeat dosing translation"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "Mechanistically strong preclinical work with a credible clinical translation pathway warrants Tier 2 (Cancer Research, Clinical Cancer Research). It is not paradigm-shifting given several concurrent R-ADC precedents, and statistical/reporting gaps prevent Tier 1 classification; minor revisions to statistics, data availability, and ARRIVE compliance would strengthen acceptance."
+  }
+}

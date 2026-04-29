@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC13024948",
+  "model": "gpt-5.5",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T01:21:06Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 3,
+      "justification": "The manuscript presents a coherent computational framework extending Jones-Hopewell BED modeling to 1-, 3-, and 5-fraction Gamma Knife schedules, with explicit synthetic generators for AVM, vestibular schwannoma, brain metastasis, and meningioma cohorts. Methodological strength comes from controlled pathology-specific simulations, train/test splits, model calibration metrics, Bayesian alpha/beta recovery, and a neural surrogate test, but the main evidence is generated from assumptions encoded by the authors rather than independent clinical observations. The only clinical comparison is a retrospective 60-lesion brain-metastasis dataset that lacks BED-relevant time and dosimetric variables and is described as a qualitative consistency check. Statistical reporting includes AUCs, Brier scores, odds ratios, confidence intervals, and sensitivity analyses, but external validation and uncertainty around the synthetic data-generating assumptions remain major limitations."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "5",
+      "justification": "The primary study is a mechanistic and computational modeling paper using synthetic cohorts, so Oxford LoE is 5 despite the small exploratory retrospective clinical check. The topic is clinically relevant because Gamma Knife prescription across fractionation schedules is a real radiosurgical planning problem, and the framework could support pathology-specific biological dose interpretation. However, the manuscript repeatedly states that clinical validation is planned and that the brain-metastasis dataset cannot validate the mechanistic BED components, so current patient-care implications are plausible but not demonstrated."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "TRIPOD is the closest applicable standard because the manuscript develops and evaluates multiple prediction models and a neural surrogate, although much of the work is synthetic mechanistic modeling. The manuscript reports cohort-generation rules, model features, train/test splits, algorithms, AUCs, Brier scores, sensitivity analyses, and limitations, but it does not provide a protocol, full code, executable data generator, or external validation dataset in the normalized text. The clinical validation dataset is only summarized and explicitly lacks variables needed for full framework evaluation. Reproducibility is therefore partial: methods are described in detail, but open materials are not evident."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The manuscript's main novelty is the unified extension of a Gamma Knife-specific BED formulation across multi-fraction schedules and multiple intracranial pathologies, combined with AI-based parameter inference and surrogate BED prediction. It positions this against prior single-fraction Jones-Hopewell and Millar-style models and against empirical machine-learning outcome models that lack explicit radiobiology. The contribution is conceptually novel, but its empirical novelty is limited because most results are synthetic demonstrations of assumptions rather than independently observed clinical effects."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The paper is highly structured, with clear sectioning from model formulation through pathology-specific simulations, surrogate modeling, clinical consistency check, limitations, and conclusions. The abstract accurately flags that large radiobiologically grounded synthetic cohorts are the main evidence and that real-patient data are exploratory. Presentation is weakened by substantial repetition, formatting artifacts in equations and lists, and frequent assertive claims such as 'first unified' and 'immediate relevance' that run ahead of clinical validation. Figures and tables are referenced in ways that appear useful, but the normalized text is long and sometimes redundant."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Ambitious unified radiobiological framework for single- and multi-fraction Gamma Knife radiosurgery.",
+      "Transparent synthetic cohort construction across four clinically distinct intracranial pathologies.",
+      "Uses multiple evaluation layers, including AUC, Brier score, Bayesian alpha/beta recovery, sensitivity analysis, and neural surrogate fidelity.",
+      "Explicitly acknowledges that the small clinical brain-metastasis dataset is only a qualitative consistency check."
+    ],
+    "key_concerns": [
+      "Core performance claims are largely driven by synthetic data-generating assumptions rather than independent clinical validation.",
+      "The clinical dataset lacks time-structure and dosimetric variables needed to validate AI-BED-Fx directly.",
+      "Reporting lacks evident open code or data sufficient to reproduce the complex simulation and modeling pipeline.",
+      "The manuscript is lengthy and repetitive, with some clinical translation claims stronger than the evidence supports.",
+      "Prediction-model reporting would benefit from fuller TRIPOD-style handling of validation, calibration, and uncertainty."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "The work is conceptually interesting and potentially useful as a computational framework, but it remains a model-development and simulation paper rather than clinical evidence. A tier 3 venue is plausible after major revisions that sharpen reproducibility, temper translational claims, and clarify the boundary between synthetic validation and patient-level validation."
+  }
+}

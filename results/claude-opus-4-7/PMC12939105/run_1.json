@@ -1,0 +1,56 @@
+{
+  "paper_id": "PMC12939105",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "Multi-institutional retrospective radiomics study with 482 advanced NSCLC patients from three Quebec centers and an independent neoadjuvant cohort of 51 patients from CHUM. Proper patient-level splits, patient-ID-level separation between labeled, pseudo-labeled, and test data, LASSO feature selection fit only on training data, and fixed hyperparameters with justification. Multiple benchmarks (XGB, SVM, RF, SAINT, ViT, CCT) are compared. Calibration (Brier), DCA, SHAP interpretability, and multivariable Cox for PFS are included. Limitations acknowledged (regional Canadian cohort, no nested CV due to compute, limited neoadjuvant events). Train/test from random 80/20 rather than leave-one-center-out is a limitation authors acknowledge."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "4",
+      "justification": "PD-L1 expression is the cornerstone predictive biomarker for ICI therapy in advanced NSCLC and neoadjuvant chemo-IO, and a non-invasive CT-based surrogate has tangible clinical value for longitudinal assessment, biopsy guidance, and handling spatial heterogeneity. Authors explicitly frame the model as complementary rather than replacement, and defer clinical adoption pending prospective validation. As a retrospective multi-center cohort with an independent validation cohort, LoE maps to 4."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "Appropriate standard for a multivariable prediction model is TRIPOD (or TRIPOD-AI); not explicitly cited but most elements are present: participant flow (Figure 1), predictors and outcome definitions, handling of multi-class PD-L1 TPS simplified to binary, training/test splits, no data leakage explanation, discrimination (AUC), calibration (Brier, isotonic recalibration), decision curve analysis, interpretability (SHAP), external validation. Public NSCLC-Radiomics dataset is cited (ref 31) with clear separation. Authors note in-house CT data are not shared; ethics approval numbers provided (MP-02-2019-8091). No open-source code release mentioned."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "Authors clearly articulate novelty: a self-training framework with FT-Transformer applied to CT radiomics for PD-L1 prediction, multi-institutional training, and an independent neoadjuvant cohort for external validation -- addressing three well-known gaps (single-center training, fully supervised, internal-only validation) of prior PD-L1 radiomics studies (Yoon 2020, Wen 2021). Incorporating unlabeled scans via pseudo-labeling from TCIA NSCLC-Radiomics is methodologically non-trivial. Novelty is genuine if not paradigm-shifting."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "Well-written, carefully hedged manuscript with appropriate caveats throughout ('feasibility', 'preliminary', 'exploratory'). The discussion distinguishes model attribution from biological causation, and acknowledges the neoadjuvant cohort's exploratory nature due to limited events. Tables, figures, supplementary materials are appropriately referenced. Minor typographical issues ('dictate treatment strategy', 'forecast potential resistance') but overall clear. One sentence appears to have a substitution error: 'patients with rad-PDL1High NSCLC had a longer median PFS than patients with rad-PDL1High NSCLC' (should read Low)."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Multi-institutional training (three Quebec centers, N=482) with an independent neoadjuvant validation cohort (N=51) treated in a distinct clinical context",
+      "Novel self-training FT-Transformer pipeline leveraging unlabeled TCIA NSCLC-Radiomics (n=422) for pseudo-labeling, with strict patient-level separation explicitly documented",
+      "Comprehensive benchmarking against XGB, SVM, RF, SAINT, ViT, and CCT models",
+      "Rigorous leakage prevention (LASSO on training only; pseudolabels only on scans not in any labeled set; X-tile cutoff fixed on training only)",
+      "Integrated SHAP interpretability with stable rankings (Spearman 0.95 across test partitions) and plausible textural attributions",
+      "DCA, calibration (Brier 0.208/0.229), isotonic recalibration, and multivariable Cox with PH checks support clinical utility claims"
+    ],
+    "key_concerns": [
+      "AUC drops from 0.75 (primary test) to 0.68 (neoadjuvant validation), and PFS difference in neoadjuvant cohort is non-significant (p=0.09), tempering generalizability",
+      "Single-province Canadian cohort with convenience-sample neoadjuvant set (N=51) limits epidemiologic diversity",
+      "No nested or repeated cross-validation (authors attribute to compute cost) leaves performance-variance estimates uncertain",
+      "Manuscript text has a duplicated phrase that appears to be a typo: 'rad-PDL1High NSCLC had a longer median PFS than patients with rad-PDL1High NSCLC' -- should be Low",
+      "No public release of model weights, code, or in-house labeled data, limiting reproducibility by external groups",
+      "Neoadjuvant PD-L1 cut (50%) and PFS analyses underpowered by event count (authors appropriately label exploratory)"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "Methodologically strong, well-hedged multi-institutional radiomics study with meaningful external validation and interpretability; appropriate for Tier 2 after minor revisions, especially fixing the rad-PDL1High/Low typo and clarifying DCA thresholds."
+  }
+}

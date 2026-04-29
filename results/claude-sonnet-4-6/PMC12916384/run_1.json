@@ -1,0 +1,54 @@
+{
+  "paper_id": "PMC12916384",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T10:05:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 3,
+      "justification": "The study uses a retrospective cohort design with propensity score matching (1:1, caliper 0.2) to compare de-escalation versus standard care, which partially addresses confounding but cannot eliminate unmeasured confounders such as surgeon preference or patient comorbidity profiles driving treatment allocation. The biomarker analysis within the de-escalation cohort (n=65, 12 events) is significantly underpowered for multivariate Cox modeling, and the backward stepwise selection procedure with only 12 events inflates overfitting risk. Bootstrap internal validation (C-index 0.71) is appropriately reported but external validation is absent. The study correctly uses 1:1 PSM and linear mixed-effects models for QoL longitudinal data, though median-based dichotomization of continuous biomarkers inflates apparent group separation."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "3b",
+      "justification": "This study addresses a highly clinically relevant question—whether adjuvant radiotherapy can be safely omitted in OSCC pCR patients—with direct patient impact on QoL and toxicity. The QoL findings with EORTC QLQ-C30/HN35 showing large effect sizes (d=0.42–0.82) in favor of de-escalation are compelling. The non-inferiority of DFS after PSM (HR 1.25, 95% CI 0.72–2.18) supports safety, though the study is not powered as a non-inferiority trial. The TP53/B-cell biomarker model, if validated, would have immediate clinical utility in personalizing adjuvant decisions. As a case-control analog with matched cohorts, LoE 3b is appropriate."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "STROBE",
+      "data_availability_score": 2,
+      "justification": "Key STROBE items are well addressed: study design, eligibility criteria, patient selection flow, exposure/outcome definitions, and statistical methods are clearly reported. The PSM approach, QoL assessment protocol with MCID thresholds, and biomarker methodology (NGS panel, NanoString normalization) are described in sufficient detail for replication. Data availability is not mentioned; no data repository deposit is stated. The OSCC registry is described but no accession codes or public data links are provided."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "This study fills a documented gap: no prior study has evaluated complete omission of adjuvant radiotherapy combined with maintenance immunotherapy in pCR OSCC patients using integrated genomic and immune profiling. The dual innovation—a de-escalation safety signal combined with a TP53/B-cell risk stratification model—represents a meaningful advance. The concept of replacing radiotherapy with maintenance immunotherapy (rather than dose reduction) as a paradigm shift is well framed and distinct from prior surgical or dose-reduction de-escalation studies."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well-structured with clear rationale, detailed methods, and an organized discussion that situates findings within the recent KEYNOTE-689, UPGRADE-RT, and surgical de-escalation literature. The biomarker sections are thorough and the limitations are honestly addressed. The discussion is somewhat lengthy with occasional repetition. Effect size reporting (Cohen's d) for QoL outcomes is a strength."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Addresses a clinically urgent and underexplored question: complete radiotherapy omission with maintenance immunotherapy substitution in pCR OSCC after NICT",
+      "Propensity score matching with 46-month median follow-up and non-significant DFS difference (HR 1.25) provides preliminary evidence for oncologic safety",
+      "Comprehensive QoL assessment using EORTC QLQ-C30 and QLQ-H&N35 with large effect sizes (d up to 0.82) and longitudinal mixed-effects modeling demonstrating sustained benefit",
+      "Integrated genomic (18-gene NGS panel) and immune profiling (NanoString PanCancer IO 360) with bootstrap-validated biomarker model (C-index 0.71) demonstrates methodological ambition",
+      "TP53/B-cell two-biomarker model identifies 0% recurrence in low-risk group (n=15), offering actionable clinical hypothesis"
+    ],
+    "key_concerns": [
+      "Biomarker model derived from only 12 recurrence events in 65 patients—far below the 10 events-per-variable minimum—making stepwise Cox selection highly susceptible to overfitting despite bootstrap validation",
+      "Retrospective design with non-randomized treatment allocation means unmeasured confounders (performance status trajectory, patient preference, surgeon practice patterns) could explain DFS equivalence",
+      "Study is not powered as a non-inferiority trial; the upper CI of HR 2.18 for DFS in the matched cohort cannot exclude a clinically meaningful harm from radiotherapy omission",
+      "No external validation cohort for the TP53/B-cell model; internal bootstrap C-index of 0.71 from a small sample may be optimistic",
+      "B-cell signature methodology via NanoString requires prospective validation against simpler IHC-based surrogates before clinical implementation"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This exploratory retrospective cohort study with integrated biomarker analysis represents clinically meaningful and methodologically sophisticated work on a high-impact question; Tier 2 is plausible with major revisions addressing sample size limitations of the biomarker model, non-inferiority framing, and external validation requirements."
+  }
+}

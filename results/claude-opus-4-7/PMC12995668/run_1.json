@@ -1,0 +1,54 @@
+{
+  "paper_id": "PMC12995668",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 2,
+      "statistical_score": 2,
+      "justification": "Two-center retrospective dosimetric comparison of 34 pediatric TBI patients split unevenly between FBCT (Shanghai, n=21) and CBCT (Fujian, n=13) institutions. A major confound is that FBCT vs CBCT is completely collinear with institution, treatment planning system (uTPS vs Eclipse), and linac (uRT-linac vs TrueBeam) — the observed dose differences cannot be attributed specifically to the imaging modality. Subgroup sample sizes are very small (12 Gy group: Shanghai 12 vs Fujian 6; 3 Gy group: Shanghai 9 vs Fujian 7). Dose recalculation used different software (direct recalc vs Velocity deformable registration), a methodological asymmetry that could bias results. Statistics use Wilcoxon rank-sum tests across many metrics with no correction for multiple comparisons, yet all differences are reported as p<0.01 or p<0.05, which is suspicious given the small n. Internal inconsistency: text states 34 patients while another passage says '47 patients'."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "4",
+      "justification": "Image-guidance strategy for pediatric TBI is clinically relevant as dose homogeneity and OAR sparing affect long-term lung and kidney toxicity, especially in children. The dosimetric advantages observed are hypothesis-generating for choosing IGRT technology. However, the study provides dosimetric surrogates only; no patient outcomes (pneumonitis, graft failure, survival) are reported. Oxford LoE 4 (small retrospective cohort)."
+    },
+    "reporting_quality": {
+      "score": 2,
+      "standard_used": "STROBE",
+      "data_availability_score": 1,
+      "justification": "Methods describe equipment, workflows, and evaluation metrics with reasonable detail, but several STROBE elements are missing or incomplete: no patient flow diagram, inconsistent total count (34 vs 47 patients), no reporting of missing data, no formal handling of between-center confounding, and no data or code availability statement. The statement 'We included 34 children who [REDACTED] and August 2025' suggests incomplete text in the manuscript. No ethics statement/IRB approval explicitly mentioned. Plan acceptance criteria and statistical analysis briefly described."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "Authors claim 'first study to directly compare FBCT-based multi-center integrated image guidance with CBCT-based center-specific calibration for pediatric TBI.' This is a plausible niche claim given the limited literature, and the use of a single 1-meter FBCT scan for integrated multi-isocenter calibration is a genuinely newer IGRT technique. However, the fundamental concept of IGRT comparison is well-trodden territory. Incremental technical contribution."
+    },
+    "writing_presentation": {
+      "score": 2,
+      "justification": "The manuscript has multiple clarity issues: the abstract opening is a sentence fragment ('Ensuring dose accuracy in pediatric multi-isocenter TBI.'), '[REDACTED] and August 2025' indicates incomplete text in Methods, total patient count inconsistency (34 vs 47), and references to equipment state 'Varian Eclipse (Siemens Healthineers, version 15.5)' which conflates vendors (Eclipse is Varian, and Varian was acquired by Siemens Healthineers; this mixing may confuse readers). Tables are referenced systematically but the overall narrative reads as translated/lightly copy-edited."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 3,
+    "highest_tier_acceptance": 4,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Directly compares an emerging integrated FBCT multi-isocenter IGRT workflow with standard sequential CBCT in pediatric TBI",
+      "Consistent improvements in PTV coverage (V90%, V100%), homogeneity index, and conformity index reported for FBCT across both 12 Gy and 3 Gy regimens",
+      "Shared planning team and consistent protocol across the two partner hospitals attempts to control some planning variability",
+      "Clinically important patient population (pediatric HSCT conditioning)"
+    ],
+    "key_concerns": [
+      "FBCT vs CBCT is completely confounded with institution, TPS (uTPS vs Eclipse), and linac (uRT-linac vs TrueBeam); modality effect cannot be isolated",
+      "Very small subgroup sample sizes (Fujian 12 Gy n=6; Fujian 3 Gy n=7); no correction for multiple comparisons across many dosimetric endpoints",
+      "Internal inconsistency: 34 patients vs '47 patients' in Methods; '[REDACTED] and August 2025' indicates incomplete text",
+      "Different dose recalculation pipelines (direct FBCT recalc vs Velocity deformable registration on CBCT) introduce methodological asymmetry",
+      "No clinical outcomes (pneumonitis, renal function, engraftment, survival) reported; dosimetric surrogates only",
+      "No data or code availability statement; IRB approval not explicitly documented"
+    ],
+    "predicted_hallucination_flag": true,
+    "rationale": "Retrospective dosimetric comparison with results directionally favoring FBCT, but the fundamental confounding of modality with site, TPS, and linac, combined with explicit '[REDACTED]' placeholder text and a 34-vs-47 patient-count inconsistency, raises concern for unverified content and places this in Tier 4 with major revisions."
+  }
+}

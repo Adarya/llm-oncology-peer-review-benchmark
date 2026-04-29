@@ -1,0 +1,51 @@
+{
+  "paper_id": "PMC13024948",
+  "model": "gemini-3-flash-preview",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2025-05-22T14:45:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "The study employs a rigorous multi-stage validation strategy, using 'Experiment 0' to confirm parameter identifiability and four synthetic cohorts to test the framework across diverse radiobiological regimes (AVM, VS, MEN, BM). The statistical approach is robust, utilizing Brier scores for calibration alongside AUC for discrimination, and employing Bayesian NUTS sampling for parameter recovery with reported 95% credible intervals. However, the clinical validation component is limited by a small sample size (n=60) and substantial missingness in the recurrence endpoint (n=34), which is correctly identified by the authors as an exploratory limitation."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "4",
+      "justification": "The study is assigned an Oxford LoE of 4 based on the inclusion of a retrospective exploratory clinical cohort of 60 brain metastasis lesions, despite the primary validation being computational. Clinical relevance is rated 4 as the framework addresses a significant gap in radiosurgery by unifying biological dose metrics across fractionation schedules. The identification of pathology-specific BED utility provides a clear translational path for improving Gamma Knife treatment planning and decision-making."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 2,
+      "justification": "The manuscript adheres well to the TRIPOD reporting standard for prediction model development, providing comprehensive details on the radiobiological framework (AI-BED-Fx), feature engineering, and evaluation metrics including AUC, Brier scores, and calibration curves. It clearly defines the data-generating processes for the synthetic cohorts and the machine-learning architectures used. However, it lacks mention of protocol registration and does not provide links to a public repository for the analytical code or the synthetic datasets, which limits independent replication."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The manuscript introduces AI-BED-Fx, a novel methodological framework that extends mechanistic radiobiological modeling (Jones-Hopewell) to multi-fraction Gamma Knife schedules, filling a recognized gap in GKS-specific dosimetry. By integrating Bayesian parameter inference and neural network surrogates with time-structure-aware BED calculations, it provides a unique tool for cross-pathology comparison. The study effectively positions itself against traditional LQ models, though its reliance on synthetic cohorts for primary validation limits the empirical novelty claim."
+    },
+    "writing_presentation": {
+      "score": 5,
+      "justification": "The manuscript is exceptionally well-organized, maintaining a logical flow across complex multi-pathology simulations and machine-learning experiments. The abstract is highly informative and quantitatively grounded, providing specific AUC and Brier score results that accurately reflect the study's findings. The writing is precise, effectively defining the 'radiobiological spectrum' across different intracranial pathologies while clearly distinguishing between mechanistic validation and exploratory clinical checks."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Unified extension of Jones-Hopewell model to multi-fraction GKS (1, 3, 5 fractions)",
+      "Rigorous multi-pathology validation showing pathology-specific BED utility",
+      "Successful Bayesian recovery of ground-truth radiobiological parameters (alpha/beta)",
+      "High-fidelity neural network surrogate for real-time BED estimation"
+    ],
+    "key_concerns": [
+      "Primary validation relies on synthetic cohorts; clinical validation is limited and exploratory",
+      "Analytical code and synthetic datasets are not currently shared in a public repository",
+      "Assumption of complete repair between fractions may not hold for all clinical scenarios"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "The framework provides a much-needed unification of radiobiological modeling for multi-fraction Gamma Knife radiosurgery, demonstrating high methodological rigor and pathology-specific insights that are likely to influence future treatment planning standards."
+  }
+}

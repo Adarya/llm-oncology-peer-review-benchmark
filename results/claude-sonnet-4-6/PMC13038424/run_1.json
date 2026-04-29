@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC13038424",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:04:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "Single-institution retrospective cohort of 720 MM patients with 3,240 digitized BMA smears from 2020-2025. Patient-level train/validation/test split (60/20/20) with stratified cytogenetic marker prevalence prevents data leakage. The pipeline is technically rigorous: Macenko stain normalization, StarDist instance segmentation fine-tuned on SegPC-2021, frozen DinoBloom ViT-B/16 embeddings, gated ABMIL with multi-task prediction, focal loss and oversampling for class imbalance, bootstrap CI estimation for AUC, DeLong test for pairwise model comparison, and Bonferroni correction for morphological feature analyses. Expert pathologist validation with blinded Likert plausibility ratings and Jaccard overlap measurement adds a clinically grounded interpretability assessment. Key limitation: single-institution design (one hospital, 2020-2025) prevents external generalizability assessment; no external validation cohort is included despite the paper acknowledging this."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "4",
+      "justification": "This is a retrospective single-institution model development study (LoE 4). The clinical problem — democratizing cytogenetic risk stratification in MM beyond FISH-equipped centers — is genuinely high-impact, particularly for resource-limited settings in low- and middle-income countries where FISH costs ($500-2000 per panel) and infrastructure are prohibitive. AUCs of 0.76-0.85 for clinically actionable markers (del(17p), t(4;14), t(11;14), gain(1q)) represent screening-grade performance with direct clinical utility for: (1) triage prioritization of FISH testing, (2) venetoclax candidacy identification for t(11;14), and (3) rapid same-day risk assessment at diagnosis. The translational pathway is clearly articulated with three specific deployment scenarios."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 3,
+      "justification": "TRIPOD is the applicable reporting standard for model development studies. The manuscript provides comprehensive methodology: cohort flow with quality control exclusion rates (8.1% slide exclusion), segmentation fine-tuning details (1,200 annotated cells, train/val split, early stopping), feature extraction pipeline with dimension specifications (768-dimensional embeddings), training hyperparameters (AdamW optimizer, learning rate, weight decay, batch size, gradient clipping), evaluation metrics (AUC, sensitivity, specificity, F1, Youden-index threshold determination), six baseline comparisons, ablation studies, and subgroup analyses. Limitations section is comprehensive and explicit about single-institution design, label noise from FISH imperfection, and absence of external validation. The DinoBloom model (HuggingFace checkpoint specified) and StarDist (SegPC-2021) are publicly available; patient-level data are not deposited but slide availability from a single Chinese institution limits accessibility regardless."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "This is the first study combining hematology-specific foundation model embeddings (DinoBloom), attention-based multi-task MIL, and multi-center FISH-matched labels to simultaneously predict four cytogenetic markers from MM BMA smears. Prior work (Bermejo-Pelaez et al.) used handcrafted features without foundation models; Mason et al. used biopsy H&E rather than cytological smears; Kerner et al. predicted only t(11;14) from H&E. The multi-task simultaneous 4-marker prediction, the systematic foundation model comparison (DinoBloom vs UNI vs CONCH vs ResNet50 vs handcrafted), and the dual pathologist validation with quantified morphological feature associations with genetic subtypes are collectively novel. The 11-point AUC improvement over handcrafted features quantifies the foundation model contribution."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is clearly structured with well-delineated methods sections, appropriate mathematical notation for the ABMIL equations, comprehensive baseline comparison tables, and a discussion that addresses biological mechanisms for each cytogenetic marker's morphological signature. The figure descriptions are detailed and informative. The limitations section is exceptionally candid, including acknowledging that attention indicates correlation not causation. Minor issues include slight redundancy between the Results and Discussion sections regarding expert validation statistics, and a formatting artifact in Section 5.5 where 'n 411 = 144' appears to be a typesetting error for 'n = 144'. The clinical deployment scenarios are clearly articulated with time estimates (15-25 minutes vs 3-7 days for FISH)."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "First application of a hematology-specific foundation model (DinoBloom) with attention-based multi-task MIL for simultaneous 4-marker cytogenetic prediction from MM BMA smears, achieving AUCs 0.76-0.85 with clinical deployment relevance",
+      "Systematic comparison of six feature extraction and aggregation strategies demonstrating the performance hierarchy (DinoBloom > UNI/CONCH > ResNet50 > handcrafted), with DeLong test statistical validation",
+      "Dual hematopathologist validation with blinded plausibility ratings (4.1/5.0 for attention-selected vs 2.8/5.0 random, p<0.001) and quantified morphological associations with genetic subtypes validated against established Garand criteria",
+      "Comprehensive limitations section explicitly acknowledging single-institution design, FISH label noise, absence of external validation, and attention-causation distinction"
+    ],
+    "key_concerns": [
+      "Single-institution design (one hospital, 2020-2025) with no external validation cohort is the primary limitation; AUCs of 0.76-0.85 cannot be presumed to generalize across different scanners, staining protocols, or patient populations without prospective multi-center validation",
+      "The model was trained and evaluated on a Chinese single-center cohort with specific scanner models (Aperio AT2/Hamamatsu NanoZoomer) and staining protocol; performance characteristics for other scanners or Wright-Giemsa variants are unknown",
+      "Typesetting/formatting artifact in cohort description ('n 411 = 144' in test set description) requires correction; minor redundancy between Results and Discussion for expert validation data",
+      "The 500-cell training cap for high-cellularity samples introduces stochastic variation in training examples per patient; the paper notes this provides regularization benefit but does not evaluate whether the inference mode (all cells) creates train/test distribution mismatch for high-cellularity cases"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a methodologically rigorous AI model development study with strong technical execution, systematic baseline comparisons, and clinically grounded expert validation. The work represents a genuine advance in computational hematopathology for MM cytogenetic risk stratification. The single-institution limitation is acknowledged and does not constitute a fabrication risk; the cited prior works (Garand, Bermejo-Pelaez, Mason, Kerner) are topically appropriate and the performance comparisons are internally consistent. Tier 2 with minor revisions is appropriate given the methodological rigor, clear clinical utility, and novelty of the foundation model application to MM cytogenetics, with the primary revision requirement being explicit acknowledgment that the study constitutes an internal validation only and that prospective multi-center validation is required before any clinical deployment claims."
+  }
+}

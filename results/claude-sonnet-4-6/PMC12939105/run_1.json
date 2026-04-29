@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC12939105",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:08:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "The study uses a multi-institutional retrospective cohort (n=482 advanced NSCLC, 3 centers) with an independent external validation cohort (n=51 neoadjuvant NSCLC). The feature tokenizer Transformer with self-training framework is methodologically advanced. LASSO feature selection is performed only on training data with strict patient-level separation preventing leakage. SHAP interpretability analysis is included. Cut-off for rad-PDL1 was defined on training set only. Decision curve analysis and multivariate Cox regression are performed. Limitations include retrospective design, geographic restriction to Quebec, and inability to use nested cross-validation due to computational constraints."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "4",
+      "justification": "This is a retrospective cohort study with model development and external validation (Oxford LoE 4). The clinical application—non-invasive CT-based PD-L1 surrogation—addresses a genuine unmet need in NSCLC management. PD-L1 assessment drives first-line immunotherapy decisions for >80,000 patients/year in North America alone. The association of rad-PDL1 with PFS (8.19 vs. 2.69 months, p=0.002) in the primary test set provides preliminary clinical validation. The independent neoadjuvant cohort validation across treatment contexts strengthens relevance."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "TRIPOD",
+      "data_availability_score": 3,
+      "justification": "The manuscript adheres well to TRIPOD reporting guidelines for prediction model studies: study design, patient selection, predictor variables, outcome, model development, and validation are clearly described. Confidence intervals are provided for all performance metrics. Limitations including geographic restriction, lack of nested CV, and dataset-specific calibration are comprehensively stated. Code is not publicly released but PyRadiomics and standard libraries are used. The NSCLC-Radiomics public dataset for pseudo-labeling is cited and accessible."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "CT radiomics for PD-L1 prediction in NSCLC is a published area (multiple prior single-center studies cited). The key novel contributions are: (1) the self-training FT-Transformer framework using unlabeled data to compensate for limited PD-L1-annotated scans, (2) multi-institutional training from three centers, and (3) validation across two distinct clinical contexts (advanced ICI-treated and neoadjuvant chemo-IO). These together represent a meaningful methodological advance over prior single-center fully-supervised approaches."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well-organized with clear clinical motivation, detailed methods sections, comprehensive results, and a balanced discussion. The distinction between primary validation (AUC=0.75) and exploratory independent validation (AUC=0.68) is appropriately maintained. Limitations are detailed and honest. The SHAP feature interpretation section provides useful biological context. Some technical sections (self-training, FT-Transformer) are dense but adequately explained for a clinical journal audience."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Multi-institutional training with external validation in an independent neoadjuvant cohort across distinct clinical contexts (advanced vs. limited stage NSCLC)",
+      "Self-training FT-Transformer framework leverages unlabeled CT data to improve model generalizability with limited labeled samples",
+      "SHAP interpretability analysis identifies biologically plausible textural heterogeneity features with stable rankings across test partitions",
+      "Rad-PDL1 score independently associated with PFS in multivariate analysis (HR not reported but p=0.01), supporting clinical relevance beyond classification"
+    ],
+    "key_concerns": [
+      "Geographic restriction to Quebec institutions limits generalizability; scanner diversity and institutional variation in CT acquisition protocols not fully characterized",
+      "AUC of 0.68 in the independent neoadjuvant cohort (n=51) with wide CIs (0.55-0.81) represents borderline clinical utility at this validation sample size",
+      "Inability to perform nested cross-validation due to computational constraints limits robustness of model selection estimates",
+      "PFS cut-off for rad-PDL1 defined on training cohort using X-tile, which optimizes by design—survival analyses should include sensitivity analyses with fixed cut-offs"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A methodologically solid multi-institutional radiomics study with genuine novelty in the self-training framework and cross-context validation; moderate external validation performance (AUC=0.68) and geographic limitations warrant minor revisions before tier 2 publication, primarily addressing validation sample size limitations and survival analysis cut-off optimization concerns."
+  }
+}

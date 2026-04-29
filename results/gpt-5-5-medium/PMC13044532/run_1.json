@@ -1,0 +1,52 @@
+{
+  "paper_id": "PMC13044532",
+  "model": "gpt-5.5",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-28T22:13:32Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "The study deeply profiles rapid-autopsy PDAC samples from one patient across two primary regions and nine metastases with matched snRNA-seq, WES, H&E, digital pathology, and newly developed IntegrateCNV, PICASSO, and PLASTRO analyses. Methods include extensive single-nucleus QC, ambient RNA correction, doublet detection with two tools, WES-guided CNA inference, simulation benchmarking, repeated-run stability testing, downsampling, and a second peritoneal metastasis case for lipid-program validation. The main limitation is biological generalizability from a single index patient, even though the authors compare programs to prior cohorts and include one targeted validation case."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "4",
+      "justification": "This is an observational rapid-autopsy case study with computational method development and limited second-case validation, so the Oxford level is 4. The clinical relevance is plausible because it addresses metastatic PDAC adaptation, peritoneal metastasis lipid metabolism, and nongenetic plasticity as potential therapeutic considerations. It does not directly inform current treatment decisions because no intervention, outcome prediction model, or prospectively validated biomarker is tested."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "STROBE",
+      "data_availability_score": 4,
+      "justification": "STROBE is the closest standard for the observational autopsy sampling and clinicopathologic description, with additional computational reporting. The manuscript gives detailed consent and IRB information, autopsy timing, sample processing, WES and snRNA-seq protocols, QC thresholds, algorithmic assumptions, simulation parameters, validation metrics, and limitations of bulk phylogeny and epithelial-enriched capture. Data and code availability are strong because the methods state that complete WES pipeline source code is available at repository links and provide enough computational detail for replication, although the normalized text redacts the actual URLs."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The work is novel in its integrated single-patient metastatic PDAC atlas, WES-guided single-cell CNA phylogeny through PICASSO, archetype-based adaptive program analysis, and PLASTRO quantification of genotype-phenotype discordance. Prior PDAC rapid-autopsy, single-cell, and metastasis evolution studies exist, but the combination of clonal phylogeny with site-specific transcriptomic programs across many metastatic organs is a substantial extension. Novelty is constrained by the single-patient design and by dependence on computational inference rather than functional validation of the adaptive programs."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is clearly structured from biological question to sampling, method development, metastatic phylogeny, archetype programs, peritoneal lipid rewiring, and plasticity synthesis. The abstract accurately previews the single-patient rapid autopsy design and the PICASSO method, and figure captions explain the computational outputs and biological interpretation. The methods are lengthy and equation-heavy, but this detail improves transparency for a computational manuscript."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Exceptionally deep multi-site rapid-autopsy sampling with matched snRNA-seq, WES, and histology.",
+      "Computational methods are described, benchmarked, and stress-tested with simulations, repeated runs, and downsampling.",
+      "Integrates clonal structure with adaptive transcriptomic programs rather than treating phenotype and genotype separately.",
+      "Identifies biologically plausible site-specific adaptations, including gastrointestinal programs in stomach wall metastasis and lipid metabolism in peritoneal disease."
+    ],
+    "key_concerns": [
+      "The index analysis is based on one unusually young patient, limiting generalizability.",
+      "Functional validation of lipid rewiring, gastrointestinal adaptation, and plasticity mechanisms is not provided.",
+      "The epithelial-enriched capture strategy limits conclusions about stromal and immune contributions.",
+      "Clinical utility remains conceptual rather than immediately actionable."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a high-quality computational and translational metastasis study with unusually rich sampling and rigorous method development. It fits tier 2, while the single-patient design and lack of functional validation keep it below tier 1."
+  }
+}

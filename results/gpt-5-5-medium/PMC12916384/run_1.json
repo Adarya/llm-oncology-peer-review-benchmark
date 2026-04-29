@@ -1,0 +1,51 @@
+{
+  "paper_id": "PMC12916384",
+  "model": "gpt-5.5",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T01:51:21Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 2,
+      "justification": "The within-patient comparison of four radiotherapy plans in 48 thymoma or thymic carcinoma patients is a reasonable dosimetric design because each patient serves as their own planning control. Target/OAR delineation, beam configurations, dose constraints, Monte Carlo calculation, DVH metrics, and LKB NTCP modeling are described. Statistical rigor is limited by reliance on the Student-Newman-Keuls test without detailed paired-model assumptions or multiplicity control across many OAR endpoints, and there are no observed clinical toxicity outcomes."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "5",
+      "justification": "Although based on patient imaging, this is primarily a treatment-planning and NTCP modeling study rather than an outcomes cohort, so it maps best to Oxford level 5 mechanistic or modeling evidence. The topic is clinically relevant because thymoma radiotherapy must spare lungs, heart, esophagus, spinal cord, and breast tissue. Its direct clinical impact is limited because recommendations for NONCO-VMAT are based on surrogate dosimetric and modeled NTCP endpoints, not patient toxicity or control outcomes."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "other",
+      "data_availability_score": 1,
+      "justification": "No listed biomedical reporting standard fits perfectly, so 'other' is appropriate for a radiotherapy dosimetric planning comparison. The manuscript reports patient selection, contouring rules, plan generation, dosimetric indices, LKB parameters, and OAR endpoints, but it provides limited detail on plan optimization priorities, robustness, delivery time, quality assurance, and clinical outcome ascertainment. It does not report public sharing of planning datasets, DVHs, scripts, or treatment-planning files."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "The comparison of non-coplanar VMAT against coplanar VMAT and IMRT specifically for thymoma is a useful extension because the manuscript states that NONCO-VMAT data in thymomas are scarce. Prior work already supports proton therapy, DIBH, non-coplanar approaches, and VMAT advantages in thoracic and mediastinal settings. The novelty is therefore methodological and site-specific rather than field-defining."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The abstract clearly summarizes the four plans, main dosimetric differences, and breast-dose caution for CO-VMAT. The manuscript is organized conventionally and figure captions explain DVHs and female dose distributions. Some equations are incompletely rendered in the normalized text, the statistical approach is underexplained, and discussion statements sometimes imply clinical preference from planning surrogates without enough clinical outcome support."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 5,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Each of 48 patients had four competing plans, enabling direct within-patient dosimetric comparison.",
+      "Clinically relevant OARs were assessed, including lungs, heart, esophagus, spinal cord, and breast.",
+      "NTCP modeling reinforces the main dosimetric finding that NONCO-VMAT balances organ sparing with lower breast exposure than CO-VMAT."
+    ],
+    "key_concerns": [
+      "Evidence is limited to dosimetric and modeled NTCP endpoints, with no clinical toxicity, local control, or survival outcomes.",
+      "Small retrospective cohort and mixed thymoma/thymic carcinoma stages reduce generalizability.",
+      "Multiplicity and paired statistical handling across many dose endpoints are not sufficiently rigorous.",
+      "No planning files, DVH data, or code availability is described."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a useful planning study for a specialized radiation oncology audience, but surrogate endpoints and limited statistical reporting keep it below higher tiers."
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC13035498",
+  "model": "gpt-5.5",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T03:04:25Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "This retrospective planning study used an independent evaluation cohort of 48 OPC cases and generated four plans per case to isolate the effects of treatment technique and RapidPlan model type. Planning aims, target coverage requirements, OAR dose endpoints, NTCP estimates, complexity metrics, and deliverability testing for nine selected cases are described in detail. The related-samples Friedman test with Bonferroni correction is appropriate for paired plan comparisons, though the study remains dosimetric rather than clinical and the deliverability subset is small."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "5",
+      "justification": "The Oxford level is 5 because this is a treatment-planning and dosimetric optimization study rather than a patient outcome cohort or trial. The clinical relevance is plausible because OPC radiotherapy plan quality, OAR sparing, delivery time, and NTCP estimates are directly linked to toxicity risks such as dysphagia, xerostomia, and mucositis. However, the study does not evaluate actual patient toxicity, tumor control, workflow implementation outcomes, or clinical noninferiority."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "other",
+      "data_availability_score": 2,
+      "justification": "No standard in the schema fully matches a radiotherapy treatment-planning study, so other is appropriate; the manuscript states that RATING guidelines were considered and that a scoring sheet is in supplementary materials. It thoroughly reports cohort selection, training and evaluation cohorts, plan generation, clinical goals, OAR endpoints, NTCP model sources, complexity metrics, deliverability measurements, exclusions, and limitations of NTCP model applicability. Reproducibility is limited because full planning data, optimization templates, and code are not clearly deposited, although methods and supplementary tables appear sufficient for approximate replication in a similar planning system."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The study addresses a timely and specific implementation question: whether existing VMAT-trained RapidPlan models remain usable with the newer RapidArc Dynamic optimizer and whether RAD-specific models improve OAR sparing. The combination of knowledge-based autoplanning, RAD, dynamic collimator/STAMP delivery, paired model comparisons, and deliverability assessment is more novel than a routine VMAT planning comparison. Novelty is moderated because hybrid IMRT/VMAT approaches and autoplanning validation are established areas."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is clearly structured and the abstract concisely states the four-plan design, statistical approach, key OAR findings, and implementation implication. Methods provide enough detail about beam arrangements, prescriptions, target margins, OAR objectives, NTCP modeling, and complexity metrics to follow the planning workflow. Figure captions are standalone and informative, though a few discussion passages on model-training effects and NTCP interpretation are technically dense."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Strong paired four-plan design separating effects of RP model training and VMAT versus RAD delivery technique.",
+      "Independent evaluation cohort with all plans required to meet target coverage, spinal canal, and brainstem constraints.",
+      "Appropriate paired nonparametric statistics with Bonferroni correction for multiple testing.",
+      "Includes clinically relevant OAR dose, NTCP, complexity, deliverability, and delivery-time endpoints.",
+      "Discussion appropriately cautions that NTCP estimates are relative and not validated on this cohort."
+    ],
+    "key_concerns": [
+      "This is a dosimetric planning study, so clinical toxicity and disease-control benefits are inferred rather than observed.",
+      "Deliverability was measured in only nine plans, selected partly by complexity metrics.",
+      "The RAD-based RapidPlan model may benefit from more optimized training plans, complicating attribution of improvements to RAD itself.",
+      "Full planning datasets and code are not clearly available for independent reproduction."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a well-designed radiotherapy planning paper with practical implementation value and appropriate statistical handling. Tier 3 with minor revisions fits because the work is strong within a planning-study scope but lacks direct clinical outcome validation."
+  }
+}

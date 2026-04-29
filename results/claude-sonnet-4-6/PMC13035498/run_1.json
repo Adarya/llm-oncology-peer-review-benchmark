@@ -1,0 +1,54 @@
+{
+  "paper_id": "PMC13035498",
+  "model": "claude-sonnet-4-6",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-26T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "Retrospective planning study with a well-structured 2x2 factorial design comparing RP models and delivery techniques in 48 OPC patients. RATING guidelines were used to design the study and a Bonferroni correction for multiple comparisons was applied. The main limitation is single-center origin and single-planner execution, with the RP-RAD model explicitly trained for this study rather than from real-world clinical use, introducing potential optimization bias. Power calculation is not reported, but the paired within-patient design increases statistical efficiency."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "5",
+      "justification": "The study addresses a directly actionable clinical question: whether existing VMAT-based RapidPlan models can safely be used when transitioning to the new RAD delivery technique. The findings that VMAT-based RP models remain applicable for RAD planning and that RAD achieves a 46% reduction in delivery time with improved OAR sparing have immediate clinical practice implications for radiation oncology centers adopting this technology. Although LoE is 5 (planning study, no patient outcomes), translational relevance is high given quantified NTCP reductions for dysphagia and mucositis."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "other",
+      "data_availability_score": 2,
+      "justification": "The RATING framework for treatment planning studies was explicitly referenced and a scoring sheet was included in the supplementary materials, demonstrating systematic adherence to the applicable reporting standard. Key elements (cohort description, plan optimization criteria, statistical methods, complexity metrics, deliverability verification) are comprehensively reported. Supplementary tables provide DVH data and complexity metrics. However, raw data and the RP models themselves are not made publicly available, limiting reproducibility."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "The study is among the first to evaluate the novel RapidArc Dynamic solution specifically for oropharyngeal cancer with autoplanning, providing clinically useful data on knowledge-based model transferability. The 46% delivery time reduction and the direct NTCP comparison represent a meaningful contribution beyond prior hybrid IMRT/VMAT studies. However, the foundational concept of hybrid arc delivery is not new, and the contribution is primarily one of technical validation rather than a mechanistic or conceptual breakthrough."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is well organized and clearly written, with a logical flow from rationale through methods, results, and discussion. The study design is explained with reference to a figure, making the 2x2 comparisons easy to follow. The discussion appropriately contextualizes limitations including the NTCP model validation caveats and the isodose streaking issue. Minor imprecision appears in the NTCP difference reporting in the results section where a numerical range appears inconsistently formatted."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 7,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Well-structured 2x2 factorial within-patient planning design with RATING guideline adherence and Bonferroni-corrected statistics",
+      "Clinically relevant question addressing the safe transition to a novel RT delivery platform without waiting for new RP model development",
+      "Significant 46% reduction in delivery time for RAD vs VMAT, a practically important finding for clinical throughput",
+      "NTCP reductions for dysphagia and mucositis provide clinical interpretation beyond raw dosimetric comparisons",
+      "Deliverability verified on a subset of plans with gamma pass rates meeting clinical standards"
+    ],
+    "key_concerns": [
+      "Single-center, single-planner study limits generalizability and introduces potential planner bias despite RP standardization",
+      "RP-RAD model was trained specifically for this study using RP-VMAT-seeded plans, making the comparison between models not fully independent and potentially overestimating RP-RAD advantages",
+      "No sample size calculation or power analysis reported for the primary comparison",
+      "Raw dosimetric data and RP models are not publicly shared, limiting independent replication",
+      "NTCP model validation not performed on the study cohort; differences in contouring practices acknowledged but not quantified"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A solid single-center planning study addressing a timely clinical question with appropriate methodology and RATING guideline adherence; the work is best suited to a tier-3 journal given its single-center, single-technique scope and absence of patient outcome data, but merits acceptance after clarification of the RP-RAD training independence concern and addition of a power discussion."
+  }
+}

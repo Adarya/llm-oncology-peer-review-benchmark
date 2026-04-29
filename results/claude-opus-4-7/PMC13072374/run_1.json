@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC13072374",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "A retrospective planning study with 28 patients and 197 lesions, comparing three paired plans per patient (GK, SIT LINAC, DIT LINAC) under identical zero-mm GTV-to-PTV margin assumptions and the same prescription (20 Gy, 99% GTV coverage) to isolate delivery geometry. Appropriate statistics include paired Wilcoxon tests at lesion level, Friedman with post hoc Wilcoxon for V12/V10/V5/V4/V3Gy, Spearman correlations with volume and lesion count, and linear mixed-effects model with patient as random effect adjusting for lesion volume (SIT β=-0.084, DIT β=-0.033 vs GK; both p<0.001). Multivariable linear regression is also used. Limitations include no a priori sample size justification, potential planner bias since DIT lesion clustering was performed manually, and no dose-volume metrics mapped to clinical outcomes in this cohort."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "4",
+      "justification": "A retrospective dosimetric planning study maps to Oxford LoE 4. Clinical relevance is moderate-to-high: the work provides actionable evidence that LINAC-based DIT with automated optimization can approximate GK dosimetry for multiple brain metastases, which is directly applicable to centers without dedicated cranial radiosurgery platforms. However, no patient-level toxicity or local control outcomes are evaluated, so the translation to clinical benefit is inferred rather than demonstrated."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "other",
+      "data_availability_score": 2,
+      "justification": "Reporting standards for dosimetric planning studies are not uniformly codified; STROBE is an imperfect fit and none of the standard checklists is a clean match, so 'other' applies. The manuscript clearly documents treatment planning systems and versions (Elements MBM v4.5; GammaPlan Lightning v11.4.2), OAR constraints, PCI definition (Paddick), dose thresholds, and statistical methods. However, no ethics statement or IRB approval is given for the retrospective use of patient data, no patient flow diagram is presented, and no data or code sharing statement is provided. Results text shows partial redundancy ('SPSS software v27.0. All analyses were performed using SPSS software.')."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "Dual-isocenter LINAC VMAT/DCA planning comparisons to GK exist in prior literature (refs 21, 22, 35, 36). The novelty here is the specific combination of automated DCA optimization via Elements MBM with a strict zero-margin strategy across GK, SIT, and DIT to fairly isolate delivery geometry, plus a mixed-effects model adjusting for lesion volume. Contribution is a meaningful incremental extension but not a paradigm shift."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The manuscript is well-organized with informative subsections and clear quantitative reporting in the abstract and results. Figures illustrate dose distribution and dual-isocenter arc geometry. Several rough edges remain: redundant statistical software sentence, awkward phrasing ('performance that assesses that of Gamma Knife', 'Each patients had a high median number'), and a handful of grammatical slips in the discussion. Tables of lesion-level and patient-level metrics are referenced but not shown in the text (numerical values are embedded in prose)."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Paired three-plan comparison (GK, SIT, DIT) in 28 patients with 197 lesions under identical zero-margin targeting to isolate delivery-geometry effects",
+      "Appropriate paired nonparametric statistics plus a mixed-effects model with patient as random effect showing DIT closer to GK (PCI delta -0.05) than SIT (delta -0.08)",
+      "Multivariable modeling identifying total target volume as the dominant predictor of low-dose brain exposure with effect sizes reported (e.g., mean delta V3Gy +149 cc SIT vs GK, +117 cc DIT vs GK)",
+      "Directly relevant to centers choosing between GK and LINAC-based platforms for multiple brain metastases"
+    ],
+    "key_concerns": [
+      "No IRB/ethics statement disclosed for retrospective use of patient imaging and planning data",
+      "Manual DIT lesion clustering (even if benchmarked to published algorithms) introduces planner-dependent variability not fully controlled",
+      "No clinical outcomes (local control, neurocognitive toxicity, radionecrosis) so the clinical relevance of dosimetric differences is inferred from the literature",
+      "No data or code availability statement and no patient flow diagram",
+      "Minor typographical and repetition issues in the Methods/Discussion sections"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A well-controlled dosimetric comparison appropriate for a specialty radiation-oncology or medical-physics journal. Tier 3 is a realistic ceiling and minor revisions to add ethics, clean typography, and explicit data availability would be adequate for acceptance."
+  }
+}

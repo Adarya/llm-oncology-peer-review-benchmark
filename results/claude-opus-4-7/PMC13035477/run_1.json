@@ -1,0 +1,54 @@
+{
+  "paper_id": "PMC13035477",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T16:19:06Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 4,
+      "statistical_score": 4,
+      "justification": "The study integrates multiple orthogonal modalities including scRNA-seq (rLN n=5, FL n=6, DLBCL n=8), 56-plex mIF on 3.68 million cells, Xenium spatial transcriptomics, flow cytometry, plasma ELISA (n=40), Transwell migration, in vitro iFRC coculture with scRNA-seq and secretome profiling, and five external bulk transcriptomic validation cohorts (n=1,726 DLBCL patients). Statistical tests are named per analysis (MAST with Bonferroni for DE; Wilcoxon rank-sum; Welch t-test; Fisher exact; log-rank; Cox regression) with Benjamini-Hochberg adjustment for multiplicity and effect-size thresholds (log2FC >0.5). Key weaknesses the authors themselves flag: 'No statistical method was used to predetermine the sample size,' 'data collection and analysis were not performed blinded,' and some critical experiments rest on very small n (Xenium FL n=1 and DLBCL n=1; iFRC coculture n=3; migration n=3). The iFRC line is derived from a single DLBCL donor and lentivirally immortalized, which limits generalization; the causal in-vivo chain (IFNgamma -> stromal reprogramming -> architectural loss) remains correlational rather than demonstrated through perturbation in human tissue."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "4",
+      "justification": "The work delivers clinically meaningful translational signal: low homeostatic chemokine expression and lower CIBERSORTx-derived FDC fractions were associated with worse overall survival across five independent DLBCL bulk cohorts totalling 1,726 patients, with hazard ratios reportedly independent of cell-of-origin and IPI (Extended Data Fig. 10). Plasma CXCL13 differences between FL (n=18) and DLBCL (n=22) suggest a potential circulating biomarker, and the mechanistic model identifies the IFNgamma/CXCR3 axis and stromal CXCL9/10/11 as possible therapeutic leverage points. The design is primarily a cross-sectional tissue-mapping study with retrospective prognostic association analyses on archival cohorts, corresponding to Oxford LoE 4 (low-quality cohort / case series at the primary-data level). No prospective testing, no intervention, and no demonstration that restoring homeostatic chemokines alters disease biology are provided, so the clinical impact is suggestive rather than practice-changing."
+    },
+    "reporting_quality": {
+      "score": 4,
+      "standard_used": "STROBE",
+      "data_availability_score": 4,
+      "justification": "The methods section is detailed and tool-versioned (Seurat 4.3.0, Scanorama 1.7.3, MAST 1.22.0, clusterProfiler 4.6.3, NicheNet 1.1.1, spatstat 3.0.8, survminer 0.5.0, survival 3.7.0, Xenium software 3.1.0.0, Cell Ranger 8.0.1) with explicit filtering thresholds, statistical methods per figure, and a 'Statistics and reproducibility' subsection. Ethics approval (S-057/2019, University of Heidelberg), informed consent, and a Nature Portfolio Reporting Summary are referenced. Patient characteristics are cited in Supplementary Table 1 rather than tabulated in-text, and STROBE items such as handling of missing data, explicit flow diagrams and a priori confounder adjustment are only partially covered; the authors openly state sample sizes were not pre-specified and analyses were not blinded. Data availability is supported by a cited Zenodo deposition (ref. 59, DOI 10.5281/zenodo.18474620) and references to previously published mIF/CITE-seq datasets, supporting a data-availability score of 4; fully open containerized code was not evident."
+    },
+    "novelty_literature": {
+      "score": 4,
+      "justification": "The paper explicitly acknowledges that prior work (ref. 34, Apollonio et al. 2023) reported reprogramming of LN stromal cells in DLBCL and that ref. 8 (Mourcin et al. 2021) and ref. 9 (Abe et al. 2022) already mapped stromal remodeling in FL and lymphoma, tempering claims of primacy. The novel contributions are (i) the integrative chemokine 'attraction potential' framework that reconstructs LN spatial compartments purely from scRNA-seq ligand-receptor expression and predicts their breakdown in DLBCL, (ii) coupling of stromal chemokine reprogramming to an IFNgamma-driven tumor-reactive T cell feedback loop with in vitro iFRC coculture validation, and (iii) the prognostic demonstration across 1,726 DLBCL patients that homeostatic chemokine/FDC signatures add information orthogonal to cell-of-origin and IPI. This is a meaningful synthesis and extension rather than a first-in-class discovery."
+    },
+    "writing_presentation": {
+      "score": 4,
+      "justification": "The manuscript is clearly structured with a coherent narrative arc from spatial mapping of LN architecture, to chemokine rewiring, to an IFNgamma-driven feedback loop, to in silico reconstruction, to prognostic translation. Figure legends are dense but informative, consistently stating n, statistical test, adjustment method, and box plot conventions (center, IQR, 1.5x IQR whiskers). Terminology (rFRC, rBEC, Ttox EM-II, Bprol neighborhood) is defined and used consistently, and the Discussion explicitly situates the work relative to ref. 34 and mouse-model literature. Minor issues: abbreviations are abundant and occasionally dense, some key claims (for example IPI/cell-of-origin independence) rely on Extended Data figures not reproduced in the main text, and the Xenium analyses rest on single-core samples, which could be better flagged in the main narrative."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 8,
+    "highest_tier_acceptance": 2,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Multi-modal integration across scRNA-seq, 56-plex mIF on 3.68M cells, Xenium spatial transcriptomics, plasma ELISA, flow cytometry, Transwell migration, iFRC coculture with scRNA-seq and secretome profiling — converging on a single mechanistic model.",
+      "Prognostic validation of homeostatic chemokine and FDC signatures across five independent DLBCL cohorts totalling 1,726 patients, reported as independent of cell-of-origin and IPI.",
+      "Novel chemokine 'attraction potential' framework that reconstructs LN spatial compartments de novo from scRNA-seq and predicts their disruption in DLBCL.",
+      "Mechanistic feedback loop (IFNgamma+ tumor-reactive CD8 T cells -> stromal CXCL9/10/11 -> CXCR3+ T cell recruitment) supported in vitro with iFRC coculture and secretome data.",
+      "Explicit tool versions, statistical tests per figure, ethics approval (S-057/2019), and a Zenodo data deposition (ref. 59)."
+    ],
+    "key_concerns": [
+      "Authors state 'no statistical method was used to predetermine sample size' and analyses were not blinded, and primary scRNA-seq cohorts are small (rLN n=5, FL n=6, DLBCL n=8).",
+      "Several key spatial and functional claims rest on very small n: Xenium FL n=1 and DLBCL n=1 cores, iFRC coculture from a single donor-derived immortalized line, and Transwell migration n=3.",
+      "The causal direction of the IFNgamma-driven feedback loop is inferred from correlational human data plus in vitro coculture; no in-vivo or human perturbation experiments restore architecture by modulating the axis.",
+      "Prior literature (refs. 8, 9, 34) already reported stromal remodeling and dysfunction in nodal B cell lymphoma, so the mechanistic novelty is an extension and synthesis rather than first-in-class.",
+      "Patient characteristics, IPI/cell-of-origin independence, and external-cohort clinical annotations live in supplementary materials and extended data, limiting transparency for reviewers reading only the main text."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "Methodologically solid, multi-modal translational study with clear mechanistic framing and a large retrospective prognostic validation, but causal demonstration remains limited and several key experiments rest on very small n; fits Tier 2 (strong translational/mechanistic contribution without practice-changing evidence) with minor revisions to address sample-size and causality caveats."
+  }
+}

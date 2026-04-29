@@ -1,0 +1,50 @@
+{
+  "paper_id": "PMC13072374",
+  "model": "gpt-5.4-mini",
+  "architecture": "multi-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-29T01:41:37Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 4,
+      "justification": "This is a retrospective paired planning study in 28 patients with three plans per patient, which is an appropriate structure for dosimetric comparison. The main limitation is that it compares replanned treatment plans rather than clinical outcomes, and the dual-isocenter grouping was partly manual, so the inference is about planning geometry rather than effectiveness. Statistical tests are well matched to the paired design, with Wilcoxon, Friedman, Spearman, and mixed-effects modeling reported."
+    },
+    "clinical_relevance_loe": {
+      "score": 3,
+      "loe_oxford": "4",
+      "justification": "This is a retrospective comparative planning study built from 28 patients, so it is not an interventional trial and does not provide outcome-based evidence. The clinical relevance is moderate because it addresses a real radiosurgery planning problem for multiple brain metastases and shows that dual-isocenter LINAC planning can approximate Gamma Knife dosimetrically, but it stops short of demonstrating better patient outcomes or toxicity."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "STROBE",
+      "data_availability_score": 1,
+      "justification": "STROBE is the closest fit for this retrospective patient-based comparison, and the manuscript gives a detailed account of cohort size, planning rules, metrics, and statistics. Reporting is weakened by the absence of a protocol or prospective registration, no data/code availability statement, and limited transparency around how the manual clustering was finalized and whether the replans were independently verified."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "The main novelty is a dual-isocenter automated DCA strategy compared against single-isocenter LINAC and Gamma Knife planning under a zero-margin assumption. That is a useful planning refinement rather than a new clinical concept, and the manuscript itself cites several prior single- and dual-isocenter studies that limit the claim to an incremental methodological extension."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The paper is organized in a conventional IMRaD structure and the abstract reports the key dosimetric endpoints clearly. Still, the discussion is repetitive, several sentences are awkwardly worded, and some claims overreach the planning-only evidence by implying clinical robustness without outcome data."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "major_revisions",
+    "key_strengths": [
+      "Paired plan generation within the same patient gives a fair dosimetric comparison across Gamma Knife, single-isocenter, and dual-isocenter strategies.",
+      "The manuscript reports clinically relevant dose metrics and uses appropriate paired and multivariable statistics.",
+      "The planning question is practical and directly connected to workflow decisions for multi-metastasis radiosurgery."
+    ],
+    "key_concerns": [
+      "There are no clinical outcome or toxicity endpoints, so the paper cannot establish that the dosimetric gains matter to patients.",
+      "The dual-isocenter grouping was partly manual and the zero-margin assumption is a strong simplification that limits generalizability.",
+      "Reporting is good for methods but thin on transparency around reproducibility and data/code sharing."
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "This is a useful, technically competent planning comparison, but it remains a dosimetric study without outcome validation. That keeps it in tier 3 with revision needed to separate planning evidence from clinical claims."
+  }
+}

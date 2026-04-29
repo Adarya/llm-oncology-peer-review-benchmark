@@ -1,0 +1,53 @@
+{
+  "paper_id": "PMC13054584",
+  "model": "claude-opus-4-7",
+  "architecture": "single-agent",
+  "run_id": 1,
+  "timestamp": "2026-04-18T00:00:00Z",
+  "specialist_scores": {
+    "methodological_rigor": {
+      "score": 3,
+      "statistical_score": 4,
+      "justification": "Single-center retrospective cohort of 300 FIGO IIB-IVA LACC patients, with 1:1 PSM (caliper 0.1 SD) yielding 240 matched patients and SMDs<0.05. Statistical analyses are extensive and appropriate: multivariable Cox with Schoenfeld residuals, RCS dose-response modeling, IPW sensitivity analysis, MICE for missing data, interaction tests, and post-hoc power analysis. However, the underlying allocation is non-random and driven by tumor characteristics (bulky tumors or MRI parametrial invasion preferentially received 3D-PTIB), creating systematic confounding by indication that PSM cannot fully remove. There is also a fundamental imaging-modality asymmetry: 3D-PTIB used CT+MRI, while F-3DIB used intraoperative CT only, confounding target volume definition and D90 comparisons."
+    },
+    "clinical_relevance_loe": {
+      "score": 4,
+      "loe_oxford": "2b",
+      "justification": "Retrospective individual cohort with propensity matching corresponds to Oxford LoE 2b. The clinical question (3D-printed template vs freehand interstitial brachytherapy in LACC) is highly relevant for improving local control and reducing late toxicity, especially in bulky/parametrial-invasion subgroups. The reported ~11% absolute LC gain and >50% reduction in grade 3 proctitis are clinically meaningful, though confirmation requires prospective multicenter validation."
+    },
+    "reporting_quality": {
+      "score": 3,
+      "standard_used": "STROBE",
+      "data_availability_score": 2,
+      "justification": "STROBE is applicable. Inclusion/exclusion flow is well described, PSM procedure and covariates are detailed, and dosimetric and toxicity outcomes are reported with CIs. Several reporting weaknesses: acknowledged selection bias by allocation protocol, acknowledged imaging modality asymmetry that complicates D90 comparisons, exploratory secondary endpoints not adjusted for multiplicity (authors note this), time-to-toxicity not systematically recorded, and no data/code availability statement. Figures are limited (only 2 described), and the extended statistical section is somewhat disorganized with redundant text."
+    },
+    "novelty_literature": {
+      "score": 3,
+      "justification": "3D-printed templates for interstitial brachytherapy in cervical cancer have been studied (Logar 2019, Marar 2022), and the EMBRACE-I and hybrid ICBT/ISBT literature establish dose-response relationships. The novelty here is the relatively large (n=240 matched) real-world comparison with 3-year follow-up, inclusion of survival endpoints, RCS-based dose-response modeling identifying a plateau near 85 Gy, and subgroup analyses by tumor size/parametrial invasion. This is a meaningful incremental extension rather than a conceptual breakthrough."
+    },
+    "writing_presentation": {
+      "score": 3,
+      "justification": "The manuscript is detailed and generally readable, with a thorough methods section describing the template fabrication workflow and contingency planning. Weaknesses include an extremely long and partially redundant statistical methods paragraph, inconsistent hyphenation ('3D-printed template-guided interstitial brachytherapy' repeated verbatim many times), some repetition in the discussion, and only two figures described (flowchart and treatment protocols) without dosimetric or survival curves. Tables are adequately captioned."
+    }
+  },
+  "chief_reviewer": {
+    "overall_quality_1_10": 6,
+    "highest_tier_acceptance": 3,
+    "recommendation_at_that_tier": "minor_revisions",
+    "key_strengths": [
+      "Large PSM cohort (240 matched patients) with 3-year follow-up showing significant OS and LC benefits for 3D-PTIB",
+      "Robust statistical toolkit: Cox with Schoenfeld residuals, RCS for dose-response, IPW sensitivity analysis, MICE for missingness",
+      "Subgroup analysis and formal interaction tests demonstrating benefit concentrated in bulky tumors (>4 cm) and parametrial invasion",
+      "Clinically meaningful reduction in grade 3+ radiation proctitis (4.2% vs 11.7%) with concurrent target dose escalation"
+    ],
+    "key_concerns": [
+      "Non-random allocation driven by tumor characteristics; confounding by indication may remain despite PSM",
+      "Systematic imaging asymmetry (CT+MRI for 3D-PTIB vs intraoperative CT for F-3DIB) complicates D90 and HR-CTV comparisons",
+      "Multiplicity not corrected for secondary endpoints (PFS p=0.05, subgroup analyses) - authors label these exploratory",
+      "Time-to-toxicity not recorded; limited figure set (no survival curves or dose-response plot shown)",
+      "Single-center retrospective design without external validation; no data/code availability"
+    ],
+    "predicted_hallucination_flag": false,
+    "rationale": "A clinically meaningful, statistically thorough, but single-center retrospective comparison with clear allocation bias and imaging asymmetry; suitable for a mid-tier oncology or radiotherapy journal after minor revisions for figures, multiplicity discussion, and clarity."
+  }
+}
