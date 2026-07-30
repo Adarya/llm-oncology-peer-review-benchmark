@@ -2,10 +2,6 @@
 
 Reproducibility package for a blinded, contamination-controlled benchmark of seven frontier large language models as oncology manuscript peer reviewers.
 
-## Repository Name
-
-Suggested GitHub repository name: `llm-oncology-peer-review-benchmark`
-
 ## Contents
 
 | Path | Purpose |
