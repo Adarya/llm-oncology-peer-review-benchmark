@@ -1,13 +1,10 @@
-"""Export eval tables + publication-style figures under a project-root output directory.
+"""Export tables and figures for one model's outputs to an output directory under the project root.
 
 Usage:
     .venv/bin/python scripts/10_export_prelim_results.py
-    .venv/bin/python scripts/10_export_prelim_results.py --output-dir prelim_all_results_18042026
-    .venv/bin/python scripts/10_export_prelim_results.py --model-dir claude-haiku-4-5 --output-dir prelim_haiku_all_18042026
-    .venv/bin/python scripts/10_export_prelim_results.py --model-dir claude-haiku-4-5 --output-dir prelim_haiku_all_18042026 \\
-        --compare-with claude-opus-4-7 --compare-output-dir prelim_cross_opus_haiku_18042026
-    .venv/bin/python scripts/10_export_prelim_results.py --model-dir gemini-3-flash-preview --output-dir prelim_gemini_all_18042026 \\
-        --compare-with claude-opus-4-7 --compare-output-dir prelim_cross_gemini_opus_18042026
+    .venv/bin/python scripts/10_export_prelim_results.py --model-dir <model> --output-dir <dir>
+    .venv/bin/python scripts/10_export_prelim_results.py --model-dir <model> --output-dir <dir> \\
+        --compare-with <other model> --compare-output-dir <dir>
 """
 
 from __future__ import annotations

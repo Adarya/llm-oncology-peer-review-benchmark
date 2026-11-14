@@ -1,5 +1,6 @@
-"""Project configuration — journals, quotas, dates."""
+"""Project configuration: journals, quotas, dates. NCBI_EMAIL is read from the environment."""
 
+import os
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -11,7 +12,7 @@ NORMALIZED_DIR = CORPUS_DIR / "normalized"
 DATE_FROM = "2026/02/01"
 DATE_TO = "2026/04/18"
 
-NCBI_EMAIL = "adar.yaacov@mail.huji.ac.il"
+NCBI_EMAIL = os.environ.get("NCBI_EMAIL", "")
 NCBI_TOOL = "llm_publication_audit"
 NCBI_API_KEY = None
 

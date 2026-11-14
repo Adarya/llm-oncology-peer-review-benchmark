@@ -1,7 +1,7 @@
-"""Build the unified seven-model master table.
+"""Build the per-article table of the seven models.
 
 Reads results/<model>/<PMCID>/run_1.json for each model and joins with the
-analytical sample produced by 00_eligibility_filter.py. Writes a wide CSV:
+analytical sample written by 00_eligibility_filter.py. Writes a wide CSV:
 one row per PMCID, columns for each chief and specialist field with model
 suffix.
 """

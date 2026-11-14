@@ -11,8 +11,8 @@ Output:
 Idempotent: skips runs whose output already exists.
 
 Usage:
-    .venv/bin/python scripts/12_run_eval_cursor.py --model gpt-5.4 --run 1 --limit 5
-    .venv/bin/python scripts/12_run_eval_cursor.py --model gpt-5.4 --run 1
+    .venv/bin/python scripts/12_run_eval_cursor.py --model <model> --run 1 --limit 5
+    .venv/bin/python scripts/12_run_eval_cursor.py --model <model> --run 1
 """
 
 from __future__ import annotations

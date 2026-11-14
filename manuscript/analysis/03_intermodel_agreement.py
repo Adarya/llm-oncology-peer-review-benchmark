@@ -1,15 +1,15 @@
-"""Inter-model agreement, seven-model edition.
+"""Inter-model agreement.
 
 Computes:
   - Pairwise quadratic-weighted κ (21 pairs) on highest_tier_acceptance.
   - Pairwise recommendation κ (linear-weighted, 4-class).
   - Pairwise Pearson r and Bland-Altman LoA on overall_quality.
-  - Seven-way Fleiss κ + ordinal Krippendorff α on tier (intersection sample).
+  - Seven-way Fleiss κ + Krippendorff α (squared-difference distances) on tier (intersection sample).
   - Seven-way ICC(2,1) absolute-agreement on overall_quality.
 
 Outputs:
   out/pairwise_kappa.csv
-  out/pairwise_overall_corr.csv
+  out/pairwise_kappa_matrix.csv
   out/multimodel_agreement.csv
   figures/fig11_kappa_forest_pairwise.pdf
   figures/heatmap_pairwise_kappa_tier.pdf
@@ -51,7 +51,7 @@ def fleiss_kappa(M: np.ndarray) -> float:
 
 
 def ordinal_krippendorff_alpha(values: np.ndarray) -> float:
-    """Ordinal Krippendorff's α on an items × raters matrix with NaNs."""
+    """Krippendorff's α with squared-difference distances on an items × raters matrix with NaNs."""
     n_items, n_raters = values.shape
     cats = sorted({int(v) for v in values.ravel() if not np.isnan(v)})
     cmap = {c: i for i, c in enumerate(cats)}

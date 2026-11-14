@@ -1,9 +1,4 @@
-"""Publication-ready styling for the seven-model benchmark.
-
-Adapted from public analysis workspace:
-- Seven-model palette / labels / ordering.
-- Provider grouping (Anthropic / OpenAI / Google) for family-level shading.
-"""
+"""Plot styling, model labels, model order and provider grouping shared by the analysis scripts."""
 
 from __future__ import annotations
 
@@ -21,8 +16,7 @@ FIG_DIR = WORK_ROOT / "figures"
 TABLE_DIR = WORK_ROOT / "tables"
 OUT_DIR = WORK_ROOT / "out"
 
-# Models, ordered by descending headline kappa from the run-1 digest
-# (Opus → Gemini → Sonnet → GPT-5.5 → GPT-5.2 → GPT-5.4-mini → Haiku).
+# Models in descending order of run-1 kappa.
 MODEL_ORDER = [
     "claude-opus-4-7",
     "gemini-3-flash-preview",

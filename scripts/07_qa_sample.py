@@ -1,7 +1,7 @@
 """Step 7 — Draw 10% random sample for manual QA of blinding.
 
 Stratified by tier × journal. Copies the 50 normalized .md files into corpus/qa_sample/
-and creates qa_manual_checklist.csv for a research assistant to fill in.
+and writes qa_manual_checklist.csv for the manual check.
 
 Usage:
     .venv/bin/python scripts/07_qa_sample.py

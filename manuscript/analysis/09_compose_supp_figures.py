@@ -1,4 +1,4 @@
-"""Compose supplementary multi-panel figures (seven-model edition).
+"""Compose supplementary multi-panel figures.
 
 Outputs into figures_composed_supp/:
   suppfig1_specialist_means      — 7 small multiples (specialist mean barhs)

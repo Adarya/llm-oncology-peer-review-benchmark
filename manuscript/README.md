@@ -1,43 +1,39 @@
-# Seven-model analysis workspace (2026-04-29)
+# Main analysis
 
-Updated benchmarking report covering **seven 2026-generation frontier LLMs**:
-Claude Opus 4.7, Claude Sonnet 4.6, Claude Haiku 4.5, Gemini 3 Flash Preview,
-GPT-5.5 medium, GPT-5.4 mini medium, GPT-5.2 medium — single-agent run_1 on the v1.0
-blinded oncology corpus, with a post-hoc eligibility refinement that excludes 12
-non-research items (retraction notices and a reply/correspondence) from the original
-n=496, giving an analytical n=485.
+Run 1 of the seven models on the 485 analysed articles (JMIR AI, manuscript 109122).
 
-This workspace contains the public analysis code, derived tables, and generated
-figures for the seven-model benchmark. The analytical sample has n=485 papers
-after excluding 11 retraction notices and one reply/commentary item from the
-original n=496 sampled records. `00_eligibility_filter.py` is retained as
-provenance for the eligibility rule, but it requires the undistributed full-text
-corpus. Pairwise inter-model analyses cover all 21 model pairs; seven-way Fleiss
-/ Krippendorff agreement is computed on the all-model intersection.
+The 485 articles are the 497 sampled records minus the 12 records in `_exclusions.csv`: 9 retraction notices, 1 reply, 1 commentary and 1 article without extractable text. The article without extractable text was not run; the other 11 were excluded after run 1, so 496 records have a run-1 output.
 
-Nothing here modifies the upstream pipeline. Re-run the public analysis scripts
-in numeric order, starting from the frozen analytical sample in `out/`.
+Pairwise inter-model analyses cover all 21 model pairs. Seven-way agreement is computed on the articles with a valid tier from all seven models.
 
 ## Layout
 
-| Path | Purpose |
+| Path | Contents |
 |---|---|
-| `analysis/` | Python scripts |
-| `out/master_per_paper.csv` | Wide 7-model × 485-paper table |
-| `_exclusions.csv` | The 12 PMCIDs dropped from the analytical sample, with reason |
-| `tables/` | Manuscript tables (CSV + MD) |
-| `figures/` | Single-panel figures (PDF + PNG; Arial) |
-| `figures_composed/` | Composed multi-panel main figures |
+| `analysis/` | Analysis and figure scripts |
+| `out/_analytical_sample.csv` | The 485 analysed articles |
+| `out/master_per_paper.csv` | One row per article, columns per model |
+| `out/` | Other derived tables |
+| `_exclusions.csv` | The 12 excluded records, with reasons |
+| `tables/` | Tables (CSV and Markdown) |
+| `figures/` | Single-panel figures (PDF and PNG) |
+| `figures_composed/` | Composed main figures |
 | `figures_composed_supp/` | Composed supplementary figures |
 
-## Reproduce
+## Run
+
+From the repository root, in the environment described in the root `README.md`:
 
 ```bash
-.venv/bin/python manuscript/analysis/01_build_master_table.py
-.venv/bin/python manuscript/analysis/02_per_model_metrics.py
-.venv/bin/python manuscript/analysis/03_intermodel_agreement.py
-.venv/bin/python manuscript/analysis/04_subgroup_analysis.py
-.venv/bin/python manuscript/analysis/05_build_tables.py
-.venv/bin/python manuscript/analysis/08_compose_manuscript_figures.py
-.venv/bin/python manuscript/analysis/09_compose_supp_figures.py
+python manuscript/analysis/01_build_master_table.py
+python manuscript/analysis/02_per_model_metrics.py
+python manuscript/analysis/03_intermodel_agreement.py
+python manuscript/analysis/04_subgroup_analysis.py
+python manuscript/analysis/05_build_tables.py
+python manuscript/analysis/08_compose_manuscript_figures.py
+python manuscript/analysis/09_compose_supp_figures.py
 ```
+
+`analysis/00_eligibility_filter.py` applies the exclusion rule. It needs the article texts, which are not distributed, and is not part of this sequence.
+
+Analyses of runs 2 and 3 and the other additional analyses are in `revision/`.

@@ -1,4 +1,4 @@
-"""Per-model primary outcomes and single-panel figures, seven-model edition.
+"""Per-model primary outcomes and single-panel figures.
 
 Outputs:
   out/per_model_metrics.csv        — primary table (kappa, accuracy, calibration)

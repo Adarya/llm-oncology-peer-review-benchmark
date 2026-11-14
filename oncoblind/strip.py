@@ -1,7 +1,6 @@
 """Strip journal / publisher / affiliation identifiers from blinded text.
 
-Returns (stripped_text, list_of_redactions). Any redaction that matches a
-journal/publisher name is logged — 10% random manual QA uses this log.
+Returns (stripped_text, list_of_redactions).
 """
 
 from __future__ import annotations
@@ -14,10 +13,9 @@ _HERE = Path(__file__).resolve().parent
 # Curated lists ---------------------------------------------------------------
 
 ONCOLOGY_JOURNALS = [
-    # Distinctive multi-word only. Dropped: "Cancer Cell" / "Cancer Research" / "Cancer Reports" /
-    # "Cancer Medicine" / "Clinical Cancer Research" / "Cancer Biomarkers" — these collide with
-    # normal medical prose ("cancer cell lines", "clinical cancer research", etc.). Journal-name
-    # leakage from self-citation is rare; the strip list is defense-in-depth only.
+    # Multi-word names only. Not listed, because they occur in ordinary prose: "Cancer Cell",
+    # "Cancer Research", "Cancer Reports", "Cancer Medicine", "Clinical Cancer Research",
+    # "Cancer Biomarkers".
     "Nature Cancer", "Nat Cancer",
     "Nature Medicine", "Nat Med",
     "Journal of Clinical Oncology", "J Clin Oncol",

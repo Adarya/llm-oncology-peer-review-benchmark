@@ -1,9 +1,9 @@
-"""Step 11 — Run multi-agent evaluation on the corpus using Gemini 3.1 Pro via API.
+"""Step 11 — Run the evaluation on the corpus with a Gemini model through the Google Gen AI SDK.
 
-Invokes `google-genai` natively in Python:
-- Spawns 5 parallel threads, each calling the Gemini API for a specialist.
-- Synthesizes their outputs with a Chief Reviewer prompt.
-- Forces the final answer to match shared/schema.json using structured outputs.
+For each manuscript:
+- Five specialist calls, one after another.
+- One chief call that receives the manuscript and the five specialist outputs.
+- The chief answer is constrained to shared/schema.json (structured output).
 
 Output:
     results/<model_slug>/<pmcid>/run_<n>.json
@@ -12,7 +12,7 @@ Idempotent: skips runs whose output already exists.
 
 Usage:
     export GEMINI_API_KEY="..."
-    .venv/bin/python scripts/11_run_eval_gemini.py --model gemini-3.1-pro --run 1 --limit 5
+    .venv/bin/python scripts/11_run_eval_gemini.py --model gemini-3-flash-preview --run 1 --limit 5
 """
 
 from __future__ import annotations
@@ -43,7 +43,7 @@ build_orchestrator_system_prompt = agents_config.build_orchestrator_system_promp
 PROMPTS = config.PROJECT_ROOT / "prompts"
 RESULTS = config.PROJECT_ROOT / "results"
 
-# Standardize the slug for paths
+# model name -> folder name
 def get_model_slug(model_name: str) -> str:
     return model_name.replace(".", "-")
 
@@ -74,7 +74,7 @@ def _call_specialist_api(client: genai.Client, model: str, system_prompt: str, u
     return response.text
 
 def _call_specialist(client: genai.Client, model: str, name: str, system_prompt: str, user_prompt: str) -> dict:
-    """Invokes a specialist sub-agent and returns the JSON output."""
+    """One specialist call; returns the parsed JSON output."""
     try:
         response_text = _call_specialist_api(client, model, system_prompt, user_prompt)
         return {"name": name, "output": json.loads(response_text), "error": None}
@@ -109,7 +109,7 @@ def run_one(client: genai.Client, pmcid: str, model: str, run_id: int,
             return {"pmcid": pmcid, "status": f"error_{res['name']}", "error": res["error"], "elapsed": elapsed}
         specialist_results[res["name"]] = res["output"]
             
-    # Assemble specialist results for Chief Reviewer
+    # chief input: user prompt plus the specialist outputs
     chief_input_blocks = [user_prompt, "\n\n# Sub-agent outputs\n\n"]
     for name, output_dict in specialist_results.items():
         chief_input_blocks.append(f"## {name}\n```json\n{json.dumps(output_dict, indent=2)}\n```\n\n")
@@ -129,12 +129,12 @@ def run_one(client: genai.Client, pmcid: str, model: str, run_id: int,
             )
         )
 
-    # Phase 2: Chief Reviewer synthesis (forced JSON schema)
+    # chief call (JSON schema enforced)
     try:
         response = _call_chief()
         
         result_text = response.text
-        # Safety fallback parsing
+        # strip a markdown code fence if present
         if result_text.startswith("```json"):
             result_text = result_text.split("```json")[-1].split("```")[0].strip()
         elif result_text.startswith("```"):
@@ -198,7 +198,7 @@ def main() -> None:
     log_path = RESULTS / f"_log_{model_slug}_run{args.run}.csv"
     log_path.parent.mkdir(parents=True, exist_ok=True)
     
-    # Initialize the CSV with headers if it doesn't exist
+    # create the log file
     if not log_path.exists():
         pd.DataFrame([]).to_csv(log_path, index=False)
     
@@ -207,7 +207,7 @@ def main() -> None:
                       schema_dict, specialist_prompts, orchestrator_prompt)
         log.append(res)
         
-        # Continuously append to CSV for live tracking
+        # append one row per manuscript
         pd.DataFrame([res]).to_csv(log_path, mode='a', header=not log_path.exists(), index=False)
         
         status = res.get("status", "?")

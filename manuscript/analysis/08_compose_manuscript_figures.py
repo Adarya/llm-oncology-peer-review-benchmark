@@ -1,4 +1,4 @@
-"""Compose multi-panel main figures for the seven-model edition.
+"""Compose multi-panel main figures.
 
 Outputs into figures_composed/:
   fig1_primary.{pdf,png}                  — kappa forest + 7 confusion mini-tiles

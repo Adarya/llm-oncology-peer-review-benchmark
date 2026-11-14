@@ -1,19 +1,10 @@
-"""Define and freeze the analytical sample (n=485).
+"""Apply the exclusion rule to the 497 sampled records and write the analytical sample (n=485).
 
-The original corpus (n=496) was sampled before any model run; manual
-review and the run-1 chief-rationale traces revealed 12 items that are not
-primary-research articles and must be excluded:
+The rule excludes 12 records: 9 retraction notices, 1 reply, 1 commentary and
+1 record without extractable text.
 
-  - 9 Retraction Notices (pub_types contains "Retraction Notice"; manuscript
-    body is just the "[Retracted]" tag)
-  - 1 retraction note (PMC13031398)
-  - 1 reply / correspondence (PMC12879174 — "Reply to: NeoADAURA…")
-  - 1 commentary (PMC12971409 — "Critical considerations for the use of deep
-    learning models in clinical oncology")
-
-Rule expressed declaratively below; output written to `_exclusions.csv` at the
-analysis workspace root and used by every downstream script as the analytical
-sample.
+Inputs: corpus/index/enumeration.csv, corpus/index/sampled.csv, corpus/normalized/ (not distributed).
+Outputs: _exclusions.csv, out/_analytical_sample.csv.
 """
 
 from __future__ import annotations
@@ -47,7 +38,7 @@ TITLE_EXCLUDE_PATTERNS = [
     r"^Editorial",
     r"^Critical considerations for",
 ]
-MIN_BODY_WORDS = 50  # well below 1500-word protocol threshold; flags stub records
+MIN_BODY_WORDS = 50  # minimum number of body words
 
 
 def body_words(pmcid: str) -> int:
